@@ -79,7 +79,7 @@ const Adplan = () => {
                         <p className="relative text-dark lg:font-medium text-x lg:text-left lg:-mt-5 lg:ml-6.3">
                             Access to anonymized survey results and performance metrics from participants.
                         </p>
-                        <button className="relative lg:mt-4 lg:ml-2 lg:h-6 lg:w-17.7 bg-blue text-white text-sm rounded hover:bg-light-blue">Proceed</button>
+                        <Link href="/payment"><button className="relative lg:mt-4 lg:ml-2 lg:h-6 lg:w-17.7 bg-blue text-white text-sm rounded hover:bg-light-blue">Proceed</button></Link>
                     </div>
 
                     <div className="relative bg-white lg:mt-6 lg:h-27 lg:w-19.2 lg:min-w-19.2 rounded opacity-50">
