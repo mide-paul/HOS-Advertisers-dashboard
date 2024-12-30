@@ -1,3 +1,5 @@
 
 /** @type {import('next').NextConfig} */
-declare interface nextConfigType {}
+declare interface nextConfigType {
+	static missingSuspenseWithCSRBailout: any;
+}
