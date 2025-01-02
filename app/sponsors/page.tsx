@@ -2,16 +2,19 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import logo from '../../public/images/logo.png';
-import award from '../../public/icons/award_blue.png';
-import shopify from '../../public/images/shopify.png';
-import invision from '../../public/images/invision.png';
-import logistics from '../../public/images/logistics.png';
-import paypal from '../../public/images/paypal.png';
+import dashboard from '../../public/icons/dashboard.png';
+import speaker from '../../public/icons/speaker.svg';
+import shopify from '../../public/images/shopify.svg';
+import invision from '../../public/images/invision.svg';
+import companylogo from '../../public/images/companylogo.svg';
+import logistics from '../../public/images/logistics.svg';
+import paypal from '../../public/images/paypal.svg';
+import company_logo from '../../public/images/company_logo.svg';
 import settings from '../../public/icons/settings.png';
 import logout_dark from '../../public/icons/logout_dark.png';
 import { Header } from "@/components/header";
 
-const Sponsors = () => {
+const Dashboard = () => {
 
     return (
         <div className="lg:h-105 lg:w-full xl:h-80 xl:w-full xx:h-109 xx:w-full bg-gray-lighter overflow-hidden">
@@ -21,9 +24,14 @@ const Sponsors = () => {
                 </div>
                 <div className="relative lg:flex lg:flex-col lg:gap-4.6 lg:-mt-11.5 lg:ml-0 lg:text-left lg:text-sm font-semibold xl:gap-2">
                     <div className='flex lg:flex-row lg:mt-11 lg:ml-6.3 lg:w-16.5 lg:h-6 xl:mt-6 items-center gap-2 lg:bg-gray-light p-2 rounded'>
-                        <Image src={award} alt="" className="relative size-4" />
-                        <h3 className='relative text-blue lg:text-md lg:font-bold'>Sponsors</h3>
+                        <Image src={dashboard} alt="" className="relative size-4" />
+                        <h3 className='relative text-blue lg:text-md lg:font-bold'>Dashboard</h3>
                     </div>
+
+                    <Link href="/my-ads"><div className='flex lg:flex-row lg:ml-6.3 lg:w-16.5 lg:h-6 lg:pl-1 xl:mt-6 items-center gap-2 xl:w-18 xl:h-6 xl:pl-1 hover:bg-gray-light hover:h-6 hover:pl-1 hover:w-16.5 hover:rounded cursor-pointer'>
+                        <Image src={speaker} alt="" className="relative size-4" />
+                        <h3 className='relative text-dark lg:text-md lg:font-medium'>My Ads</h3>
+                    </div></Link>
 
                     <Link href="/settings"><div className='flex lg:flex-row lg:ml-6.3 lg:w-16 lg:h-6 lg:pl-1 xl:mt-6 items-center gap-2 xl:w-18 xl:h-6 xl:pl-1 hover:bg-gray-light hover:h-6 hover:pl-1 hover:w-16.5 hover:rounded cursor-pointer'>
                         <Image src={settings} alt="" className="relative size-4" />
@@ -53,17 +61,14 @@ const Sponsors = () => {
                         trucking professionals while promoting safety and compliance within the industry
                     </p>
 
-                    <div className="flex gap-4 flex-wrap lg:ml-5 lg:mt-6">
-                        <Image src={shopify} alt="" className="relative lg:h-15.2 lg:w-19.2 shadow" />
-                        <Image src={invision} alt="" className="relative lg:h-15.2 lg:w-19.2 shadow" />
-                        <Image src={shopify} alt="" className="relative lg:h-15.2 lg:w-19.2 shadow" />
-                        <Image src={logistics} alt="" className="relative lg:h-15.2 lg:w-19.2 shadow" />
-                        <Image src={paypal} alt="" className="relative lg:h-15.2 lg:w-19.2 shadow" />
-                        <Image src={invision} alt="" className="relative lg:h-15.2 lg:w-19.2 shadow" />
-                        <Image src={paypal} alt="" className="relative lg:h-15.2 lg:w-19.2 shadow" />
-                        <Link href="/agreement"><div className="relative sm:pt-5 lg:pt-7 lg:h-15.2 lg:w-19.2 bg-blue hover:bg-light-blue rounded text-white text-center font-bold text-xl cursor-pointer">
-                            Become a<br />Sponsor
-                        </div></Link>
+                    <div className="flex gap-5 flex-wrap lg:ml-5 lg:mt-6">
+                        <Image src={shopify} alt="" className="relative lg:h-15 lg:w-19.1 shadow" />
+                        <Image src={invision} alt="" className="relative lg:h-15 lg:w-19.1 shadow" />
+                        <Image src={companylogo} alt="" className="relative lg:h-15 lg:w-19.1 shadow" />
+                        <Image src={logistics} alt="" className="relative lg:h-15 lg:w-19.1 shadow" />
+                        <Image src={paypal} alt="" className="relative lg:h-15 lg:w-19.1 shadow" />
+                        <Image src={invision} alt="" className="relative lg:h-15 lg:w-19.1 shadow" />
+                        <Image src={company_logo} alt="" className="relative lg:h-15 lg:w-19.1 shadow" />
                     </div>
 
                     <div>
@@ -106,6 +111,7 @@ const Sponsors = () => {
 
                             8.     Long-Term Exposure: As the HOS Assessment Challenge grows in popularity and reach, sponsors will continue to benefit from ongoing exposure and association with the initiative, maintaining visibility over an extended period.
                         </p>
+                        <Link href="/agreement"><button className="lg:mt-3 lg:ml-5 lg:text-white lg:text-sm lg:bg-blue lg:w-10 lg:h-6 rounded hover:bg-blue-deeper">Proceed</button></Link>
                     </div>
                 </div>
             </div>
@@ -113,5 +119,5 @@ const Sponsors = () => {
     )
 }
 
-export default Sponsors
+export default Dashboard
 export const dynamic = "force-dynamic";
