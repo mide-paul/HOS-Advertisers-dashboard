@@ -24,33 +24,33 @@ const SeeMore = () => {
         { month: 'October', views: 1100, clicks: 200 },
         { month: 'November', views: 2200, clicks: 700 },
         { month: 'December', views: 1200, clicks: 300 },
-      ];
+    ];
 
     return (
         <div className="lg:h-46 lg:w-full xl:h-80 xl:w-full xx:h-109 xx:w-full bg-gray-lighter overflow-hidden">
-            <div className="fixed lg:mt-0 lg:ml-0 lg:w-19.6 lg:h-40 lg:border lg:border-gray bg-white rounded z-10 xl:h-59 xx:h-109">
+            <div className="fixed ss:bg-gray-light ss:w-screen ss:h-10 ss:mt-28 sm:bg-gray-light sm:w-screen sm:h-10 sm:mt-37 lg:-mt-1 lg:ml-0 lg:w-19.6 lg:h-40 lg:border lg:border-gray lg:bg-white rounded z-10 xl:h-60 xx:h-109">
                 <div>
-                    <Link href="/"> <Image src={logo} alt="image" className="relative lg:mt-0.5 lg:ml-6.2 lg:w-13" /> </Link>
+                    <Image src={logo} alt="image" className="relative sm:w-10 sm:-mt-19.3 lg:mt-0.5 lg:ml-6.2 lg:w-13 ss:invisible sm:invisible lg:visible xx:visible" />
                 </div>
-                <div className="relative lg:flex lg:flex-col lg:gap-4.6 lg:-mt-11.5 lg:ml-0 lg:text-left lg:text-sm font-semibold xl:gap-2">
-                    <div className='flex lg:flex-row lg:mt-11 lg:ml-6.3 lg:w-16.5 lg:h-6 xl:mt-6 items-center gap-2 lg:bg-gray-light p-2 rounded'>
+                <div className="relative ss:flex ss:flex-row ss:-mt-15.7 ss:ml-1.5 ss:text-x ss:gap-6 sm:flex sm:flex-row sm:mt-18 sm:ml-3 sm:text-sm sm:gap-6 lg:flex lg:flex-col lg:gap-4.6 lg:-mt-11.5 lg:ml-0.1 lg:text-left lg:text-sm font-semibold xl:gap-2">
+                    <div className='flex ss:flex-col sm:flex-col lg:flex-row lg:mt-11 lg:ml-6.3 lg:w-16.5 lg:h-6 xl:mt-11 items-center gap-2 lg:bg-gray-light p-2 rounded'>
                         <Image src={dashboard} alt="" className="relative size-4" />
                         <h3 className='relative text-blue lg:text-md lg:font-bold'>Dashboard</h3>
                     </div>
 
-                    <Link href="/my-ads"><div className='flex lg:flex-row lg:ml-6.3 lg:w-16.5 lg:h-6 lg:pl-1 xl:mt-6 items-center gap-2 xl:w-18 xl:h-6 xl:pl-1 hover:bg-gray-light hover:h-6 hover:pl-1 hover:w-16.5 hover:rounded cursor-pointer'>
+                    <Link href="/my-ads"><div className='flex ss:flex-col ss:mt-2 sm:flex-col sm:mt-2 lg:flex-row lg:ml-6.3 lg:w-16.5 lg:h-6 lg:pl-1 xl:mt-6 items-center gap-2 xl:w-18 xl:h-6 xl:pl-1 hover:bg-gray-light hover:h-6 hover:pl-1 hover:w-16.5 hover:rounded cursor-pointer'>
                         <Image src={speaker} alt="" className="relative size-4" />
-                        <h3 className='relative text-dark lg:text-md lg:font-medium'>My Ads</h3>
+                        <h3 className='relative text-dark ss:font-medium sm:font-medium lg:text-md lg:font-medium'>My Ads</h3>
                     </div></Link>
 
-                    <Link href="/settings"><div className='flex lg:flex-row lg:ml-6.3 lg:w-16 lg:h-6 lg:pl-1 xl:mt-6 items-center gap-2 xl:w-18 xl:h-6 xl:pl-1 hover:bg-gray-light hover:h-6 hover:pl-1 hover:w-16.5 hover:rounded cursor-pointer'>
+                    <Link href="/settings"><div className='flex ss:flex-col ss:mt-2 sm:flex-col sm:mt-2 lg:flex-row lg:ml-6.3 lg:w-16 lg:h-6 lg:pl-1 xl:mt-6 items-center gap-2 xl:w-18 xl:h-6 xl:pl-1 hover:bg-gray-light hover:h-6 hover:pl-1 hover:w-16.5 hover:rounded cursor-pointer'>
                         <Image src={settings} alt="" className="relative size-4" />
-                        <h3 className='relative text-dark lg:text-md lg:font-medium'>Settings</h3>
+                        <h3 className='relative text-dark ss:font-medium sm:font-medium lg:text-md lg:font-medium'>Settings</h3>
                     </div></Link>
 
-                    <div className='flex lg:flex-row lg:ml-6.3 lg:w-16 lg:h-6 lg:pl-1 xl:mt-6 items-center gap-2 xl:w-18 xl:h-6 xl:pl-1 hover:bg-gray-light hover:h-6 hover:pl-1 hover:w-16.5 hover:rounded cursor-pointer'>
+                    <div className='flex ss:flex-col ss:mt-2 sm:flex-col sm:mt-2 lg:flex-row lg:ml-6.3 lg:w-16 lg:h-6 lg:pl-1 xl:mt-6 items-center gap-2 xl:w-18 xl:h-6 xl:pl-1 hover:bg-gray-light hover:h-6 hover:pl-1 hover:w-16.5 hover:rounded cursor-pointer'>
                         <Image src={logout_dark} alt="" className="relative size-4" />
-                        <h3 className='relative text-dark lg:text-md lg:font-medium'>Logout</h3>
+                        <h3 className='relative text-dark ss:font-medium sm:font-medium lg:text-md lg:font-medium'>Logout</h3>
                     </div>
                 </div>
             </div>
@@ -58,12 +58,12 @@ const SeeMore = () => {
             <Header />
 
             <div>
-                <div className="lg:ml-20 lg:mt-12 lg:h-37 lg:w-63 bg-white rounded-xl z-10">
+                <div className="lg:ml-20 lg:mt-12 lg:h-37 lg:w-63 xl:h-41 xl:w-68 xx:h-76 xx:w-138 bg-white rounded-xl z-10">
                     <h2 className="lg:pt-3 lg:ml-5 text-dark text-sm font-bold">Overview</h2>
                     <h3 className="lg:mt-1 lg:ml-5 text-dark text-sm font-medium">https://lakers.com</h3>
                     <h3 className="lg:mt-1 lg:ml-5 text-dark text-sm font-medium">Updated 5 secs ago</h3>
-                    <div className="lg:h-30.5 lg:ml-5">
-                    <AdPostChart data={data} />
+                    <div className="lg:h-30.5 lg:ml-5 xl:h-35 xx:h-67">
+                        <AdPostChart data={data} />
                     </div>
                 </div>
             </div>

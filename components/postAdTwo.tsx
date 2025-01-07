@@ -10,7 +10,7 @@ export const PostadTwo = () => {
 
     return (
         <div className="flex flex-col items-center justify-center bg-gray">
-            <button onClick={() => setIsModalOpen(true)} className="relative lg:-mt-5 lg:pl-5 lg:h-6 lg:w-12 text-sm bg-blue text-white rounded hover:bg-light-blue">
+            <button onClick={() => setIsModalOpen(true)} className="relative ss:-mt-7 ss:pl-0 ss:h-5 ss:w-10 ss:-ml-28 sm:-mt-7 sm:pl-0 sm:h-6 sm:w-10 sm:-ml-24 lg:-mt-7 lg:ml-0.1 lg:pl-5 lg:h-6 lg:w-12 text-sm bg-blue text-white rounded hover:bg-light-blue">
                 Post Ad
             </button>
             <Image src={add_square_white} alt="" className="relative lg:-mt-5 lg:-ml-8 lg:h-4 lg:w-4" />

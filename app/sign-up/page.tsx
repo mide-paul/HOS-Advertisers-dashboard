@@ -1,6 +1,7 @@
 'use client';
 import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 // import { faCheck, faTimes } from "@fortawesome/free-solid-svg-icons";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -108,9 +109,10 @@ const CompanySignup = () => {
           </div>
 
           <div className="relative ss:mt-7 ss:ml-4 sm:mt-7 sm:ml-4 gap-5 flex lg:mt-7 lg:ml-10 xl:mt-17 xl:ml-13">
-            <Image src={facebook} alt="" className="relative" />
-            <Image src={twitter} alt="" className="relative" />
-            <Image src={instagram} alt="" className="relative" />
+            <Link href="https://www.facebook.com/hosoptima"><Image src={facebook} alt="" className="relative" /></Link>
+            <Link href="https://x.com/hosoptima"><Image src={twitter} alt="" className="relative" /></Link>
+            <Link href="https://www.instagram.com/hosoptima_/"><Image src={instagram} alt="" className="relative" /></Link>
+            {/* <Link href="https://www.linkedin.com/company/hosoptima/"><Image src={youtube} alt="" className="relative" /></Link> */}
             <Image src={youtube} alt="" className="relative" />
           </div>
 

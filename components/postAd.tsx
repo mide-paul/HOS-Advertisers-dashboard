@@ -9,24 +9,24 @@ export const Postad: React.FC = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     return (
-        <div className="flex flex-col items-center justify-center bg-gray">
-            <button onClick={() => setIsModalOpen(true)} className="relative lg:-mt-5 lg:pl-5 lg:h-6 lg:w-12 text-sm bg-blue text-white rounded hover:bg-light-blue">
+        <div className="flex flex-col sm:-ml-39 lg:ml-0.1 items-center justify-center">
+            <button onClick={() => setIsModalOpen(true)} className="relative ss:-mt-7 ss:pl-0 ss:h-5 ss:w-10 ss:-ml-28 sm:-mt-6 sm:ml-19 sm:pl-0 sm:h-6 sm:w-10 md:ml-48 lg:-mt-7 lg:ml-0.1 lg:pl-5 lg:h-6 lg:w-12 text-sm bg-blue text-white rounded hover:bg-light-blue">
                 Post Ad
             </button>
             <Image src={add_square_white} alt="" className="relative lg:-mt-5 lg:-ml-8 lg:h-4 lg:w-4" />
             <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
-                <div className="absolute lg:ml-19.2 lg:mt-21 lg:h-30 lg:w-30 bg-gray-lighter z-50">
+                <div className="absolute sm:-ml-2 sm:mt-21 sm:h-30 sm:w-20 lg:ml-19.2 lg:mt-21 lg:h-30 lg:w-30 bg-gray-lighter z-50">
                     <div className="relative bg-white h-6.5 w-full">
-                        <h3 className="relative lg:ml-3 lg:pt-2.5 text-dark text-sm text-left font-bold">Post Ad</h3>
+                        <h3 className="relative sm:ml-3 sm:pt-2.5 lg:ml-3 lg:pt-2.5 text-dark text-sm text-left font-bold">Post Ad</h3>
                     </div>
                     <button
-                        className="absolute lg:-mt-6 lg:ml-27.7 text-gray hover:text-gray-light"
+                        className="absolute sm:-mt-6 sm:ml-19 lg:-mt-6 lg:ml-27.7 text-gray hover:text-gray-light"
                         onClick={() => setIsModalOpen(false)}
                         aria-label="Close modal"
                     >
                         ✖️
                     </button>
-                    <div className="relative lg:mt-4 lg:ml-4 lg:h-25 lg:w-28 bg-white">
+                    <div className="relative sm:mt-4 sm:ml-4 sm:h-25 sm:w-21 lg:mt-4 lg:ml-4 lg:h-25 lg:w-28 bg-white">
                         <div>
                             <h3 className="relative lg:ml-4 lg:pt-4 text-sm text-dark text-left font-bold">Category</h3>
                             <p className="relative lg:mt-1 lg:h-6 lg:w-26 ml-3 pl-3 pt-0.6 text-left text-gray text-sm bg-gray-light rounded">Brand Flyer</p>

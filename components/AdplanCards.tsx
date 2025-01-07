@@ -33,37 +33,37 @@ export const AdplanCards = () => {
     ];
 
     return (
-        <div className="lg:ml-20 lg:h-50 lg:w-62 xl:h-80 xl:w-full xx:h-109 xx:w-full bg-gray-lighter overflow-scroll scroll-smooth overflow-y-hidden">
+        <div className="ss:ml-6 sm:ml-8 md:ml-19.2 lg:ml-20 lg:h-50 lg:w-62 xl:h-80 xl:w-full xx:h-109 xx:w-full bg-gray-lighter overflow-scroll scroll-smooth overflow-y-hidden">
             <div>
-                <div className="flex gap-3 lg:w-70 lg:min-w-60 lg:pb-7 lg:pr-5">
+                <div className="flex ss:flex-col sm:flex-col lg:flex-row gap-3 lg:w-70 lg:min-w-60 lg:pb-7 lg:pr-5">
                     {adPlans.map((plan, index) => (
                         <div
                             key={index}
                             onClick={() => handleSelect(index, plan.price)}
-                            className={`relative bg-white lg:mt-6 lg:h-27 lg:w-19.2 lg:min-w-19.2 rounded cursor-pointer ${selectedCard === index ? 'border-2 border-blue' : ''}`}
+                            className={`relative ss:mt-6 ss:h-27 ss:w-19.2 ss:min-w-19.2 sm:mt-6 sm:h-27 sm:w-19.2 sm:min-w-19.2 bg-white lg:mt-6 lg:h-27 lg:w-19.2 lg:min-w-19.2 rounded cursor-pointer ${selectedCard === index ? 'border-2 border-blue' : ''}`}
                             style={{ opacity: selectedCard !== null && selectedCard !== index ? 0.5 : 1 }}
                         >
-                            <Image src={plan.image} alt="" className="relative lg:w-17.7 lg:pt-2 lg:ml-2" />
-                            <h3 className="relative text-dark lg:font-bold text-sm lg:text-left lg:pt-3 lg:ml-2">{plan.title}</h3>
-                            <h3 className="relative text-gray lg:font-medium text-x lg:text-left lg:pt-1 lg:ml-2">{plan.description}</h3>
-                            <h3 className="relative text-dark lg:font-bold text-sm lg:text-left lg:-mt-5 lg:ml-16.2">{plan.price}</h3>
-                            <Image src={line} alt="" className="relative lg:w-17.7 lg:pt-5 lg:ml-2" />
-                            <Image src={verify} alt="" className="relative lg:pt-5 lg:ml-2" />
-                            <p className="relative text-dark lg:font-medium text-x lg:text-left lg:-mt-4.4 lg:ml-6.3">
+                            <Image src={plan.image} alt="" className="relative ss:w-17.7 ss:pt-2 ss:ml-2 sm:w-17.7 sm:pt-2 sm:ml-2 lg:w-17.7 lg:pt-2 lg:ml-2" />
+                            <h3 className="relative ss:pt-3 ss:ml-2 sm:pt-3 sm:ml-2 text-dark lg:font-bold text-sm lg:text-left lg:pt-3 lg:ml-2">{plan.title}</h3>
+                            <h3 className="relative ss:pt-1 ss:ml-2 sm:pt-1 sm:ml-2 text-gray lg:font-medium text-x lg:text-left lg:pt-1 lg:ml-2">{plan.description}</h3>
+                            <h3 className="relative ss:-mt-5 ss:ml-16.2 sm:-mt-5 sm:ml-16.2 text-dark lg:font-bold text-sm lg:text-left lg:-mt-5 lg:ml-16.2">{plan.price}</h3>
+                            <Image src={line} alt="" className="relative ss:w-17.7 ss:pt-5 ss:ml-2 sm:w-17.7 sm:pt-5 sm:ml-2 lg:w-17.7 lg:pt-5 lg:ml-2" />
+                            <Image src={verify} alt="" className="relative ss:pt-5 ss:ml-2 sm:pt-5 sm:ml-2 lg:pt-5 lg:ml-2" />
+                            <p className="relative ss:-mt-4.4 ss:ml-6.3 sm:-mt-4.4 sm:ml-6.3 text-dark lg:font-medium text-x lg:text-left lg:-mt-4.4 lg:ml-6.3">
                                 {plan.benefitone}
                             </p>
-                            <Image src={verify} alt="" className="relative lg:pt-3 lg:ml-2" />
-                            <p className="relative text-dark lg:font-medium text-x lg:text-left lg:-mt-4.4 lg:ml-6.3">
+                            <Image src={verify} alt="" className="relative ss:pt-3 ss:ml-2 sm:pt-3 sm:ml-2 lg:pt-3 lg:ml-2" />
+                            <p className="relative ss:-mt-4.4 ss:ml-6.3 sm:-mt-4.4 sm:ml-6.3 text-dark lg:font-medium text-x lg:text-left lg:-mt-4.4 lg:ml-6.3">
                                 {plan.benefittwo}
                             </p>
-                            <Image src={verify} alt="" className="relative lg:pt-3 lg:ml-2" />
-                            <p className="relative text-dark lg:font-medium text-x lg:text-left lg:-mt-5 lg:ml-6.3">
+                            <Image src={verify} alt="" className="relative ss:pt-3 ss:ml-2 sm:pt-3 sm:ml-2 lg:pt-3 lg:ml-2" />
+                            <p className="relative ss:-mt-5 ss:ml-6.3 sm:-mt-5 sm:ml-6.3 text-dark lg:font-medium text-x lg:text-left lg:-mt-5 lg:ml-6.3">
                                 {plan.benefitthree}
                             </p>
                             <div>
                                 <button
                                     onClick={handlePayment}
-                                    className="relative lg:mt-4 lg:ml-2 lg:h-6 lg:w-17.7 bg-blue text-white text-sm rounded hover:bg-light-blue">
+                                    className="relative ss:mt-4 ss:ml-2 ss:h-6 ss:w-17.7 sm:mt-4 sm:ml-2 sm:h-6 sm:w-17.7 lg:mt-4 lg:ml-2 lg:h-6 lg:w-17.7 bg-blue text-white text-sm rounded hover:bg-light-blue">
                                     Proceed
                                 </button>
                             </div>
