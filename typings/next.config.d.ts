@@ -1,5 +1,9 @@
 
 /** @type {import('next').NextConfig} */
 declare interface nextConfigType {
-	static missingSuspenseWithCSRBailout: any;
+	static reactStrictMode: boolean;
+
+	static experimental: {
+	static appDir: boolean;
+	};
 }
