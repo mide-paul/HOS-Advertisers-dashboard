@@ -10,9 +10,9 @@ import search from '../../public/icons/search.png';
 import eye from '../../public/icons/eye_dark.png';
 import verify from '../../public/icons/verify.png';
 import settings from '../../public/icons/settings.png';
-import logout_dark from '../../public/icons/logout_dark.png';
 import { Header } from "@/components/header";
 import { Postad } from "@/components/postAd";
+import { Logout } from "@/components/logout";
 
 const Adhistory: React.FC = () => {
 
@@ -25,7 +25,7 @@ const Adhistory: React.FC = () => {
                 <div className="relative lg:flex lg:flex-col lg:gap-4.6 lg:-mt-11.5 lg:ml-0 lg:text-left lg:text-sm font-semibold xl:gap-2">
                     <Link href="/sponsors"><div className='flex lg:flex-row lg:mt-11 lg:ml-6.3 lg:w-16.5 lg:h-6 lg:pl-1 xl:mt-6 items-center gap-2 xl:w-18 xl:h-6 xl:pl-1 hover:bg-gray-light hover:h-6 hover:pl-1 hover:w-16.5 hover:rounded cursor-pointer'>
                         <Image src={dashboard} alt="" className="relative size-4" />
-                        <h3 className='relative text-dark lg:text-md lg:font-medium'>Dashboard</h3>
+                        <h3 className='relative text-dark lg:text-md lg:font-normal'>Dashboard</h3>
                     </div></Link>
 
                     <div className='flex lg:flex-row lg:ml-6.3 lg:w-16.5 lg:h-6 lg:pl-1 xl:mt-6 items-center gap-2 lg:bg-gray-light p-2 rounded'>
@@ -35,13 +35,10 @@ const Adhistory: React.FC = () => {
 
                     <Link href="/settings"><div className='flex lg:flex-row lg:ml-6.3 lg:w-16 lg:h-6 lg:pl-1 xl:mt-6 items-center gap-2 xl:w-18 xl:h-6 xl:pl-1 hover:bg-gray-light hover:h-6 hover:pl-1 hover:w-16.5 hover:rounded cursor-pointer'>
                         <Image src={settings} alt="" className="relative size-4" />
-                        <h3 className='relative text-dark lg:text-md lg:font-medium'>Settings</h3>
+                        <h3 className='relative text-dark lg:text-md lg:font-normal'>Settings</h3>
                     </div></Link>
 
-                    <div className='flex lg:flex-row lg:ml-6.3 lg:w-16 lg:h-6 lg:pl-1 xl:mt-6 items-center gap-2 xl:w-18 xl:h-6 xl:pl-1 hover:bg-gray-light hover:h-6 hover:pl-1 hover:w-16.5 hover:rounded cursor-pointer'>
-                        <Image src={logout_dark} alt="" className="relative size-4" />
-                        <h3 className='relative text-dark lg:text-md lg:font-medium'>Logout</h3>
-                    </div>
+                    <Logout />
                 </div>
             </div>
 

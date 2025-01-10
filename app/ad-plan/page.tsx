@@ -6,9 +6,9 @@ import dashboard from '../../public/icons/dashboard_dark.png';
 import speaker from '../../public/icons/speaker.svg';
 import arrow_left_blue from '../../public/icons/arrow_left_blue.png';
 import settings from '../../public/icons/settings.png';
-import logout_dark from '../../public/icons/logout_dark.png';
 import { Header } from "@/components/header";
 import { AdplanCards } from "@/components/AdplanCards";
+import { Logout } from "@/components/logout";
 
 const Adplan = () => {
 
@@ -21,7 +21,7 @@ const Adplan = () => {
                 <div className="relative ss:flex ss:flex-row ss:-mt-15.7 ss:ml-1.5 ss:text-x ss:gap-6 sm:flex sm:flex-row sm:mt-18 sm:ml-5 sm:text-sm sm:gap-6 md:flex md:flex-row md:mt-18 md:ml-10 md:text-sm md:gap-12 lg:flex lg:flex-col lg:gap-4.6 lg:-mt-11.5 lg:ml-0.1 lg:text-left lg:text-sm font-semibold xl:-mt-6 xl:gap-2">
                     <Link href="/sponsors"><div className='flex ss:flex-col ss:mt-2 sm:flex-col sm:mt-2 lg:flex-row lg:mt-11 lg:ml-6.3 lg:w-16.5 lg:h-6 lg:pl-1 xl:mt-6 items-center gap-2 xl:w-18 xl:h-6 xl:pl-1 hover:bg-gray-light hover:h-6 hover:pl-1 hover:w-16.5 hover:rounded cursor-pointer'>
                         <Image src={dashboard} alt="" className="relative size-4" />
-                        <h3 className='relative ss:font-medium sm:font-medium text-dark lg:text-md lg:font-medium'>Dashboard</h3>
+                        <h3 className='relative ss:font-normal sm:font-normal text-dark lg:text-md lg:font-normal'>Dashboard</h3>
                     </div></Link>
 
                     <div className='flex ss:flex-col sm:flex-col lg:flex-row lg:ml-6.3 lg:w-16.5 lg:h-6 lg:pl-1 xl:mt-6 items-center gap-2 lg:bg-gray-light p-2 rounded'>
@@ -31,13 +31,10 @@ const Adplan = () => {
 
                     <Link href="/settings"><div className='flex ss:flex-col ss:mt-2 sm:flex-col sm:mt-2 lg:flex-row lg:ml-6.3 lg:w-16 lg:h-6 lg:pl-1 xl:mt-6 items-center gap-2 xl:w-18 xl:h-6 xl:pl-1 hover:bg-gray-light hover:h-6 hover:pl-1 hover:w-16.5 hover:rounded cursor-pointer'>
                         <Image src={settings} alt="" className="relative size-4" />
-                        <h3 className='relative ss:font-medium sm:font-medium text-dark lg:text-md lg:font-medium'>Settings</h3>
+                        <h3 className='relative ss:font-normal sm:font-normal text-dark lg:text-md lg:font-normal'>Settings</h3>
                     </div></Link>
 
-                    <div className='flex ss:flex-col ss:mt-2 sm:flex-col sm:mt-2 lg:flex-row lg:ml-6.3 lg:w-16 lg:h-6 lg:pl-1 xl:mt-6 items-center gap-2 xl:w-18 xl:h-6 xl:pl-1 hover:bg-gray-light hover:h-6 hover:pl-1 hover:w-16.5 hover:rounded cursor-pointer'>
-                        <Image src={logout_dark} alt="" className="relative size-4" />
-                        <h3 className='relative ss:font-medium sm:font-medium text-dark lg:text-md lg:font-medium'>Logout</h3>
-                    </div>
+                    <Logout />
                 </div>
             </div>
 
@@ -52,7 +49,7 @@ const Adplan = () => {
 
                 <div>
                     <h3 className="relative ss:pt-5 ss:ml-3 ss:text-center sm:pt-5 sm:ml-3 sm:text-center text-dark lg:font-bold text-base lg:text-left lg:pt-5 lg:ml-20">Choose an Ad Plan</h3>
-                    <p className="relative ss:pt-4 ss:ml-3 ss:text-center sm:pt-4 sm:ml-3 sm:text-center text-dark lg:font-medium text-sm lg:text-left lg:pt-4 lg:ml-20">Kindly choose your preferred ad plan below</p>
+                    <p className="relative ss:pt-4 ss:ml-3 ss:text-center sm:pt-4 sm:ml-3 sm:text-center text-dark lg:font-normal text-sm lg:text-left lg:pt-4 lg:ml-20">Kindly choose your preferred ad plan below</p>
                 </div>
 
                 <div>

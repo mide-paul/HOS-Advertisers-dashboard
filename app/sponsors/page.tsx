@@ -11,8 +11,8 @@ import logistics from '../../public/images/logistics.svg';
 import paypal from '../../public/images/paypal.svg';
 import company_logo from '../../public/images/company_logo.svg';
 import settings from '../../public/icons/settings.png';
-import logout_dark from '../../public/icons/logout_dark.png';
 import { Header } from "@/components/header";
+import { Logout } from "@/components/logout";
 
 const Dashboard = () => {
 
@@ -30,25 +30,22 @@ const Dashboard = () => {
 
                     <Link href="/my-ads"><div className='flex ss:flex-col ss:mt-2 sm:flex-col sm:mt-2 lg:flex-row lg:ml-6.3 lg:w-16.5 lg:h-6 lg:pl-1 xl:mt-6 items-center gap-2 xl:w-18 xl:h-6 xl:pl-1 hover:bg-gray-light hover:h-6 hover:pl-1 hover:w-16.5 hover:rounded cursor-pointer'>
                         <Image src={speaker} alt="" className="relative size-4" />
-                        <h3 className='relative text-dark ss:font-medium sm:font-medium lg:text-md lg:font-medium'>My Ads</h3>
+                        <h3 className='relative text-dark ss:font-normal sm:font-normal lg:text-md lg:font-normal'>My Ads</h3>
                     </div></Link>
 
                     <Link href="/settings"><div className='flex ss:flex-col ss:mt-2 sm:flex-col sm:mt-2 lg:flex-row lg:ml-6.3 lg:w-16 lg:h-6 lg:pl-1 xl:mt-6 items-center gap-2 xl:w-18 xl:h-6 xl:pl-1 hover:bg-gray-light hover:h-6 hover:pl-1 hover:w-16.5 hover:rounded cursor-pointer'>
                         <Image src={settings} alt="" className="relative size-4" />
-                        <h3 className='relative text-dark ss:font-medium sm:font-medium lg:text-md lg:font-medium'>Settings</h3>
+                        <h3 className='relative text-dark ss:font-normal sm:font-normal lg:text-md lg:font-normal'>Settings</h3>
                     </div></Link>
 
-                    <div className='flex ss:flex-col ss:mt-2 sm:flex-col sm:mt-2 lg:flex-row lg:ml-6.3 lg:w-16 lg:h-6 lg:pl-1 xl:mt-6 items-center gap-2 xl:w-18 xl:h-6 xl:pl-1 hover:bg-gray-light hover:h-6 hover:pl-1 hover:w-16.5 hover:rounded cursor-pointer'>
-                        <Image src={logout_dark} alt="" className="relative size-4" />
-                        <h3 className='relative text-dark ss:font-medium sm:font-medium lg:text-md lg:font-medium'>Logout</h3>
-                    </div>
+                    <Logout />
                 </div>
             </div>
 
             <Header />
 
             <div>
-                <div className="relative ss:pb-3 sm:pb-3 lg:ml-20 lg:mt-12 bg-white lg:w-62 lg:h-95 xl:ml-23 xx:w-132 rounded">
+                <div className="relative ss:pb-3 sm:pb-3 lg:ml-20 lg:mt-12 bg-white lg:w-62 lg:h-95 xl:ml-20.5 xx:ml-20.5 xl:w-67 xx:w-135 rounded">
                     <h3 className="relative ss:mt-8 ss:pt-4 ss:ml-3 sm:mt-8 sm:pt-4 sm:ml-3 text-dark lg:font-bold text-base lg:text-left lg:pt-4 lg:ml-5">
                         Sponsors
                     </h3>

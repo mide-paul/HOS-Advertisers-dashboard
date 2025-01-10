@@ -45,19 +45,19 @@ export const AdplanCards = () => {
                         >
                             <Image src={plan.image} alt="" className="relative ss:w-17.7 ss:pt-2 ss:ml-2 sm:w-17.7 sm:pt-2 sm:ml-2 lg:w-17.7 lg:pt-2 lg:ml-2" />
                             <h3 className="relative ss:pt-3 ss:ml-2 sm:pt-3 sm:ml-2 text-dark lg:font-bold text-sm lg:text-left lg:pt-3 lg:ml-2">{plan.title}</h3>
-                            <h3 className="relative ss:pt-1 ss:ml-2 sm:pt-1 sm:ml-2 text-gray lg:font-medium text-x lg:text-left lg:pt-1 lg:ml-2">{plan.description}</h3>
+                            <h3 className="relative ss:pt-1 ss:ml-2 sm:pt-1 sm:ml-2 text-gray lg:font-normal text-x lg:text-left lg:pt-1 lg:ml-2">{plan.description}</h3>
                             <h3 className="relative ss:-mt-5 ss:ml-16.2 sm:-mt-5 sm:ml-16.2 text-dark lg:font-bold text-sm lg:text-left lg:-mt-5 lg:ml-16.2">{plan.price}</h3>
                             <Image src={line} alt="" className="relative ss:w-17.7 ss:pt-5 ss:ml-2 sm:w-17.7 sm:pt-5 sm:ml-2 lg:w-17.7 lg:pt-5 lg:ml-2" />
                             <Image src={verify} alt="" className="relative ss:pt-5 ss:ml-2 sm:pt-5 sm:ml-2 lg:pt-5 lg:ml-2" />
-                            <p className="relative ss:-mt-4.4 ss:ml-6.3 sm:-mt-4.4 sm:ml-6.3 text-dark lg:font-medium text-x lg:text-left lg:-mt-4.4 lg:ml-6.3">
+                            <p className="relative ss:-mt-4.4 ss:ml-6.3 sm:-mt-4.4 sm:ml-6.3 text-dark lg:font-normal text-x lg:text-left lg:-mt-4.4 lg:ml-6.3">
                                 {plan.benefitone}
                             </p>
                             <Image src={verify} alt="" className="relative ss:pt-3 ss:ml-2 sm:pt-3 sm:ml-2 lg:pt-3 lg:ml-2" />
-                            <p className="relative ss:-mt-4.4 ss:ml-6.3 sm:-mt-4.4 sm:ml-6.3 text-dark lg:font-medium text-x lg:text-left lg:-mt-4.4 lg:ml-6.3">
+                            <p className="relative ss:-mt-4.4 ss:ml-6.3 sm:-mt-4.4 sm:ml-6.3 text-dark lg:font-normal text-x lg:text-left lg:-mt-4.4 lg:ml-6.3">
                                 {plan.benefittwo}
                             </p>
                             <Image src={verify} alt="" className="relative ss:pt-3 ss:ml-2 sm:pt-3 sm:ml-2 lg:pt-3 lg:ml-2" />
-                            <p className="relative ss:-mt-5 ss:ml-6.3 sm:-mt-5 sm:ml-6.3 text-dark lg:font-medium text-x lg:text-left lg:-mt-5 lg:ml-6.3">
+                            <p className="relative ss:-mt-5 ss:ml-6.3 sm:-mt-5 sm:ml-6.3 text-dark lg:font-normal text-x lg:text-left lg:-mt-5 lg:ml-6.3">
                                 {plan.benefitthree}
                             </p>
                             <div>

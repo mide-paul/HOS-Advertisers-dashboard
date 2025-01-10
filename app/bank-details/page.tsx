@@ -7,8 +7,8 @@ import speaker from '../../public/icons/speaker.svg';
 import line from '../../public/icons/line_dark.png';
 import share_icon_blue from '../../public/icons/share_icon_blue.png';
 import settings from '../../public/icons/settings_blue.png';
-import logout_dark from '../../public/icons/logout_dark.png';
 import { Header } from "@/components/header";
+import { Logout } from "@/components/logout";
 
 const BankDetails = () => {
 
@@ -21,12 +21,12 @@ const BankDetails = () => {
                 <div className="relative ss:flex ss:flex-row ss:-mt-15.7 ss:ml-1.5 ss:text-x ss:gap-6 sm:flex sm:flex-row sm:-mt-17 sm:ml-3 sm:text-sm sm:gap-6 lg:flex lg:flex-col lg:gap-4.6 lg:-mt-11.5 lg:ml-0.1 lg:text-left lg:text-sm font-semibold xl:gap-2">
                     <Link href="/sponsors"><div className='flex ss:mt-2 ss:flex-col sm:flex-col sm:mt-2 lg:flex-row lg:mt-11 lg:ml-6.3 lg:w-16.5 lg:h-6 lg:pl-1 xl:mt-11 items-center gap-2 xl:w-18 xl:h-6 xl:pl-1 hover:bg-gray-light hover:h-6 hover:pl-1 hover:w-16.5 hover:rounded cursor-pointer'>
                         <Image src={dashboard} alt="" className="relative size-4" />
-                        <h3 className='relative text-dark ss:font-medium sm:font-medium lg:text-md lg:font-medium'>Dashboard</h3>
+                        <h3 className='relative text-dark ss:font-normal sm:font-normal lg:text-md lg:font-normal'>Dashboard</h3>
                     </div></Link>
 
                     <Link href="/my-ads"><div className='flex ss:flex-col ss:mt-2 sm:flex-col sm:mt-2 lg:flex-row lg:ml-6.3 lg:w-16.5 lg:h-6 lg:pl-1 xl:mt-6 items-center gap-2 xl:w-18 xl:h-6 xl:pl-1 hover:bg-gray-light hover:h-6 hover:pl-1 hover:w-16.5 hover:rounded cursor-pointer'>
                         <Image src={speaker} alt="" className="relative size-4" />
-                        <h3 className='relative text-dark ss:font-medium sm:font-medium lg:text-md lg:font-medium'>My Ads</h3>
+                        <h3 className='relative text-dark ss:font-normal sm:font-normal lg:text-md lg:font-normal'>My Ads</h3>
                     </div></Link>
 
                     <div className='flex ss:flex-col ss:mt-0 sm:flex-col sm:mt-0 lg:flex-row lg:ml-6.3 lg:w-16 lg:h-6 lg:pl-1 xl:mt-6 items-center gap-2 lg:bg-gray-light p-2 rounded'>
@@ -34,10 +34,7 @@ const BankDetails = () => {
                         <h3 className='relative text-blue lg:text-md lg:font-bold'>Settings</h3>
                     </div>
 
-                    <div className='flex ss:flex-col ss:mt-2 sm:flex-col sm:mt-2 lg:flex-row lg:ml-6.3 lg:w-16 lg:h-6 lg:pl-1 xl:mt-6 items-center gap-2 xl:w-18 xl:h-6 xl:pl-1 hover:bg-gray-light hover:h-6 hover:pl-1 hover:w-16.5 hover:rounded cursor-pointer'>
-                        <Image src={logout_dark} alt="" className="relative size-4" />
-                        <h3 className='relative text-dark ss:font-medium sm:font-medium lg:text-md lg:font-medium'>Logout</h3>
-                    </div>
+                    <Logout />
                 </div>
             </div>
 

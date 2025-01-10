@@ -20,10 +20,10 @@ import lock from './../public/icons/lock_dark.svg';
 import { useAuthStore } from "./store/authStore";
 
 const EMAIL_REGEX = /^(?=.*[a-z])(?=.*[@]).{3,23}$/;
-const PWD_REGEX = /^(?=.*[a-z][a-z][a-z])(?=.*[A-Z][A-Z])(?=.*[0-9][0-9])(?=.*[?&()_+={}[:;'"<>,|/~!@#$%]).{8,15}$/;
+const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[?&()_+={}[:;'"<>,|/~!@#$%]).{8,15}$/;
 
 
-const CompanyLogin = () => {
+const AdvertisersLogin = () => {
     const userRef = useRef<HTMLInputElement | null>(null);
 
     const [email, setEmail] = useState("");
@@ -66,10 +66,10 @@ const CompanyLogin = () => {
     const router = useRouter()
 
     const handleLogin = async (e: any) => {
-        e.preventDefault();
-        await login(email, password);
+		e.preventDefault();
+		await login(email, password);
         router.push("/sponsors");
-    };
+	};
 
     return (
         <div className="relative ss:h-68 ss:w-full sm:h-68 sm:w-full lg:h-38 xl:h-59 xl:w-full xx:h-108 xx:w-full overflow-hidden">
@@ -95,10 +95,10 @@ const CompanyLogin = () => {
                         <div className="relative ss:w-19.4 ss:h-32.5 ss:mt-5 ss:pt-1 sm:w-21 sm:h-32.5 sm:mt-5 sm:pt-1 lg:w-34 lg:h-34 lg:pt-1 lg:-mt-8 lg:ml-24 bg-white xl:w-40 xl:h-37 xl:pt-1 xl:-mt-40 xl:ml-25 xx:-mt-35 xx:ml-55 rounded">
                             <form onSubmit={handleLogin}>
                                 <div>
-                                    <h3 className="relative ss:ml-4 ss:mt-9 ss:text-sm sm:ml-4 sm:mt-9 sm:text-sm lg:ml-10 lg:mt-11 text-blue lg:text-base font-bold">
+                                    <h3 className="relative ss:ml-4 ss:mt-9 ss:text-sm sm:ml-4 sm:mt-9 sm:text-sm lg:ml-10 lg:mt-11 xl:mt-12 text-blue lg:text-base font-bold">
                                         Sign In
                                     </h3>
-                                    <p className="relative ss:ml-4 ss:mt-4.5 ss:text-sm sm:ml-4 sm:mt-4.5 sm:text-sm lg:ml-10 lg:mt-1 text-dark lg:text-sm font-medium">
+                                    <p className="relative ss:ml-4 ss:mt-4.5 ss:text-sm sm:ml-4 sm:mt-4.5 sm:text-sm lg:ml-10 lg:mt-1 text-dark lg:text-sm font-normal">
                                         Welcome back! Please enter your details below
                                     </p>
                                 </div>
@@ -158,18 +158,20 @@ const CompanyLogin = () => {
                                     <input
                                         type='checkbox'
                                         className="relative ss:mt-5 ss:ml-4 sm:mt-5 sm:ml-4 lg:mt-5 lg:ml-10 xl:mt-5 xl:ml-10 z-10" />
-                                    <p className="relative ss:-mt-4.6 ss:ml-6.2 ss:text-sm sm:-mt-4.6 sm:ml-6.2 sm:text-sm text-light-blue lg:-mt-4.6 max-w-19 lg:ml-11 xl:-mt-4.6 xl:ml-11 lg:text-sm text-left xx:-mt-4.6 xx:ml-11 z-10">
+                                    <p className="relative ss:-mt-4.6 ss:ml-6.2 ss:text-sm sm:-mt-4.6 sm:ml-6.2 sm:text-sm text-dark lg:-mt-4.6 max-w-19 lg:ml-11 xl:-mt-4.6 xl:ml-11 lg:text-sm text-left xx:-mt-4.6 xx:ml-11 z-10">
                                         Remember me
                                     </p>
-                                    <p className="relative ss:-mt-4.5 ss:ml-15 ss:text-sm sm:-mt-4.5 sm:ml-16.5 sm:text-sm text-light-blue lg:-mt-4.5 max-w-19 lg:ml-22 lg:text-sm text-left z-10 xl:-mt-4.6 xl:ml-27 xx:-mt-4.6 xx:ml-27 cursor-pointer">
-                                        Forgot Password?
-                                    </p>
+                                    <Link href="/forgot-password">
+                                        <p className="relative ss:-mt-4.5 ss:ml-15 ss:text-sm sm:-mt-4.5 sm:ml-16.5 sm:text-sm text-light-blue lg:-mt-4.5 max-w-19 lg:ml-22 lg:text-sm text-left z-10 xl:-mt-4.6 xl:ml-27 xx:-mt-4.6 xx:ml-27 cursor-pointer">
+                                            Forgot Password?
+                                        </p>
+                                    </Link>
                                 </div>
 
                                 <button
                                     disabled={!validEmail || !validPassword ? true : false}
                                     type="submit"
-                                    className="relative ss:h-6.2 ss:w-19.1 ss:mt-4 ss:ml-4 ss:text-white sm:h-6.2 sm:w-19.6 sm:mt-4 sm:ml-4 sm:text-white bg-blue lg:h-6.2 lg:w-24.2 lg:ml-10 text-sm lg:text-white rounded lg:mt-3 xl:mt-3 xl:w-29 xx:mt-3 xx:w-29 cursor-pointer hover:bg-light-blue disabled:bg-gray-light">
+                                    className="relative ss:h-6.2 ss:w-19.1 ss:mt-4 ss:ml-4 ss:text-white sm:h-6.2 sm:w-19.6 sm:mt-4 sm:ml-4 sm:text-white bg-blue lg:h-6.2 lg:w-24.2 lg:ml-10 text-sm lg:text-white rounded lg:mt-3 xl:mt-3 xl:w-29 xx:mt-3 xx:w-29 cursor-pointer hover:bg-light-blue disabled:bg-gray">
                                     Sign in
                                 </button>
 
@@ -198,11 +200,13 @@ const CompanyLogin = () => {
                 </span> */}
 
                 <div>
-                    <h3 className="relative ss:mt-6 ss:ml-0 ss:text-sm ss:text-center sm:mt-6 sm:ml-0 sm:text-sm sm:text-center lg:-mt-7 lg:ml-10 lg:text-left lg:text-sm text-white xl:text-left xl:text-base xl:mt-12 xl:ml-13 xx:mt-19">© 2024 Rights are Reserved by HOSOptima.com</h3>
+                    <h3 className="relative ss:mt-6 ss:ml-0 ss:text-sm ss:text-center sm:mt-6 sm:ml-0 sm:text-sm sm:text-center lg:-mt-7 lg:ml-10 lg:text-left lg:text-sm text-white xl:text-left xl:text-base xl:mt-12 xl:ml-13 xx:mt-19">
+                        © 2025 Rights are Reserved by HOSOptima.com
+                    </h3>
                 </div>
             </div>
         </div>
     );
 };
 
-export default CompanyLogin;
+export default AdvertisersLogin;

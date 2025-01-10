@@ -1,5 +1,6 @@
 'use client';
 
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
 export const AgreementComp = () => {
@@ -23,6 +24,8 @@ export const AgreementComp = () => {
         console.log('Uploaded File:', uploadedFile);
     };
 
+    const router = useRouter()
+
     // Simulate Upload Action (e.g., API Call)
     const uploadDocument = async () => {
         if (!file) {
@@ -40,6 +43,7 @@ export const AgreementComp = () => {
 
             if (response.ok) {
                 alert('File uploaded successfully');
+                router.push("/ad-plan");
             } else {
                 alert('File upload failed');
             }
@@ -164,7 +168,7 @@ export const AgreementComp = () => {
                         type="file"
                         accept="application/pdf"
                         onChange={handleUpload}
-                        className='relative ss:border ss:w-12.5 sm:border sm:w-15.6 lg:w-19 lg:border border-gray-dark lg:text-sm rounded cursor-pointer'
+                        className='relative ss:border ss:w-12.5 sm:border sm:w-15.6 lg:h-6 lg:w-19.6 lg:mt-7 lg:border border-gray-dark lg:text-sm rounded cursor-pointer'
                     />
                     <button
                         onClick={uploadDocument}

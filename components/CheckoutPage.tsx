@@ -5,6 +5,7 @@ import {
   useStripe,
   useElements,
   PaymentElement,
+  PaymentRequestButtonElement,
 } from "@stripe/react-stripe-js";
 import convertToSubcurrency from "@/lib/convertToSubcurrency";
 
@@ -14,7 +15,9 @@ const CheckoutPage = ({ amount }: { amount: number }) => {
   const [errorMessage, setErrorMessage] = useState<string>();
   const [clientSecret, setClientSecret] = useState("");
   const [loading, setLoading] = useState(false);
+  const [paymentRequest, setPaymentRequest] = useState<any>(null);
 
+  // Create Payment Intent
   useEffect(() => {
     fetch("/api/create-payment-intent", {
       method: "POST",
@@ -27,13 +30,36 @@ const CheckoutPage = ({ amount }: { amount: number }) => {
       .then((data) => setClientSecret(data.clientSecret));
   }, [amount]);
 
+  // Create Payment Request for Apple Pay / Google Pay
+  useEffect(() => {
+    if (stripe) {
+      const pr = stripe.paymentRequest({
+        country: "US",
+        currency: "usd",
+        total: {
+          label: "Total",
+          amount: convertToSubcurrency(amount),
+        },
+        requestPayerName: true,
+        requestPayerEmail: true,
+      });
+
+      pr.canMakePayment().then((result) => {
+        if (result) {
+          setPaymentRequest(pr);
+        } else {
+          setErrorMessage("Payment request not available on this device.");
+        }
+      });
+    }
+  }, [stripe, amount]);
+
+  // Handle Form Submission
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setLoading(true);
 
-    if (!stripe || !elements) {
-      return;
-    }
+    if (!stripe || !elements) return;
 
     const { error: submitError } = await elements.submit();
 
@@ -52,12 +78,7 @@ const CheckoutPage = ({ amount }: { amount: number }) => {
     });
 
     if (error) {
-      // This point is only reached if there's an immediate error when
-      // confirming the payment. Show the error to your customer (for example, payment details incomplete)
       setErrorMessage(error.message);
-    } else {
-      // The payment UI automatically closes with a success animation.
-      // Your customer is redirected to your `return_url`.
     }
 
     setLoading(false);
@@ -80,6 +101,12 @@ const CheckoutPage = ({ amount }: { amount: number }) => {
 
   return (
     <form onSubmit={handleSubmit} className="bg-white p-2 rounded-md">
+      {paymentRequest && (
+        <PaymentRequestButtonElement
+          options={{ paymentRequest }}
+        />
+      )}
+
       {clientSecret && <PaymentElement />}
 
       {errorMessage && <div>{errorMessage}</div>}
@@ -95,3 +122,4 @@ const CheckoutPage = ({ amount }: { amount: number }) => {
 };
 
 export default CheckoutPage;
+
