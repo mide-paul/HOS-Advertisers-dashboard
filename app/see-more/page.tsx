@@ -28,7 +28,7 @@ const SeeMore = () => {
 
     return (
         <div className="lg:h-46 lg:w-full xl:h-80 xl:w-full xx:h-109 xx:w-full bg-gray-lighter overflow-hidden">
-            <div className="fixed mt-14 top-3/4 ss:bg-gray-light ss:w-screen ss:h-10 ss:mt-0 sm:bg-gray-light sm:w-screen sm:h-10 sm:mt-0 lg:-mt-1 lg:ml-0 lg:w-19.6 lg:h-40 lg:border lg:border-gray lg:bg-white rounded z-10 xl:h-60 xx:h-109">
+            <div className="fixed mt-14 top-3/4 ss:bg-gray-light ss:w-screen ss:h-10 ss:mt-0 sm:bg-gray-light sm:w-screen sm:h-10 sm:mt-0 lg:top-auto lg:-mt-1 lg:ml-0 lg:w-19.6 lg:h-40 lg:border lg:border-gray lg:bg-white rounded z-10 xl:h-60 xx:h-109">
                 <div>
                     <Image src={logo} alt="image" className="relative sm:w-10 sm:-mt-19.3 lg:mt-0.5 lg:ml-6.2 lg:w-13 ss:invisible sm:invisible lg:visible xx:visible" />
                 </div>
