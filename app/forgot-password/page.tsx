@@ -7,10 +7,10 @@ import { useRouter } from "next/navigation";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import logo_white from '../../public/images/logo_white.png';
 import locked from '../../public/icons/locked.svg';
-import facebook from '../../public/icons/facebook_signup2.png';
-import twitter from '../../public/icons/twitter_signup.png';
-import instagram from '../../public/icons/instagram_signup.png';
-import youtube from '../../public/icons/youtube_signup.png';
+import facebook from '../../public/icons/facebook.svg';
+import twitter from '../../public/icons/twitter.svg';
+import instagram from '../../public/icons/instagram.svg';
+import youtube from '../../public/icons/youtube.svg';
 import envelope from '../../public/icons/envelope.png';
 import { useAuthStore } from "../store/authStore";
 
