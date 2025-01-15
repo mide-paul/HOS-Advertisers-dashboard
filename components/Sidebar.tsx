@@ -2,8 +2,8 @@
 import { useState, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import sort from './../public/icons/sort.png'
-import logo from './../public/images/logo.png'
+import sort from './../public/icons/Sort.png';
+import logo from './../public/images/logo.png';
 import { Logout } from './logout';
 
 const Sidebar = () => {
