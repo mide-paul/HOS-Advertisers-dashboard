@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import arrow_left_blue from '../../public/icons/arrow_left_blue.png';
+import arrow_left_blue from '../../public/icons/arrow_left_blue.svg';
 import { Header } from "@/components/header";
 import { AgreementComp } from "@/components/AgreementComp";
 import Sidebar from "@/components/Sidebar";

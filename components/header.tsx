@@ -10,7 +10,7 @@ export const Header = () => {
     const user = useAuthStore(state => state.user);
 
     return (
-        <div className="fixed bg-white ss:h-8 ss:w-screen sm:h-8 sm:w-screen lg:h-11 lg:w-70 lg:ml-19.2 xl:w-95 z-20 xx:w-144">
+        <div className="fixed bg-white ss:h-8 ss:w-screen sm:h-8 sm:w-screen lg:h-11 lg:w-70 lg:ml-19.2 xl:w-95 z-20 xx:w-144 shadow-md">
             <Image src={logo} alt="image" className="ss:w-12 ss:-mt-3 ss:ml-1 sm:w-12 sm:-mt-3 sm:ml-1 ss:visible sm:visible lg:invisible xx:invisible" />
             <div className="flex lg:flex-col">
                 <div>

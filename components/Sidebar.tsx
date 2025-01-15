@@ -72,7 +72,7 @@ const Sidebar = () => {
           <Image
             src={logo}
             alt="Profile Picture"
-            className="w-20 h-15"
+            className="w-15 h-11"
           />
         </div>
         <nav className="flex-1 p-4 lg:-mt-8">
