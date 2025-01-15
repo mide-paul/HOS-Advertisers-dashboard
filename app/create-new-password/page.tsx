@@ -150,7 +150,7 @@ const CreatePassword = () => {
                                 <button
                                     disabled={!validPassword || !validMatch ? true : false}
                                     type="submit"
-                                    className="relative ss:h-6.2 ss:w-19.1 ss:mt-4 ss:ml-4 ss:text-white sm:h-6.2 sm:w-19.6 sm:mt-4 sm:ml-4 sm:text-white bg-blue lg:h-6.2 lg:w-24.2 lg:mt-6 lg:ml-10 text-sm lg:text-white rounded xl:mt-3 xl:w-29 xx:mt-3 xx:w-29 cursor-pointer hover:bg-light-blue disabled:bg-gray">
+                                    className="relative ss:h-6.2 ss:w-19.1 ss:mt-4 ss:ml-4 ss:text-white sm:h-6.2 sm:w-19.6 sm:mt-4 sm:ml-4 sm:text-white bg-blue lg:h-6.2 lg:w-24.2 lg:mt-6 lg:ml-10 text-sm lg:text-white rounded xl:mt-3 xl:w-29 xx:mt-3 xx:w-29 cursor-pointer hover:bg-light-blue disabled:bg-gray-disabled">
                                     Reset Password
                                 </button>
                             </form>

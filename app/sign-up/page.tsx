@@ -17,7 +17,7 @@ import google from '../../public/icons/google.png';
 // import { eye } from 'react-icons-kit/feather/eye';
 import { useAuthStore } from "../store/authStore";
 import user from '../../public/icons/user.svg';
-import envelope from '../../public/icons/envelope.png';
+import sms from '../../public/icons/sms.svg';
 import call from '../../public/icons/call.svg';
 import lock from '../../public/icons/lock_dark.svg';
 
@@ -207,7 +207,7 @@ const CompanySignup = () => {
                       // onBlur={() => setEmailFocus(false)}
                       className="relative ss:mt-4 ss:w-19.1 ss:h-6.2 ss:pl-5.4 ss:text-sm ss:text-dark ss:bg-white sm:mt-4 sm:w-19.6 sm:h-6 sm:pl-5.4 sm:text-sm sm:text-dark sm:bg-white lg:mt-0.1 lg:w-24.2 lg:h-6.2 lg:pl-5.4 lg:text-sm lg:text-dark lg:bg-white border border-gray rounded xl:w-24.2 xx:w-24.2"
                     />
-                    <Image src={envelope} alt="" className="relative ss:-mt-6.25 ss:ml-1 ss:h-4 ss:w-4 sm:-mt-6.2 sm:ml-1 sm:h-4 sm:w-4 lg:-mt-6.1 lg:ml-1.5" />
+                    <Image src={sms} alt="" className="relative ss:-mt-6.25 ss:ml-1 ss:h-4 ss:w-4 sm:-mt-6.2 sm:ml-1 sm:h-4 sm:w-4 lg:-mt-6.1 lg:ml-1.5" />
                     {/* <p id="uidnote" className={emailFocus && email &&
                   !validemail ? "instructions" : "offscreen"}>
                   <FontAwesomeIcon icon={faInfoCircle} />
@@ -302,7 +302,7 @@ const CompanySignup = () => {
                   <button
                     disabled={!validFirstName || !validPassword || !validMatch ? true : false}
                     type="submit"
-                    className="relative ss:mt-2 ss:ml-4 ss:w-19.1 ss:h-6 ss:text-sm ss:bg-blue ss:text-white sm:mt-2 sm:ml-4 sm:w-19.6 sm:h-6 sm:bg-blue sm:text-white lg:mt-3 lg:ml-10 lg:text-sm lg:text-white lg:w-24.2 lg:h-6 lg:bg-blue z-30 rounded hover:bg-blue-deep cursor-pointer xl:mt-3 xl:ml-0 xl:float-left disabled:bg-gray">
+                    className="relative ss:mt-2 ss:ml-4 ss:w-19.1 ss:h-6 ss:text-sm ss:bg-blue ss:text-white sm:mt-2 sm:ml-4 sm:w-19.6 sm:h-6 sm:bg-blue sm:text-white lg:mt-3 lg:ml-10 lg:text-sm lg:text-white lg:w-24.2 lg:h-6 lg:bg-blue z-30 rounded hover:bg-blue-deep cursor-pointer xl:mt-3 xl:ml-0 xl:float-left disabled:bg-gray-disabled">
                     Sign Up
                   </button>
 

@@ -37,6 +37,7 @@ export default {
       'gray-light': '#f0f0f0',
       'gray-lighter': '#f8f8f8',
       'gray-deep': '#EBF2FF',
+      'gray-disabled': '#C1C1C1',
       'ash': '#d9d9d9',
       'sky-blue': '#009BD6',
       'dark-midnight-blue': '#00d95f',

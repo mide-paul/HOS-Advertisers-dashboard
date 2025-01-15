@@ -12,7 +12,7 @@ import twitter from './../public/icons/twitter.svg';
 import instagram from './../public/icons/instagram.svg';
 import youtube from './../public/icons/youtube.svg';
 import google from './../public/icons/google.png';
-import envelope from './../public/icons/envelope.png';
+import sms from './../public/icons/sms.svg';
 import lock from './../public/icons/lock_dark.svg';
 // import { Icon } from 'react-icons-kit';
 // import { eyeOff } from 'react-icons-kit/feather/eyeOff';
@@ -25,6 +25,8 @@ const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[?&()_+={}[:;'"<>,|/~!
 
 const AdvertisersLogin = () => {
     const userRef = useRef<HTMLInputElement | null>(null);
+    const router = useRouter();
+    const { login, error, user, isAuthenticated } = useAuthStore();
 
     const [email, setEmail] = useState("");
     const [validEmail, setValidEmail] = useState(false);
@@ -34,10 +36,11 @@ const AdvertisersLogin = () => {
     const [validPassword, setValidPassword] = useState(false);
     // const [passwordFocus, setPasswordFocus] = useState(false);
 
+    const [rememberMe, setRememberMe] = useState(false);
+    const [loading, setLoading] = useState(false);
+
     const [type, setType] = useState('password');
     //   const [icon, setIcon] = useState(eyeOff);
-
-    const { login, error } = useAuthStore();
 
     //   const handleToggle = () => {
     //     if (type === 'password') {
@@ -50,26 +53,46 @@ const AdvertisersLogin = () => {
     //   }
 
     useEffect(() => {
-        if (userRef.current !== null) {
-            userRef.current.focus();
-        }
-    }, [])
+        if (userRef.current) userRef.current.focus();
+    }, []);
 
     useEffect(() => {
         setValidEmail(EMAIL_REGEX.test(email));
-    }, [email])
+    }, [email]);
 
     useEffect(() => {
         setValidPassword(PWD_REGEX.test(password));
-    }, [password])
+    }, [password]);
 
-    const router = useRouter()
+    // Redirect if already logged in
+    useEffect(() => {
+        if (isAuthenticated) {
+            router.push("/sponsors");
+        }
+    }, [isAuthenticated, router]);
 
-    const handleLogin = async (e: any) => {
-		e.preventDefault();
-		await login(email, password);
-        router.push("/sponsors");
-	};
+    const handleLogin = async (e: React.FormEvent) => {
+        e.preventDefault();
+
+        if (!validEmail || !validPassword) return;
+
+        setLoading(true);
+        try {
+            await login(email, password);
+            if (rememberMe) {
+                localStorage.setItem("user", JSON.stringify({ email, password }));
+            }
+            router.push("/sponsors");
+        } catch (err) {
+            console.error(err);
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    const handleRememberMeChange = () => {
+        setRememberMe(!rememberMe);
+    };
 
     return (
         <div className="relative ss:h-68 ss:w-full sm:h-68 sm:w-full lg:h-38 xl:h-59 xl:w-full xx:h-108 xx:w-full overflow-hidden">
@@ -119,7 +142,7 @@ const AdvertisersLogin = () => {
                                         // onBlur={() => setEmailFocus(false)}
                                         className="relative ss:mt-4 ss:w-19.1 ss:h-6.2 ss:pl-5.3 ss:text-sm ss:text-dark ss:bg-white sm:mt-4 sm:w-19.6 sm:h-6 sm:pl-5.3 sm:text-sm sm:text-dark sm:bg-white lg:mt-10 lg:w-24.2 lg:h-6.2 lg:pl-5.3 lg:text-sm lg:text-dark lg:bg-white border border-gray rounded xl:w-29 xx:w-29"
                                     />
-                                    <Image src={envelope} alt="" className="relative ss:-mt-6.25 ss:ml-1 ss:h-4 ss:w-4 sm:-mt-6.2 sm:ml-1 sm:h-4 sm:w-4 lg:-mt-6.1 lg:ml-1" />
+                                    <Image src={sms} alt="" className="relative ss:-mt-6.25 ss:ml-1 ss:h-4 ss:w-4 sm:-mt-6.2 sm:ml-1 sm:h-4 sm:w-4 lg:-mt-6.1 lg:ml-1" />
                                     {/* <p id="uidnote" className={emailFocus && email &&
                                         !validEmail ? "instructions" : "offscreen"}>
                                         <FontAwesomeIcon icon={faInfoCircle} />
@@ -157,6 +180,8 @@ const AdvertisersLogin = () => {
                                 <div>
                                     <input
                                         type='checkbox'
+                                        checked={rememberMe}
+                                        onChange={handleRememberMeChange}
                                         className="relative ss:mt-5 ss:ml-4 sm:mt-5 sm:ml-4 lg:mt-5 lg:ml-10 xl:mt-5 xl:ml-10 z-10" />
                                     <p className="relative ss:-mt-4.6 ss:ml-6.2 ss:text-sm sm:-mt-4.6 sm:ml-6.2 sm:text-sm text-dark lg:-mt-4.6 max-w-19 lg:ml-11 xl:-mt-4.6 xl:ml-11 lg:text-sm text-left xx:-mt-4.6 xx:ml-11 z-10">
                                         Remember me
@@ -169,10 +194,10 @@ const AdvertisersLogin = () => {
                                 </div>
 
                                 <button
-                                    disabled={!validEmail || !validPassword ? true : false}
+                                    disabled={loading || !validEmail || !validPassword}
                                     type="submit"
-                                    className="relative ss:h-6.2 ss:w-19.1 ss:mt-4 ss:ml-4 ss:text-white sm:h-6.2 sm:w-19.6 sm:mt-4 sm:ml-4 sm:text-white bg-blue lg:h-6.2 lg:w-24.2 lg:ml-10 text-sm lg:text-white rounded lg:mt-3 xl:mt-3 xl:w-29 xx:mt-3 xx:w-29 cursor-pointer hover:bg-light-blue disabled:bg-gray">
-                                    Sign in
+                                    className="relative ss:h-6.2 ss:w-19.1 ss:mt-4 ss:ml-4 ss:text-white sm:h-6.2 sm:w-19.6 sm:mt-4 sm:ml-4 sm:text-white bg-blue lg:h-6.2 lg:w-24.2 lg:ml-10 text-sm lg:text-white rounded lg:mt-3 xl:mt-3 xl:w-29 xx:mt-3 xx:w-29 cursor-pointer hover:bg-light-blue disabled:bg-gray-disabled">
+                                    {loading ? "Signing in..." : "Sign in"}
                                 </button>
 
                                 <div>

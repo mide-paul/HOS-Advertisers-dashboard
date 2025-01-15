@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import Image from "next/image";
 import { useAuthStore } from '@/app/store/authStore';
-import envelope from './../public/icons/envelope.png';
+import sms from './../public/icons/sms.svg';
 
 const EMAIL_REGEX = /^(?=.*[a-z])(?=.*[@]).{3,23}$/;
 
@@ -108,7 +108,7 @@ export const ResetPassword: React.FC = () => {
                                     // onBlur={() => setEmailFocus(false)}
                                     className="relative ss:mt-4 ss:w-19.1 ss:h-6.2 ss:pl-5.3 ss:text-sm ss:text-dark ss:bg-white sm:mt-4 sm:w-19.6 sm:h-6 sm:pl-5.3 sm:text-sm sm:text-dark sm:bg-white lg:mt-0 lg:w-24.2 lg:h-6.2 lg:pl-5.3 lg:text-sm lg:text-dark lg:bg-white border border-gray rounded xl:w-29 xx:w-29"
                                 />
-                                <Image src={envelope} alt="" className="relative ss:-mt-6.25 ss:ml-1 ss:h-4 ss:w-4 sm:-mt-6.2 sm:ml-1 sm:h-4 sm:w-4 lg:-mt-6.1 lg:ml-1" />
+                                <Image src={sms} alt="" className="relative ss:-mt-6.25 ss:ml-1 ss:h-4 ss:w-4 sm:-mt-6.2 sm:ml-1 sm:h-4 sm:w-4 lg:-mt-6.1 lg:ml-1" />
                                 {/* <p id="uidnote" className={emailFocus && email &&
                                         !validEmail ? "instructions" : "offscreen"}>
                                         <FontAwesomeIcon icon={faInfoCircle} />
@@ -158,7 +158,7 @@ export const ResetPassword: React.FC = () => {
 
                                                 <button
                                                     type="button"
-                                                    className='relative ss:mt-6 ss:ml-0 ss:h-6.3 ss:w-19 ss:text-sm sm:mt-6 sm:ml-0 sm:h-6.3 sm:w-19 sm:text-base lg:mt-5 lg:h-6.3 lg:w-19 lg:text-sm bg-blue text-white text-sm rounded disabled:bg-gray-lighter disabled:text-white font-montserrat'
+                                                    className='relative ss:mt-6 ss:ml-0 ss:h-6.3 ss:w-19 ss:text-sm sm:mt-6 sm:ml-0 sm:h-6.3 sm:w-19 sm:text-base lg:mt-5 lg:h-6.3 lg:w-19 lg:text-sm bg-blue text-white text-sm rounded disabled:bg-gray-disabled disabled:text-white font-montserrat'
                                                     disabled={code.some((digit) => !digit)}
                                                 >
                                                     Submit
