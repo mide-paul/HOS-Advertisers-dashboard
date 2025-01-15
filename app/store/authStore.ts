@@ -28,6 +28,7 @@ interface IAuth {
 	checkAuth: (isCheckingAuth: boolean, error: string) => Promise<void>;
 	logout: (isLoading: boolean, error: string) => Promise<void>;
 	forgotPassword: (email: string) => Promise<void>;
+	resetPassword: (token: string, password: string) => Promise<void>;
 }
 
 export const useAuthStore = create<IAuth>((set) => ({
@@ -95,17 +96,17 @@ export const useAuthStore = create<IAuth>((set) => ({
 			throw error;
 		}
 	},
-	// resetPassword: async (token: any, password: any) => {
-	// 	set({ isLoading: true, error: null });
-	// 	try {
-	// 		const response = await axios.post(`${API_URL}/api/v1/ad-manager/reset-password`, { password });
-	// 		set({ message: response.data.message, isLoading: false });
-	// 	} catch (error: any) {
-	// 		set({
-	// 			isLoading: false,
-	// 			error: error.response.data.message || "Error resetting password",
-	// 		});
-	// 		throw error;
-	// 	}
-	// },
+	resetPassword: async (token: any, password: any) => {
+		set({ isLoading: true, error: null });
+		try {
+			const response = await axios.post(`${API_URL}/api/v1/ad-manager/reset-password/${token}`, { password });
+			set({ message: response.data.message, isLoading: false });
+		} catch (error: any) {
+			set({
+				isLoading: false,
+				error: error.response.data.message || "Error resetting password",
+			});
+			throw error;
+		}
+	},
 }));
