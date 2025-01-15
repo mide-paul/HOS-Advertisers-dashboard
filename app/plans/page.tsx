@@ -70,7 +70,7 @@ const Page = () => {
                 </div>
 
                 <div>
-                    <div className="flex ss:flex-col sm:flex-col lg:flex-row gap-3 lg:w-70 lg:min-w-60 lg:pb-7 lg:pr-5">
+                    <div className="flex flex-wrap ss:flex-col sm:flex-col lg:flex-row gap-3 lg:w-70 lg:min-w-60 lg:pb-7 lg:pr-5">
                         {subscriptions.map((plan) => (
                             <div
                                 key={plan.id}
