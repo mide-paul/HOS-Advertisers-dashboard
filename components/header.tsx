@@ -17,7 +17,7 @@ export const Header = () => {
                     <h3 className="fixed lg:-mt-6 lg:ml-6 text-blue lg:font-bold lg:text-left lg:text-base ss:invisible sm:invisible lg:visible xx:visible">Hey there</h3>
                     <Image src={hand_raised} alt="" className="relative lg:-mt-5.3 lg:ml-12 ss:invisible sm:invisible lg:visible xx:visible" />
                 </div>
-                {user && <p className="absolute ss:-mt-5 ss:ml-2 ss:text-sm sm:-mt-5 sm:ml-0 sm:text-sm lg:text-base font-normal lg:mt-1 lg:ml-6">Welcome back, {user.firstName}</p>}
+                {user && <p className="absolute ss:-mt-5 ss:ml-2 ss:text-sm sm:-mt-5 sm:ml-0 sm:text-sm lg:text-base font-normal lg:-mt-0.5 lg:ml-6">Welcome back, {user.firstName}</p>}
             </div>
             <div className="flex ss:gap-2 ss:-mt-8.5 ss:ml-15 sm:gap-3 lg:gap-5 sm:-mt-8.5 sm:ml-15.5 md:ml-35 lg:ml-52 lg:-mt-6 items-center xl:ml-55 xx:ml-123">
                 <Image src={notification} alt="" className="size-4" />

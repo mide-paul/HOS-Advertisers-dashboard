@@ -15,21 +15,21 @@ export const ResetPassword: React.FC = () => {
     const dropdownRef = useRef<HTMLDivElement>(null)
 
     useEffect(() => {
-        const handleClickOutsideDropdown =(e:any)=>{
-            if(open && !dropdownRef.current?. contains(e.target as Node)){
-              setOpen(false)
-              }
-            };
+        const handleClickOutsideDropdown = (e: any) => {
+            if (open && !dropdownRef.current?.contains(e.target as Node)) {
+                setOpen(false)
+            }
+        };
 
         if (typeof window !== "undefined") {
-          window.addEventListener("click", handleClickOutsideDropdown);
+            window.addEventListener("click", handleClickOutsideDropdown);
         }
-    
+
         // Cleanup event listener on component unmount
         return () => {
-          window.removeEventListener("click", handleClickOutsideDropdown);
+            window.removeEventListener("click", handleClickOutsideDropdown);
         };
-      }, [open]);
+    }, [open]);
 
     const { forgotPassword, error } = useAuthStore();
 
@@ -65,8 +65,8 @@ export const ResetPassword: React.FC = () => {
     };
 
     const handleModalClick = (event: React.MouseEvent<HTMLDivElement>) => {
-            event.stopPropagation();  // Prevent click inside modal from closing it
-        };
+        event.stopPropagation();  // Prevent click inside modal from closing it
+    };
 
     const handleSubmit = async (e: any) => {
         e.preventDefault();
@@ -127,8 +127,8 @@ export const ResetPassword: React.FC = () => {
                                     Reset Password
                                     {open && (
                                         <div
-                                        onClick={handleModalClick} // Stop propagation inside modal
-                                        className="absolute ss:-ml-5 ss:-mt-17 ss:w-19.7 ss:h-22 sm:-ml-5 sm:-mt-17 sm:w-21.9 sm:h-22 lg:-ml-20 lg:-mt-17 lg:w-30 lg:h-22 bg-white rounded items-center justify-center shadow">
+                                            onClick={handleModalClick} // Stop propagation inside modal
+                                            className="absolute ss:-ml-5 ss:-mt-17 ss:w-19.7 ss:h-22 sm:-ml-5 sm:-mt-17 sm:w-21.9 sm:h-22 lg:-ml-20 lg:-mt-17 lg:w-30 lg:h-22 bg-white rounded items-center justify-center shadow">
                                             <h3 className="ss:mt-5 sm:mt-5 lg:mt-5 text-center text-base text-dark font-bold">OTP Verfication</h3>
                                             <p className='mt-4 sm:ml-1 ss:max-w-20 sm:max-w-21 lg:ml-7 lg:max-w-23 text-center text-sm text-dark font-normal'>
                                                 For verification, we&apos;ve sent a 6-digit code to viviadams@gmail.com.
