@@ -30,6 +30,7 @@ type User = {
   email: string;
   phone: string;
   profilePicture: string;
+  token: string;
 };
 
 interface IAuth {

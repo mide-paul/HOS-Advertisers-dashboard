@@ -3,6 +3,7 @@ import { useRef, useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { setCookie } from "cookies-next";
 // import { faCheck, faTimes, faInfoCircle } from "@fortawesome/free-solid-svg-icons";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import logo_white from './../public/images/logo_white.png';
@@ -73,15 +74,27 @@ const AdvertisersLogin = () => {
 
     const handleLogin = async (e: React.FormEvent) => {
         e.preventDefault();
-
+    
         if (!validEmail || !validPassword) return;
-
+    
         setLoading(true);
         try {
-            await login(email, password);
+            // Simulate login request
+            const response = await login(email, password); // Assuming this returns a token or user data
+            const { token } = response; // Extract token from response
+    
+            // Set authentication cookie
+            setCookie("authToken", token, {
+                maxAge: rememberMe ? 60 * 60 * 24 * 7 : 0, // 7 days if "Remember Me" is checked, session cookie otherwise
+                path: "/", // Cookie accessible across the site
+                secure: process.env.NODE_ENV === "production", // Use secure cookies in production
+                sameSite: "strict", // Prevent CSRF
+            });
+    
             if (rememberMe) {
                 localStorage.setItem("user", JSON.stringify({ email, password }));
             }
+    
             router.push("/sponsors");
         } catch (err) {
             console.error(err);

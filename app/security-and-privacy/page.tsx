@@ -56,7 +56,7 @@ const SecurityAndPrivacy = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="relative ss:ml-2 ss:mt-4 ss:w-19.51 ss:h-16 sm:ml-2 sm:mt-4 sm:w-20 sm:h-16 bg-white lg:w-35 lg:h-13 border rounded lg:ml-7 lg:mt-5">
+                    {/* <div className="relative ss:ml-2 ss:mt-4 ss:w-19.51 ss:h-16 sm:ml-2 sm:mt-4 sm:w-20 sm:h-16 bg-white lg:w-35 lg:h-13 border rounded lg:ml-7 lg:mt-5">
                         <div className="flex flex-col gap-2 ss:ml-4 ss:mt-4 sm:ml-4 sm:mt-4 lg:ml-4 lg:mt-4">
                             <div className="flex flex-row ss:gap-15 sm:gap-15.6 lg:gap-26">
                             <h3 className="relative text-sm font-semibold text-left">Enable 2FA</h3>
@@ -69,7 +69,7 @@ const SecurityAndPrivacy = () => {
                                 safeguarding against cyber threats. Enable 2FA for added security.
                             </p>
                         </div>
-                    </div>
+                    </div> */}
                     <div>
                         <div className="relative ss:ml-2 ss:mt-4 ss:w-19.51 ss:h-8 sm:ml-2 sm:mt-4 sm:w-20 sm:h-8 bg-white lg:w-35 lg:h-8 border rounded lg:ml-7 lg:mt-5">
                             <div className="relative ss:w-19.2 ss:h-6 ss:mt-3 ss:ml-3 sm:w-19.5 sm:h-6 sm:mt-3 sm:ml-3 bg-gray-lighter lg:w-33 lg:h-6 rounded lg:mt-3 lg:ml-3">

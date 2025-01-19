@@ -71,29 +71,29 @@ export const SupportGroup = () => {
                     </div>
                 </div>
 
-                <div className="relative ss:mt-5 ss:ml-3 ss:w-19.2 ss:h-6 sm:mt-5 sm:ml-3 sm:w-19.3 sm:h-6 bg-gray-lighter lg:w-31.5 lg:h-6 rounded lg:mt-5 lg:ml-5">
+                <Link href="mailto:support@hosoptima.com"><div className="relative ss:mt-5 ss:ml-3 ss:w-19.2 ss:h-6 sm:mt-5 sm:ml-3 sm:w-19.3 sm:h-6 bg-gray-lighter lg:w-31.5 lg:h-6 rounded lg:mt-5 lg:ml-5">
                     <h3 className="relative ss:pl-6 ss:pt-1 sm:pl-6 sm:pt-1 text-sm text-left text-gray lg:pl-6 lg:pt-1 cursor-pointer">Email</h3>
                     <Image src={envelope} alt="" className="ss:-mt-4.5 ss:ml-1 sm:-mt-4.5 sm:ml-1 lg:-mt-4.5 size-4 lg:ml-1 cursor-pointer" />
                     <Image src={arrow_right} alt="" className="ss:-mt-3.5 ss:ml-19 sm:-mt-3.5 sm:ml-19.2 lg:-mt-3.5 size-4 lg:ml-30 cursor-pointer" />
-                </div>
+                </div></Link>
 
-                <div className="relative ss:mt-5 ss:ml-3 ss:w-19.2 ss:h-6 sm:mt-5 sm:ml-3 sm:w-19.3 sm:h-6 bg-gray-lighter lg:w-31.5 lg:h-6 rounded lg:mt-5 lg:ml-5">
+                <Link href="https://www.instagram.com/hosoptima_/"><div className="relative ss:mt-5 ss:ml-3 ss:w-19.2 ss:h-6 sm:mt-5 sm:ml-3 sm:w-19.3 sm:h-6 bg-gray-lighter lg:w-31.5 lg:h-6 rounded lg:mt-5 lg:ml-5">
                     <h3 className="relative ss:pl-6 ss:pt-1 sm:pl-6 sm:pt-1 text-sm text-left text-gray lg:pl-6 lg:pt-1 cursor-pointer">Instagram</h3>
                     <Image src={instagram_gray} alt="" className="ss:-mt-4.5 ss:ml-1 sm:-mt-4.5 sm:ml-1 lg:-mt-4.5 size-4 lg:ml-1 cursor-pointer" />
                     <Image src={arrow_right} alt="" className="ss:-mt-3.5 ss:ml-19 sm:-mt-3.5 sm:ml-19.2 lg:-mt-3.5 size-4 lg:ml-30 cursor-pointer" />
-                </div>
+                </div></Link>
 
-                <div className="relative ss:mt-5 ss:ml-3 ss:w-19.2 ss:h-6 sm:mt-5 sm:ml-3 sm:w-19.3 sm:h-6 bg-gray-lighter lg:w-31.5 lg:h-6 rounded lg:mt-5 lg:ml-5">
+                <Link href="https://www.facebook.com/hosoptima"><div className="relative ss:mt-5 ss:ml-3 ss:w-19.2 ss:h-6 sm:mt-5 sm:ml-3 sm:w-19.3 sm:h-6 bg-gray-lighter lg:w-31.5 lg:h-6 rounded lg:mt-5 lg:ml-5">
                     <h3 className="relative ss:pl-6 ss:pt-1 sm:pl-6 sm:pt-1 text-sm text-left text-gray lg:pl-6 lg:pt-1 cursor-pointer">Facebook</h3>
                     <Image src={facebook_gray} alt="" className="ss:-mt-4.5 ss:ml-1 sm:-mt-4.5 sm:ml-1 lg:-mt-4.5 size-4 lg:ml-1 cursor-pointer" />
                     <Image src={arrow_right} alt="" className="ss:-mt-3.5 ss:ml-19 sm:-mt-3.5 sm:ml-19.2 lg:-mt-3.5 size-4 lg:ml-30 cursor-pointer" />
-                </div>
+                </div></Link>
 
-                <div className="relative ss:mt-5 ss:ml-3 ss:w-19.2 ss:h-6 sm:mt-5 sm:ml-3 sm:w-19.3 sm:h-6 bg-gray-lighter lg:w-31.5 lg:h-6 rounded lg:mt-5 lg:ml-5">
+                <Link href="https://hosoptima.com/faqs"><div className="relative ss:mt-5 ss:ml-3 ss:w-19.2 ss:h-6 sm:mt-5 sm:ml-3 sm:w-19.3 sm:h-6 bg-gray-lighter lg:w-31.5 lg:h-6 rounded lg:mt-5 lg:ml-5">
                     <h3 className="relative ss:pl-6 ss:pt-1 sm:pl-6 sm:pt-1 text-sm text-left text-gray lg:pl-6 lg:pt-1 cursor-pointer">FAQs</h3>
                     <Image src={question} alt="" className="ss:-mt-4.5 ss:ml-1 sm:-mt-4.5 sm:ml-1 lg:-mt-4.5 size-4 lg:ml-1 cursor-pointer" />
                     <Image src={arrow_right} alt="" className="ss:-mt-3.5 ss:ml-19 sm:-mt-3.5 sm:ml-19.2 lg:-mt-3.5 size-4 lg:ml-30 cursor-pointer" />
-                </div>
+                </div></Link>
             </div>
         </div>
     )
