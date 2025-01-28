@@ -52,32 +52,32 @@ const Page = () => {
     };
 
     // Handle form submission (Save Changes)
-    const handleSaveChanges = () => {
-        console.log('Profile updated:', profile);
-        alert('Profile saved successfully!');
-    };
+    // const handleSaveChanges = () => {
+    //     console.log('Profile updated:', profile);
+    //     alert('Profile saved successfully!');
+    // };
 
     // Handle saved changes on the backend
-    // const handleSaveChanges = async () => {
-    //     const formData = new FormData();
-    //     formData.append('firstName', profile.firstName);
-    //     formData.append('lastName', profile.lastName);
-    //     formData.append('email', profile.email);
-    //     formData.append('phone', profile.phone);
-    //     formData.append('profilePicture', profile.profilePicture); // Base64 string or file object
+    const handleSaveChanges = async () => {
+        const formData = new FormData();
+        formData.append('firstName', profile.firstName);
+        formData.append('lastName', profile.lastName);
+        formData.append('email', profile.email);
+        formData.append('phone', profile.phone);
+        formData.append('profilePicture', profile.profilePicture); // Base64 string or file object
 
-    //     try {
-    //         const response = await fetch('/api/update-profile', {
-    //             method: 'POST',
-    //             body: formData,
-    //         });
-    //         if (!response.ok) throw new Error('Profile update failed!');
-    //         alert('Profile updated successfully!');
-    //     } catch (error) {
-    //         console.error(error);
-    //         alert('Error updating profile.');
-    //     }
-    // };
+        try {
+            const response = await fetch('https://api.hosoptima.com/api/v1/ad-manager/profile', {
+                method: 'PATCH',
+                body: formData,
+            });
+            if (!response.ok) throw new Error('Profile update failed!');
+            alert('Profile updated successfully!');
+        } catch (error) {
+            console.error(error);
+            alert('Error updating profile.');
+        }
+    };
 
     return (
         <div className="ss:h-71 sm:h-71 lg:h-60 lg:w-full xl:h-80 xl:w-full xx:h-109 xx:w-full bg-gray-lighter overflow-hidden">

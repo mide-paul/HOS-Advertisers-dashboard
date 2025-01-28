@@ -1,6 +1,7 @@
 'use client';
 import { useState, useRef } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import Image from 'next/image';
 import sort from './../public/icons/Sort.png';
 import logo from './../public/images/logo.png';
@@ -9,6 +10,7 @@ import { Logout } from './logout';
 const Sidebar = () => {
   const [activeTab, setActiveTab] = useState('Dashboard');
   const [open, setOpen] = useState<boolean>(false);
+  const pathname = usePathname();
 
   const dropdownRef = useRef<HTMLDivElement>(null)
 
@@ -89,9 +91,9 @@ const Sidebar = () => {
           {tabs.map((tab) => (
             <Link key={tab.name} href={tab.href} legacyBehavior>
               <a
-                onClick={() => setActiveTab(tab.name)}
-                className={`block py-2 px-4 rounded-lg mb-2 text-sm font-normal hover:bg-gray-light transition-colors duration-200 ${activeTab === tab.name ? 'bg-gray-light' : ''
-                  }`}
+                className={`block py-2 px-4 rounded-lg mb-2 text-xs font-normal hover:bg-gray-200 transition-colors duration-200 ${
+                  pathname === tab.href ? 'bg-gray-200' : ''
+                }`}
               >
                 <div className='flex items-center'>
                   <span className="material-icons mr-3">{tab.icon}</span>

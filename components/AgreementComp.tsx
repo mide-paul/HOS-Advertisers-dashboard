@@ -36,7 +36,7 @@ export const AgreementComp = () => {
         formData.append('file', file);
 
         try {
-            const response = await fetch('/api/upload', {
+            const response = await fetch('https://api.hosoptima.com/api/v1/ad-manager/sign/agreement', {
                 method: 'POST',
                 body: formData,
             });

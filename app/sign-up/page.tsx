@@ -140,7 +140,7 @@ const CompanySignup = () => {
           <section>
             <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
             <div className="relative ss:mt-10 ss:ml-4 sm:mt-10 sm:ml-4 lg:-mt-27.5 lg:ml-18">
-              <div className="relative ss:w-19.4 ss:h-32.5 ss:mt-5 ss:pt-1 sm:w-21 sm:h-32.5 sm:mt-5 sm:pt-1 lg:w-34 lg:h-34 lg:pt-1 lg:-mt-8 lg:ml-24 bg-white xl:w-34.3 xl:h-37 xl:pt-1 xl:-mt-40 xl:ml-25 xx:w-34.3 xx:-mt-35 xx:ml-55 rounded">
+              <div className="relative ss:w-19.4 ss:h-34 ss:mt-5 ss:pt-1 sm:w-21 sm:h-34 sm:mt-5 sm:pt-1 lg:w-34 lg:h-34 lg:pt-1 lg:-mt-8 lg:ml-24 bg-white xl:w-34.3 xl:h-37 xl:pt-1 xl:-mt-40 xl:ml-25 xx:w-34.3 xx:-mt-35 xx:ml-55 rounded">
                 <form onSubmit={handleSignup}>
                   <div>
                     <h3 className="relative ss:ml-4 ss:mt-1 ss:text-sm sm:ml-4 sm:mt-0.5 sm:text-sm lg:ml-10 lg:mt-4 xl:mt-6 xx:mt-6 text-blue lg:text-base font-bold cursor-pointer">
@@ -287,7 +287,7 @@ const CompanySignup = () => {
                 <FontAwesomeIcon icon={faInfoCircle} />
                 Must match the first password input field.
               </p> */}
-                  {error && <p className="text-red text-center font-semibold lg:mt-2 xl:-mt-0.5 z-20">{error}</p>}
+                  {error && <p className="text-red text-center text-sm font-semibold mt-2 lg:mt-2 xl:-mt-0.5 z-20">{error}</p>}
 
                   <div className="flex sm:gap-2 lg:gap-3 xl:gap-3 sm:mt-4 s:ml-3.5 lg:mt-2 lg:ml-10.5 xl:mt-4 xl:ml-15.2">
                     <input
@@ -320,7 +320,7 @@ const CompanySignup = () => {
           </section>
 
           <div>
-            <h3 className="relative ss:mt-6 ss:ml-0 ss:text-sm ss:text-center sm:mt-6 sm:ml-0 sm:text-sm sm:text-center lg:-mt-7 lg:ml-10 lg:text-left lg:text-sm text-white xl:text-left xl:text-base xl:mt-12 xl:ml-13 xx:mt-19">
+            <h3 className="relative ss:mt-4.5 ss:ml-0 ss:text-sm ss:text-center sm:mt-4.5 sm:ml-0 sm:text-sm sm:text-center lg:-mt-7 lg:ml-10 lg:text-left lg:text-sm text-white xl:text-left xl:text-base xl:mt-12 xl:ml-13 xx:mt-19">
               © 2025 Rights are Reserved by hosoptima.com
             </h3>
           </div>

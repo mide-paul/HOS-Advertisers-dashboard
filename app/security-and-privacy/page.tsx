@@ -2,7 +2,6 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import line from '../../public/icons/line_dark.png';
-import toggle_icon from '../../public/icons/toggle_icon.png';
 import logout from '../../public/icons/logout_dark.png';
 import arrow_right from '../../public/icons/arrow_right_dark.png';
 import { Header } from "@/components/header";

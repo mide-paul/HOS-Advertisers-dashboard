@@ -74,15 +74,15 @@ const AdvertisersLogin = () => {
 
     const handleLogin = async (e: React.FormEvent) => {
         e.preventDefault();
-    
+
         if (!validEmail || !validPassword) return;
-    
+
         setLoading(true);
         try {
             // Simulate login request
             const response = await login(email, password); // Assuming this returns a token or user data
             const { token } = response; // Extract token from response
-    
+
             // Set authentication cookie
             setCookie("authToken", token, {
                 maxAge: rememberMe ? 60 * 60 * 24 * 7 : 0, // 7 days if "Remember Me" is checked, session cookie otherwise
@@ -90,11 +90,11 @@ const AdvertisersLogin = () => {
                 secure: process.env.NODE_ENV === "production", // Use secure cookies in production
                 sameSite: "strict", // Prevent CSRF
             });
-    
+
             if (rememberMe) {
                 localStorage.setItem("user", JSON.stringify({ email, password }));
             }
-    
+
             router.push("/sponsors");
         } catch (err) {
             console.error(err);
@@ -188,14 +188,15 @@ const AdvertisersLogin = () => {
                                     Must include at least two uppercase letters, at least three lowercase letters, at least two digits and a special character.<br />
                                 </p> */}
                                 </div>
-                                {error && <p className="text-red text-center font-semibold mt-2">{error}</p>}
+                                {error && <p className="text-red text-center font-semibold mt-2 text-sm">{error}</p>}
 
                                 <div>
                                     <input
                                         type='checkbox'
                                         checked={rememberMe}
                                         onChange={handleRememberMeChange}
-                                        className="relative ss:mt-5 ss:ml-4 sm:mt-5 sm:ml-4 lg:mt-5 lg:ml-10 xl:mt-5 xl:ml-10 z-10" />
+                                        className="relative ss:mt-5 ss:ml-4 sm:mt-5 sm:ml-4 lg:mt-5 lg:ml-10 xl:mt-5 xl:ml-10 z-10"
+                                    />
                                     <p className="relative ss:-mt-4.6 ss:ml-6.2 ss:text-sm sm:-mt-4.6 sm:ml-6.2 sm:text-sm text-dark lg:-mt-4.6 max-w-19 lg:ml-11 xl:-mt-4.6 xl:ml-11 lg:text-sm text-left xx:-mt-4.6 xx:ml-11 z-10">
                                         Remember me
                                     </p>
@@ -239,7 +240,7 @@ const AdvertisersLogin = () => {
 
                 <div>
                     <h3 className="relative ss:mt-6 ss:ml-0 ss:text-sm ss:text-center sm:mt-6 sm:ml-0 sm:text-sm sm:text-center lg:-mt-7 lg:ml-10 lg:text-left lg:text-sm text-white xl:text-left xl:text-base xl:mt-12 xl:ml-13 xx:mt-19">
-                        © 2025 Rights are Reserved by HOSOptima.com
+                        © 2025 Rights are Reserved by hosoptima.com
                     </h3>
                 </div>
             </div>
