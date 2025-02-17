@@ -2,7 +2,6 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { Modal } from "@/components/Modal";
-import add_square_white from './../public/icons/add_square_white.png';
 import click_upload from './../public/icons/click_upload.png';
 
 export const Postad: React.FC = () => {
@@ -10,10 +9,6 @@ export const Postad: React.FC = () => {
 
     return (
         <div className="flex flex-col sm:-ml-39 lg:ml-0.1 items-center justify-center">
-            <button onClick={() => setIsModalOpen(true)} className="relative ss:-mt-7 ss:pl-0 ss:h-5 ss:w-10 ss:-ml-28 sm:-mt-6 sm:ml-19 sm:pl-0 sm:h-6 sm:w-10 md:ml-48 lg:-mt-7 lg:ml-0.1 lg:pl-5 lg:h-6 lg:w-12 text-sm bg-blue text-white rounded hover:bg-light-blue">
-                Post Ad
-            </button>
-            <Image src={add_square_white} alt="" className="relative lg:-mt-5 lg:-ml-8 lg:h-4 lg:w-4" />
             <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
                 <div className="absolute sm:-ml-2 sm:mt-21 sm:h-30 sm:w-20 lg:ml-19.2 lg:mt-21 lg:h-30 lg:w-30 bg-gray-lighter z-50">
                     <div className="relative bg-white h-6.5 w-full">

@@ -6,7 +6,7 @@ import line from '../../public/icons/line_dark.png';
 import search from '../../public/icons/search.png';
 import eye from '../../public/icons/eye_dark.png';
 import verify from '../../public/icons/verify.png';
-import { PostadTwo } from "@/components/postAdTwo";
+import add_square_white from '../../public/icons/add_square_white.png';
 import { Header } from "@/components/header";
 import Sidebar from "@/components/Sidebar";
 
@@ -38,13 +38,19 @@ const Blogpost = () => {
                         <h3 className="relative ss:pt-6 ss:ml-3 ss:text-nowrap sm:pt-6 sm:ml-3 sm:text-nowrap lg:pt-6 text-sm text-dark lg:text-left">Ad history</h3>
 
                         <div>
-                            <input className="relative ss:mt-5 ss:-ml-15 ss-5 ss:h-6 ss:w-13 sm:mt-5 sm:-ml-15 sm-5 sm:h-6 sm:w-13 lg:mt-5 lg:ml-0.1 pl-5 lg:h-6 lg:w-22 text-sm border rounded" placeholder="search" />
-                            <Image src={search} alt="" className="absolute ss:-mt-4.51 ss:-ml-14 ss:h-1.5 ss:w-1.5 sm:-mt-4.51 sm:-ml-14 sm:h-1.5 sm:w-1.5 lg:-mt-4.51 lg:ml-1 lg:h-1.5 lg:w-1.5" />
+                            <input className="relative ss:mt-5 ss:-ml-16 ss-5 ss:h-6 ss:w-13 sm:mt-5 sm:-ml-16 sm-5 sm:h-6 sm:w-13 lg:mt-5 lg:ml-0.1 pl-5 lg:h-6 lg:w-22 text-sm border rounded" placeholder="search" />
+                            <Image src={search} alt="" className="absolute ss:-mt-4.51 ss:-ml-15.9 ss:h-1.5 ss:w-1.5 sm:-mt-4.51 sm:-ml-15.9 sm:h-1.5 sm:w-1.5 lg:-mt-4.51 lg:ml-1 lg:h-1.5 lg:w-1.5" />
                         </div>
 
-                        <div>
-                            <PostadTwo />
-                        </div>
+                        <a
+                            target='_blank'
+                            rel='noopener noreferrer' href="https://hosoptima.com/advertise-with-us"><div>
+                                <button className="relative ss:mt-5 ss:pl-0 ss:h-6 ss:w-10 ss:-ml-19.1 sm:mt-5 sm:pl-0 sm:h-6 sm:w-10 sm:-ml-18 lg:-mt-7 lg:ml-0.1 lg:pl-5 lg:h-6 lg:w-12 text-sm bg-blue text-white rounded hover:bg-light-blue">
+                                    Post Ad
+                                </button>
+                                <Image src={add_square_white} alt="" className="relative lg:-mt-5 lg:ml-4.7 lg:h-4 lg:w-4" />
+                            </div>
+                        </a>
                     </div>
 
                     <div className="flex ss:flex-col sm:flex-col lg:flex-row flex-wrap">

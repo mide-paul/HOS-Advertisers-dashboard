@@ -53,7 +53,6 @@ const Page = () => {
 
     // Handle form submission (Save Changes)
     // const handleSaveChanges = () => {
-    //     console.log('Profile updated:', profile);
     //     alert('Profile saved successfully!');
     // };
 

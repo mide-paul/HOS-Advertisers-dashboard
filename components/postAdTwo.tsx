@@ -1,8 +1,6 @@
 'use client';
 import React, { useState } from "react";
-import Image from "next/image";
 import { Modal } from "@/components/Modal";
-import add_square_white from './../public/icons/add_square_white.png';
 // import click_upload from './../public/icons/click_upload.png';
 
 export const PostadTwo = () => {
@@ -10,10 +8,6 @@ export const PostadTwo = () => {
 
     return (
         <div className="flex flex-col items-center justify-center bg-gray">
-            <button onClick={() => setIsModalOpen(true)} className="relative ss:-mt-7 ss:pl-0 ss:h-5 ss:w-10 ss:-ml-28 sm:-mt-7 sm:pl-0 sm:h-6 sm:w-10 sm:-ml-24 lg:-mt-7 lg:ml-0.1 lg:pl-5 lg:h-6 lg:w-12 text-sm bg-blue text-white rounded hover:bg-light-blue">
-                Post Ad
-            </button>
-            <Image src={add_square_white} alt="" className="relative lg:-mt-5 lg:-ml-8 lg:h-4 lg:w-4" />
             <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
                 <div className="absolute lg:ml-19.2 lg:mt-27 lg:h-39.5 lg:w-30 bg-gray-lighter z-10 ">
                     <div className="relative bg-white h-6.5 w-full">

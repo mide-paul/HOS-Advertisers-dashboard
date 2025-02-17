@@ -91,11 +91,11 @@ const Sidebar = () => {
           {tabs.map((tab) => (
             <Link key={tab.name} href={tab.href} legacyBehavior>
               <a
-                className={`block py-2 px-4 rounded-lg mb-2 text-xs font-normal hover:bg-gray-200 transition-colors duration-200 ${
-                  pathname === tab.href ? 'bg-gray-200' : ''
+                className={`block py-2 px-4 rounded-lg mb-2 text-xs font-normal hover:bg-gray-light transition-colors duration-200 ${
+                  pathname === tab.href ? 'bg-gray-light' : ''
                 }`}
               >
-                <div className='flex items-center'>
+                <div className='flex items-center text-sm'>
                   <span className="material-icons mr-3">{tab.icon}</span>
                   {tab.name}
                 </div>
