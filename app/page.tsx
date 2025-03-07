@@ -4,8 +4,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { setCookie } from "cookies-next";
-// import { faCheck, faTimes, faInfoCircle } from "@fortawesome/free-solid-svg-icons";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import logo_white from './../public/images/logo_white.png';
 import truck_white from './../public/icons/truck_white.svg';
 import facebook from './../public/icons/facebook.svg';
@@ -42,19 +40,6 @@ const AdvertisersLogin = () => {
 
     const [rememberMe, setRememberMe] = useState(false);
     const [loading, setLoading] = useState(false);
-
-    const [type, setType] = useState('password');
-    //   const [icon, setIcon] = useState(eyeOff);
-
-    //   const handleToggle = () => {
-    //     if (type === 'password') {
-    //       setIcon(eye);
-    //       setType('text')
-    //     } else {
-    //       setIcon(eyeOff)
-    //       setType('password')
-    //     }
-    //   }
 
     useEffect(() => {
         if (userRef.current) userRef.current.focus();
@@ -154,19 +139,9 @@ const AdvertisersLogin = () => {
                                         required
                                         aria-invalid={validEmail ? "false" : "true"}
                                         aria-describedby="uidnote"
-                                        // onFocus={() => setEmailFocus(true)}
-                                        // onBlur={() => setEmailFocus(false)}
                                         className="relative ss:mt-4 ss:w-19.1 ss:h-6.2 ss:pl-5.3 ss:text-sm ss:text-dark ss:bg-white sm:mt-4 sm:w-19.6 sm:h-6 sm:pl-5.3 sm:text-sm sm:text-dark sm:bg-white lg:mt-10 lg:w-24.2 lg:h-6.2 lg:pl-5.3 lg:text-sm lg:text-dark lg:bg-white border border-gray rounded xl:w-29 xx:w-29"
                                     />
                                     <Image src={sms} alt="" className="relative ss:-mt-6.25 ss:ml-1 ss:h-4 ss:w-4 sm:-mt-6.2 sm:ml-1 sm:h-4 sm:w-4 lg:-mt-6.1 lg:ml-1" />
-                                    {/* <p id="uidnote" className={emailFocus && email &&
-                                        !validEmail ? "instructions" : "offscreen"}>
-                                        <FontAwesomeIcon icon={faInfoCircle} />
-                                        4 to 24 characters.<br />
-                                        Must begin with a letter. <br />
-                                        only lowercase is allowed.
-                                        Allowed special characters: @
-                                    </p> */}
                                 </div>
 
                                 <div className="flex ss:gap-2 ss:flex-col ss:ml-4 ss:mt-6 sm:gap-2 sm:flex-col sm:ml-4 sm:mt-6 lg:flex-col lg:ml-10 lg:mt-5 lg:gap-1 xl:ml-10 xx:ml-10">
@@ -180,8 +155,6 @@ const AdvertisersLogin = () => {
                                         autoComplete="new-password"
                                         aria-invalid={validPassword ? "false" : "true"}
                                         aria-describedby="pwdnote"
-                                        // onFocus={() => setPasswordFocus(true)}
-                                        // onBlur={() => setPasswordFocus(false)}
                                         className="relative ss:w-19.1 ss:h-6.2 ss:pl-5.3 ss:text-sm ss:text-dark ss:bg-white sm:w-19.6 sm:h-6 sm:pl-5.3 sm:text-sm sm:text-dark sm:bg-white lg:w-24.2 lg:h-6.2 lg:pl-5.3 lg:text-sm lg:text-dark lg:bg-white border border-gray rounded xl:w-29 xx:w-29"
                                     />
                                     <button
@@ -192,11 +165,6 @@ const AdvertisersLogin = () => {
                                         {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
                                     </button>
                                     <Image src={lock} alt="" className="relative ss:-mt-5.3 ss:ml-1 ss:h-4 ss:w-4 sm:-mt-5.4 sm:ml-1 sm:h-4 sm:w-4 lg:-mt-5.2 lg:ml-1 lg:h-4 lg:w-4" />
-                                    {/* <p id="pwdnote" className={passwordFocus && !validPassword ? "instructions" : "offscreen"}>
-                                    <FontAwesomeIcon icon={faInfoCircle} />
-                                    8 to 15 characters.<br />
-                                    Must include at least two uppercase letters, at least three lowercase letters, at least two digits and a special character.<br />
-                                </p> */}
                                 </div>
                                 {error && <p className="text-red text-center font-semibold mt-2 text-sm">{error}</p>}
 
@@ -243,10 +211,6 @@ const AdvertisersLogin = () => {
                         </div>
                     </div>
                 </section>
-
-                {/* <span className="items-center" onClick={handleToggle}>
-                    <Icon className="absolute lg:ml-28.7 lg:mt-19.9 z-10 xl:mt-28.3 xl:ml-24 cursor-pointer" icon={icon} size={20} />
-                </span> */}
 
                 <div>
                     <h3 className="relative ss:mt-6 ss:ml-0 ss:text-sm ss:text-center sm:mt-6 sm:ml-0 sm:text-sm sm:text-center lg:-mt-7 lg:ml-10 lg:text-left lg:text-sm text-white xl:text-left xl:text-base xl:mt-12 xl:ml-13 xx:mt-19">
