@@ -33,37 +33,37 @@ export const AdplanCards = () => {
     ];
 
     return (
-        <div className="ss:ml-6 sm:ml-8 md:ml-19.2 lg:ml-20 lg:h-50 lg:w-62 xl:h-80 xl:w-full xx:h-109 xx:w-full bg-gray-lighter overflow-scroll scroll-smooth overflow-y-hidden">
+        <div className="mt-6 md:ml-64 lg:ml-64 h-full w-full bg-gray-200">
             <div>
-                <div className="flex ss:flex-col sm:flex-col lg:flex-row gap-3 lg:w-70 lg:min-w-60 lg:pb-7 lg:pr-5">
+                <div className="flex flex-col lg:flex-row flex-wrap gap-6 xl:gap-12 ml-4 lg:w-full pb-7 pr-5">
                     {adPlans.map((plan, index) => (
                         <div
                             key={index}
                             onClick={() => handleSelect(index, plan.price)}
-                            className={`relative ss:mt-6 ss:h-27 ss:w-19.2 ss:min-w-19.2 sm:mt-6 sm:h-27 sm:w-19.2 sm:min-w-19.2 bg-white lg:mt-6 lg:h-27 lg:w-19.2 lg:min-w-19.2 rounded cursor-pointer ${selectedCard === index ? 'border-2 border-blue' : ''}`}
+                            className={` bg-white mt-6 min-h-[350px] w-80 p-2 rounded cursor-pointer ${selectedCard === index ? 'border-2 border-blue-950' : ''}`}
                             style={{ opacity: selectedCard !== null && selectedCard !== index ? 0.5 : 1 }}
                         >
-                            <Image src={plan.image} alt="" className="relative ss:w-17.7 ss:pt-2 ss:ml-2 sm:w-17.7 sm:pt-2 sm:ml-2 lg:w-17.7 lg:pt-2 lg:ml-2" />
-                            <h3 className="relative ss:pt-3 ss:ml-2 sm:pt-3 sm:ml-2 text-dark lg:font-bold text-sm lg:text-left lg:pt-3 lg:ml-2">{plan.title}</h3>
-                            <h3 className="relative ss:pt-1 ss:ml-2 sm:pt-1 sm:ml-2 text-gray lg:font-normal text-x lg:text-left lg:pt-1 lg:ml-2">{plan.description}</h3>
-                            <h3 className="relative ss:-mt-5 ss:ml-16.2 sm:-mt-5 sm:ml-16.2 text-dark lg:font-bold text-sm lg:text-left lg:-mt-5 lg:ml-16.2">{plan.price}</h3>
-                            <Image src={line} alt="" className="relative ss:w-17.7 ss:pt-5 ss:ml-2 sm:w-17.7 sm:pt-5 sm:ml-2 lg:w-17.7 lg:pt-5 lg:ml-2" />
-                            <Image src={verify} alt="" className="relative ss:pt-5 ss:ml-2 sm:pt-5 sm:ml-2 lg:pt-5 lg:ml-2" />
-                            <p className="relative ss:-mt-4.4 ss:ml-6.3 sm:-mt-4.4 sm:ml-6.3 text-dark lg:font-normal text-x lg:text-left lg:-mt-4.4 lg:ml-6.3">
+                            <Image src={plan.image} alt="" className="rounded" />
+                            <h3 className="text-black font-bold text-sm text-left pt-3 ml-2">{plan.title}</h3>
+                            <h3 className="text-gray font-normal text-xs text-left pt-1 ml-2">{plan.description}</h3>
+                            <h3 className="text-black font-bold text-sm text-left -mt-5 ml-60">{plan.price}</h3>
+                            <Image src={line} alt="" className="w-full pt-5" />
+                            <Image src={verify} alt="" className="pt-5" />
+                            <p className="text-black font-normal text-xs text-left -mt-5 ml-7">
                                 {plan.benefitone}
                             </p>
-                            <Image src={verify} alt="" className="relative ss:pt-3 ss:ml-2 sm:pt-3 sm:ml-2 lg:pt-3 lg:ml-2" />
-                            <p className="relative ss:-mt-4.4 ss:ml-6.3 sm:-mt-4.4 sm:ml-6.3 text-dark lg:font-normal text-x lg:text-left lg:-mt-4.4 lg:ml-6.3">
+                            <Image src={verify} alt="" className="pt-3" />
+                            <p className="text-black font-normal text-xs text-left -mt-5 ml-7">
                                 {plan.benefittwo}
                             </p>
-                            <Image src={verify} alt="" className="relative ss:pt-3 ss:ml-2 sm:pt-3 sm:ml-2 lg:pt-3 lg:ml-2" />
-                            <p className="relative ss:-mt-5 ss:ml-6.3 sm:-mt-5 sm:ml-6.3 text-dark lg:font-normal text-x lg:text-left lg:-mt-5 lg:ml-6.3">
+                            <Image src={verify} alt="" className="pt-3" />
+                            <p className="text-black font-normal text-xs text-left -mt-5 ml-7">
                                 {plan.benefitthree}
                             </p>
                             <div>
                                 <button
                                     onClick={handlePayment}
-                                    className="relative ss:mt-4 ss:ml-2 ss:h-6 ss:w-17.7 sm:mt-4 sm:ml-2 sm:h-6 sm:w-17.7 lg:mt-4 lg:ml-2 lg:h-6 lg:w-17.7 bg-blue text-white text-sm rounded hover:bg-light-blue">
+                                    className="mt-4 py-2 w-full bg-blue-950 text-white text-sm rounded hover:bg-blue-900">
                                     Proceed
                                 </button>
                             </div>

@@ -10,32 +10,32 @@ import Sidebar from "@/components/Sidebar";
 const SecurityAndPrivacy = () => {
 
     return (
-        <div className="ss:h-54 sm:h-54 lg:h-60 lg:w-full xl:h-80 xl:w-full xx:h-109 xx:w-full bg-gray-lighter overflow-hidden">
+        <div className="h-full w-full bg-gray-200 overflow-hidden">
             <div>
                 <Sidebar />
             </div>
 
             <Header />
 
-            <div className="relative ss:ml-0 ss:mt-10 ss:w-21.5 ss:h-43 sm:ml-2 sm:mt-10 sm:w-21.5 sm:h-43 bg-white lg:ml-20 lg:mt-12 lg:w-62 lg:h-50 xl:ml-23 rounded">
-                <div className="flex ss:gap-2 ss:ml-2 ss:pt-6 sm:gap-2 sm:ml-2 sm:pt-6 lg:gap-5 lg:pt-6 lg:ml-7">
-                    <Link href="/settings"><h3 className="relative text-sm text-left text-dark cursor-pointer">Profile</h3></Link>
-                    <Link href="/plans"><h3 className="relative text-sm text-left text-dark font-normal cursor-pointer">Plans</h3></Link>
+            <div className="bg-white ml-0 md:ml-64 lg:ml-64 mt-24 w-full h-50 rounded pb-8">
+                <div className="flex gap-4 pt-5 ml-5 lg:gap-5 lg:pt-6 lg:ml-7">
+                    <Link href="/settings"><h3 className="relative text-sm text-left text-black cursor-pointer">Profile</h3></Link>
+                    <Link href="/plans"><h3 className="relative text-sm text-left text-black font-normal cursor-pointer">Plans</h3></Link>
                     <h3 className="relative text-sm text-left text-light-blue font-semibold">Security & Privacy</h3>
-                    <Link href="/support"><h3 className="relative text-dark text-sm text-left cursor-pointer">Support</h3></Link>
-                    <Image src={line} alt="" className="absolute ss:mt-5 ss:ml-11 sm:mt-5 sm:ml-11 lg:mt-5 w-11.5 h-0.1 lg:ml-12.2" />
+                    <Link href="/support"><h3 className="relative text-black text-sm text-left cursor-pointer">Support</h3></Link>
+                    <Image src={line} alt="" className="absolute mt-6 w-32 ml-28 h-0.1" />
                 </div>
 
                 <div>
                     <div>
-                        <h3 className="relative ss:ml-2 ss:mt-6 sm:ml-2 sm:mt-6 text-dark text-sm font-bold text-left lg:ml-7 lg:mt-8">Change Password</h3>
+                        <h3 className="ml-5 mt-6 text-black text-sm font-bold text-left lg:ml-7 lg:mt-8">Change Password</h3>
                     </div>
                     <div>
-                        <div className="relative ss:ml-2 ss:mt-4 ss:w-19.51 ss:h-16 sm:ml-2 sm:mt-4 sm:w-20 sm:h-16 bg-white lg:w-35 lg:h-15.5 border rounded lg:ml-7 lg:mt-4">
-                            <div className="flex flex-col gap-2 ss:ml-4 ss:mt-4 sm:ml-4 sm:mt-4 lg:ml-4 lg:mt-4">
-                                <h3 className="relative text-sm text-left">Current Password</h3>
+                        <div className="ml-5 mt-4 w-80 h-52 bg-white lg:w-80 lg:h-48 border rounded lg:ml-7 lg:mt-4">
+                            <div className="flex flex-col gap-2 ml-4 mt-4 lg:ml-4 lg:mt-4">
+                                <h3 className="text-sm text-left text-black">Current Password</h3>
                                 <input
-                                    className="relative text-sm text-dark ss:w-19.2 sm:w-19.3 h-6 lg:w-32.7 p-2 bg-gray-lighter rounded"
+                                    className="relative text-sm text-black w-72 h-10 pl-4 bg-gray-200 rounded"
                                     placeholder="Enter your current password"
                                     type="password" />
                                 {/* <span className="items-center" onClick={handleToggle}>
@@ -43,10 +43,10 @@ const SecurityAndPrivacy = () => {
                             </span> */}
                             </div>
 
-                            <div className="flex flex-col gap-2 ss:ml-4 ss:mt-4 sm:ml-4 sm:mt-4 lg:ml-4 lg:mt-4">
-                                <h3 className="relative text-sm text-left">Enter New Password</h3>
+                            <div className="flex flex-col gap-2 ml-4 mt-4 lg:ml-4 lg:mt-4">
+                                <h3 className="relative text-sm text-left text-black">Enter New Password</h3>
                                 <input
-                                    className="relative text-sm text-dark ss:w-19.2 sm:w-19.3 h-6 lg:w-32.7 p-2 bg-gray-lighter rounded"
+                                    className="relative text-sm text-black w-72 h-10 pl-4 bg-gray-200 rounded"
                                     placeholder="Enter new password"
                                     type="password" />
                                 {/* <span className="items-center" onClick={handleToggle}>
@@ -70,11 +70,11 @@ const SecurityAndPrivacy = () => {
                         </div>
                     </div> */}
                     <div>
-                        <div className="relative ss:ml-2 ss:mt-4 ss:w-19.51 ss:h-8 sm:ml-2 sm:mt-4 sm:w-20 sm:h-8 bg-white lg:w-35 lg:h-8 border rounded lg:ml-7 lg:mt-5">
-                            <div className="relative ss:w-19.2 ss:h-6 ss:mt-3 ss:ml-3 sm:w-19.5 sm:h-6 sm:mt-3 sm:ml-3 bg-gray-lighter lg:w-33 lg:h-6 rounded lg:mt-3 lg:ml-3">
-                                <h3 className="relative ss:pl-6 ss:pt-1 sm:pl-6 sm:pt-1 text-sm text-left text-gray lg:pl-6 lg:pt-1 cursor-pointer">Log Out</h3>
-                                <Image src={logout} alt="" className="relative ss:ml-1 ss:-mt-4.5 sm:ml-1 sm:-mt-4.5 lg:-mt-4.5 size-4 lg:ml-1 cursor-pointer" />
-                                <Image src={arrow_right} alt="" className="relative ss:-mt-4.5 ss:ml-19 sm:-mt-4.5 sm:ml-19.2 lg:-mt-4.5 size-4 lg:ml-31 z-10 cursor-pointer" />
+                        <div className="ml-5 mt-4 w-80 h-11 bg-white border rounded lg:ml-7 lg:mt-7">
+                            <div className="w-72 h-8 mt-1 ml-3 bg-gray-200 lg:w-72 lg:h-8 rounded">
+                                <h3 className="pl-8 pt-1 text-sm text-left text-gray cursor-pointer">Log Out</h3>
+                                <Image src={logout} alt="" className="ml-1 -mt-4.5 -mt-4 size-4 lg:ml-1 cursor-pointer" />
+                                <Image src={arrow_right} alt="" className="-mt-4 ml-64 lg:-mt-4 size-4 z-10 cursor-pointer" />
                             </div>
                         </div>
                     </div>

@@ -9,20 +9,20 @@ import Sidebar from "@/components/Sidebar";
 const Support = () => {
 
     return (
-        <div className="ss:h-41 sm:h-40 lg:h-60 lg:w-full xl:h-80 xl:w-full xx:h-109 xx:w-full bg-gray-lighter overflow-hidden">
+        <div className="h-full w-full bg-gray-200 overflow-hidden">
             <div>
                 <Sidebar />
             </div>
 
             <Header />
 
-            <div className="relative ss:ml-0 ss:mt-10 ss:w-21.5 ss:h-30 sm:ml-2 sm:mt-10 sm:w-21.5 sm:h-30 bg-white lg:ml-20 lg:mt-12 lg:w-62 lg:h-50 xl:ml-23 rounded">
-                <div className="flex ss:gap-2 ss:ml-2 ss:pt-6 sm:gap-2 sm:ml-2 sm:pt-6 lg:gap-5 lg:pt-6 lg:ml-7">
-                    <Link href="/settings"><h3 className="relative text-sm text-left text-dark cursor-pointer">Profile</h3></Link>
-                    <Link href="/plans"><h3 className="relative text-sm text-left text-dark font-normal cursor-pointer">Plans</h3></Link>
-                    <Link href="/security-and-privacy"><h3 className="relative text-sm text-left text-dark font-normal cursor-pointer">Security & Privacy</h3></Link>
-                    <h3 className="relative text-light-blue font-semibold text-sm text-left">Support</h3>
-                    <Image src={line} alt="" className="absolute ss:mt-5 ss:ml-16.6 sm:mt-5 sm:ml-16.6 lg:mt-5 w-8 h-0.1 lg:ml-19.1" />
+            <div className="bg-white ml-0 md:ml-64 lg:ml-64 mt-24 w-full h-50 rounded pb-8">
+                <div className="flex gap-4 pt-5 ml-4 lg:gap-5 lg:pt-6 md:ml-4 lg:ml-7">
+                    <Link href="/settings"><h3 className="text-sm text-left text-black cursor-pointer">Profile</h3></Link>
+                    <Link href="/plans"><h3 className="text-sm text-left text-black font-normal cursor-pointer">Plans</h3></Link>
+                    <Link href="/security-and-privacy"><h3 className="text-sm text-left text-black font-normal cursor-pointer">Security & Privacy</h3></Link>
+                    <h3 className="text-light-blue font-semibold text-sm text-left">Support</h3>
+                    <Image src={line} alt="" className="absolute ml-60 lg:ml-64 mt-6 w-16 h-0.1" />
                 </div>
 
                 <div>

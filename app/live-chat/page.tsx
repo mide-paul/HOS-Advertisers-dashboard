@@ -15,118 +15,120 @@ import Sidebar from "@/components/Sidebar";
 const LiveChat = () => {
 
     return (
-        <div className="ss:h-103 sm:h-98 lg:h-60 lg:w-full xl:h-80 xl:w-full xx:h-109 xx:w-full bg-gray-lighter overflow-hidden">
+        <div className="h-full w-full bg-gray-200 overflow-hidden">
             <div>
                 <Sidebar />
             </div>
 
             <Header />
 
-            <div className="relative ss:ml-0 ss:mt-10 ss:w-21.5 ss:h-7 sm:ml-3 sm:mt-10 sm:w-21.5 sm:h-7 bg-white lg:ml-20 lg:mt-12 lg:w-62 lg:h-7 rounded">
-                <Link href="/support"><Image src={arrow_left_blue} alt="" className="relative ss:pt-0.1 ss:ml-2 sm:pt-0.1 sm:ml-2 lg:pt-0.1 lg:ml-2" />
-                    <h3 className="relative ss:ml-8 ss:-mt-5.3 sm:ml-8 sm:-mt-5.3 text-sm text-left font-bold text-blue lg:ml-8 lg:-mt-5.3">Back</h3>
+            <div className="bg-white md:ml-64 lg:ml-64 mt-24 lg:max-w-[1075px] h-12 rounded pb-4">
+                <Link href="/support"><Image src={arrow_left_blue} alt="" className="relative mb-2 ml-2" />
+                    <h3 className="text-sm text-left font-bold text-blue ml-12 -mt-10">Back</h3>
                 </Link>
             </div>
 
-            <div className="flex ss:flex-col sm:flex-col lg:flex-row sm:ml-3 gap-4 lg:ml-20">
-                <div className="relative ss:mt-5 ss:w-21.5 ss:h-40 sm:mt-5 sm:w-21.5 sm:h-40 flex flex-wrap bg-white lg:mt-5 lg:w-25 lg:h-40 rounded">
-                    <div className="relative ss:mt-4 ss:ml-4 ss:w-13 ss:h-10 sm:mt-4 sm:ml-4 sm:w-13 sm:h-10 bg-white lg:mt-4 lg:ml-4 lg:w-15.5 lg:h-10 border rounded">
-                        <Image src={tickets_1} alt="" className="absolute ss:mt-3 ss:ml-2 sm:mt-3 sm:ml-2 lg:mt-4.5 lg:ml-2 bg-gray-lighter p-2 rounded-3xl" />
-                        <h3 className="relative ss:ml-4.5 ss:mt-3.3 sm:ml-4.5 sm:mt-3.5 text-left text-dark text-sm font-normal lg:ml-8 lg:mt-3">3</h3>
-                        <h3 className="relative ss:ml-4 ss:mt-3 sm:ml-4 sm:mt-3 text-left text-gray text-sm font-normal lg:ml-8 lg:mt-3">Total Tickets</h3>
+            <div className="flex flex-col lg:flex-row gap-4 md:ml-64 lg:ml-64 pb-8">
+                <div className="mt-5 max-w-[480px] lg:max-w-[380px] h-full flex flex-wrap bg-white lg:mt-5 p-4 rounded-md">
+                    <div className="w-40 h-20 bg-white border rounded">
+                        <Image src={tickets_1} alt="" className="absolute mt-3 ml-2 lg:mt-5 lg:ml-2 bg-gray-200 p-2 size-8 rounded-3xl" />
+                        <h3 className="ml-12 mt-3 text-left text-black text-sm font-normal">3</h3>
+                        <h3 className="ml-12 mt-3 text-left text-gray text-sm font-normal">Total Tickets</h3>
                     </div>
-                    <div className="relative ss:mt-4 ss:ml-1 ss:w-13 ss:h-10 sm:mt-4 sm:ml-5.4 sm:w-13 sm:h-10 bg-white lg:mt-4 lg:ml-4 lg:w-15.5 lg:h-10 border rounded">
-                        <Image src={tickets_2} alt="" className="absolute ss:mt-3 ss:ml-2 sm:mt-3 sm:ml-2 lg:mt-4.5 lg:ml-2 bg-gray-lighter p-2 rounded-3xl" />
-                        <h3 className="relative ss:ml-4.5 ss:mt-3.3 sm:ml-4.5 sm:mt-3.5 text-left text-dark text-sm font-normal lg:ml-8 lg:mt-3">2</h3>
-                        <h3 className="relative ss:ml-4 ss:mt-3 sm:ml-4 sm:mt-3 text-left text-gray text-sm font-normal lg:ml-8 lg:mt-3">Open Tickets</h3>
+                    <div className="ml-5 w-40 h-20 bg-white border rounded">
+                        <Image src={tickets_2} alt="" className="absolute mt-3 ml-2 lg:mt-4 bg-gray-200 p-2 size-8 rounded-3xl" />
+                        <h3 className="ml-12 mt-3 text-left text-black text-sm font-normal">2</h3>
+                        <h3 className="ml-12 mt-3 text-left text-gray text-sm font-normal">Open Tickets</h3>
                     </div>
-                    <div className="relative ss:-mt-5 ss:ml-4 ss:w-13 ss:h-10 sm:-mt-5 sm:ml-4 sm:w-13 sm:h-10 bg-white lg:-mt-5 lg:ml-4 lg:w-15.5 lg:h-10 border rounded">
-                        <Image src={tickets_3} alt="" className="absolute ss:mt-3 ss:ml-2 sm:mt-3 sm:ml-2 lg:mt-4.5 lg:ml-2 bg-gray-lighter p-2 rounded-3xl" />
-                        <h3 className="relative ss:ml-4.5 ss:mt-3.3 sm:ml-4.5 sm:mt-3.5 text-left text-dark text-sm font-normal lg:ml-8 lg:mt-3">2</h3>
-                        <h3 className="relative ss:ml-4 ss:mt-3 sm:ml-4 sm:mt-3 text-left text-gray text-sm font-normal lg:ml-8 lg:mt-3">Closed Tickets</h3>
+                    <div className="mt-4 w-40 h-20 bg-white border rounded">
+                        <Image src={tickets_3} alt="" className="absolute mt-3 ml-2 lg:mt-4 bg-gray-200 p-2 size-8 rounded-3xl" />
+                        <h3 className="ml-12 mt-3 text-left text-black text-sm font-normal">2</h3>
+                        <h3 className="ml-12 mt-3 text-left text-gray text-sm font-normal">Closed Tickets</h3>
                     </div>
 
                     <div>
-                        <button className="absolute ss:-ml-13 ss:mt-10 ss:h-6 ss:w-19.4 sm:-ml-13 sm:mt-10 sm:h-6 sm:w-19.9 lg:-ml-15.5 lg:mt-10.5 lg:h-6 lg:w-23 border rounded font-bold transparent text-sm text-light-blue">
+                        <button className="ml-13 mt-8 h-8 w-80 border rounded font-medium transparent text-sm text-blue-950 hover:bg-gray-100">
                             Start New Chat
                         </button>
                     </div>
 
-                    <div className="flex ss:gap-8 sm:gap-10 lg:gap-14 ss:ml-3 ss:mt-6 sm:ml-3 sm:mt-6 lg:ml-3 lg:mt-9">
-                        <h3 className="relative text-dark font-semibold text-sm">Opened messages</h3>
-                        <h3 className="relative text-gray-light font-semibold text-sm cursor-pointer">Closed messages</h3>
+                    <div className="flex gap-10 lg:gap-14 ml-3 sm:mt-6 lg:ml-3 mt-9 lg:mt-9">
+                        <h3 className="text-black font-normal text-sm">Opened messages</h3>
+                        <h3 className="text-gray-200 font-normal text-sm cursor-pointer">Closed messages</h3>
                     </div>
 
                     <div>
-                        <div className="relative ss:w-19.5 ss:h-12.5 ss:ml-3.3 sm:w-19.9 sm:h-12.5 sm:ml-3.3 lg:w-23.1 lg:h-11.7 lg:ml-3.3 bg-gray-light rounded">
-                            <input type="radio" name="live-chat" className="relative ss:ml-4 ss:mt-2 sm:ml-4 sm:mt-2 lg:ml-4 lg:mt-2" />
-                            <h3 className="relative ss:ml-6.5 ss:-mt-4.6 sm:ml-6.5 sm:-mt-4.6 text-sm text-dark font-semibold text-left lg:ml-6.5 lg:-mt-4.6">
+                        <div className="min-w-[350px] h-32 mt-6 pt-2 bg-gray-200 rounded-md">
+                            <input type="checkbox" name="live-chat" className="relative ml-4 mt-2" />
+                            <h3 className="ml-9 -mt-6 text-sm text-black font-semibold text-left">
                                 Login Issues
                             </h3>
-                            <p className="relative ss:mt-1 ss:ml-6.5 sm:mt-1 sm:ml-6.5 text-left text-sm lg:mt-1 lg:ml-6.5 text-gray lg:max-w-20">
+                            <p className="mt-1 ml-9 text-left text-sm text-gray-500">
                                 I can&apos;t log into my account, i tried multiple times but it kept saying the same thing on and on and ...
                             </p>
-                            <h3 className="relative ss:mt-1 ss:ml-6.5 sm:mt-1 sm:ml-6.5 text-sm text-gray text-left lg:mt-1 lg:ml-6.5">
+                            <h3 className="mt-1 ml-9 text-xs text-gray-400 text-left">
                                 1w ago
                             </h3>
                         </div>
 
-                        <div className="relative ss:w-19.5 ss:h-12.5 ss:ml-3.3 ss:mt-3 sm:w-19.9 sm:h-12.5 sm:ml-3.3 sm:mt-3 lg:w-23.1 lg:h-11.7 lg:ml-3.3 lg:mt-3 bg-white border rounded">
-                            <input type="radio" name="live-chat" className="relative ss:ml-4 ss:mt-2 sm:ml-4 sm:mt-2 lg:ml-4 lg:mt-2" />
-                            <h3 className="relative ss:ml-6.5 ss:-mt-4.6 sm:ml-6.5 sm:-mt-4.6 text-sm text-dark font-semibold text-left lg:ml-6.5 lg:-mt-4.6">
+                        <div className="min-w-[350px] h-32 mt-6 pt-2 bg-white border rounded-md">
+                            <input type="checkbox" name="live-chat" className="relative ml-4 mt-2" />
+                            <h3 className="ml-9 -mt-6 text-sm text-black font-semibold text-left">
                                 Login Issues
                             </h3>
-                            <p className="relative ss:mt-1 ss:ml-6.5 sm:mt-1 sm:ml-6.5 text-left text-sm lg:mt-1 lg:ml-6.5 text-gray lg:max-w-20">
+                            <p className="mt-1 ml-9 text-left text-sm text-gray-500">
                                 I can&apos;t log into my account, i tried multiple times but it kept saying the same thing on and on and ...
                             </p>
-                            <h3 className="relative ss:mt-1 ss:ml-6.5 sm:mt-1 sm:ml-6.5 text-sm text-gray text-left lg:mt-1 lg:ml-6.5">
+                            <h3 className="mt-1 ml-9 text-xs text-gray-400 text-left">
                                 1w ago
                             </h3>
                         </div>
                     </div>
                 </div>
 
-                <div className="relative ss:mt-5 ss:w-21.5 ss:h-45 sm:mt-5 sm:w-21.5 sm:h-40 bg-white lg:mt-5 lg:w-36 lg:h-40 rounded">
+                <div className="mt-5 min-w-[680px] max-h-[680px] bg-white rounded-md">
                     <div>
-                        <h3 className="relative ss:ml-5 ss:mt-4.6 sm:ml-5 sm:mt-4.6 text-sm text-dark font-semibold text-left lg:ml-5 lg:mt-4.6">
+                        <h3 className="ml-5 mt-6 text-sm text-black font-semibold text-left">
                             Login Issue
                         </h3>
-                        <h3 className="relative ss:ml-5 ss:mt-2 sm:ml-5 sm:mt-2 text-sm text-dark font-normal text-left lg:ml-5 lg:mt-2">
+                        <h3 className="ml-5 mt-2 text-sm text-black font-normal text-left">
                             Sandra - Support
                         </h3>
-                        <h3 className="relative ss:ml-12.5 ss:-mt-4.5 sm:ml-12.5 sm:-mt-4.5 text-sm text-green font-semibold text-left lg:ml-12.5 lg:-mt-4.5">
+                        <h3 className="ml-36 -mt-5 text-sm text-green-600 font-semibold text-left">
                             .online
                         </h3>
-                        <Image src={line} alt="" className="relative ss:ml-5 ss:mt-4 ss:w-19.25 sm:ml-5 sm:mt-4 sm:w-19.5 lg:ml-5 lg:mt-4 h-0.1 lg:w-32.5" />
+                        <Image src={line} alt="" className="ml-5 mt-4 max-w-[340px] lg:min-w-[640px] h-0.5" />
                     </div>
                     <div>
-                        <h3 className="relative ss:mt-6 sm:mt-6 text-sm text-gray font-normal text-center lg:mt-6">
+                        <h3 className="mt-6 ml-5 lg:ml-0 text-xs text-gray font-normal text-left lg:text-center">
                             09 Jul 2024
                         </h3>
-                        <Image src={profile_image} alt="" className="relative ss:ml-5 ss:mt-4 sm:ml-5 sm:mt-4 size-7 lg:ml-5 lg:mt-4" />
+                        <Image src={profile_image} alt="" className="ml-5 mt-4 size-9" />
                         <div>
-                            <p className="relative ss:ml-10.2 ss:-mt-7 ss:p-3 ss:max-w-17.5 sm:ml-10.2 sm:-mt-7 sm:p-3 sm:max-w-19 lg:max-w-19.7 lg:ml-10.5 lg:-mt-7 rounded-tl-xl rounded-r-xl bg-gray-light text-sm text-dark font-normal text-left lg:p-3">
+                            <p className="ml-16 -mt-8 p-3 max-w-60 lg:max-w-96 lg:-mt-9 rounded-tl-xl rounded-r-xl bg-gray-100 text-sm text-black font-normal text-left lg:p-3">
                                 I can&apos;t log into my account, i tried multiple times but it kept saying the same thing
                                 on and on and on. I don&apos;t know what to do at this point. Can you please help me? I
                                 tried to contact via email but i&apos;ve not gotten a response.
                             </p>
-                            <h3 className="relative ss:ml-10.5 ss:mt-4 sm:ml-10.5 sm:mt-4 lg:ml-10.5 text-sm text-gray font-normal text-left lg:mt-4">
+                            <h3 className="ml-16 mt-4 lg:ml-16 text-xs text-gray font-normal text-left">
                                 Sat 5:10 AM
                             </h3>
                         </div>
 
                         <div>
-                            <p className="relative ss:ml-10 ss:mt-5 ss:p-3 ss:max-w-17.5 sm:ml-10 sm:mt-5 sm:p-3 sm:max-w-19 lg:max-w-19.7 lg:ml-18 lg:mt-5 rounded-tl-xl rounded-r-xl bg-gray-light text-sm text-dark font-normal text-left lg:p-3">
+                            <p className="ml-24 mt-5 p-3 max-w-60 lg:max-w-96 lg:ml-64 lg:mt-5 rounded-tl-xl rounded-r-xl bg-gray-200 text-sm text-black font-normal text-left">
                                 Hi John, we are so sorry this happened. We are currently having a glitch, please be
                                 rest assured our technical team are working to  get this sorted aas soon as possible.
                             </p>
                         </div>
                         <div>
-                            <textarea className="relative ss:mt-4.5 ss:ml-10 ss:h-10 ss:w-17.5 sm:mt-4.5 sm:ml-10 sm:h-10 sm:w-19 p-3 text-sm pb-4 lg:mt-4.5 lg:h-12 lg:w-29 lg:ml-10 transparent rounded border resize-none" />
-                            <button className="relative ss:ml-17.5 ss:w-10 ss:h-5 sm:ml-17.5 sm:w-10 sm:h-5 lg:ml-28 lg:w-10 lg:h-5 text-sm text-white bg-blue hover:bg-light-blue rounded-2xl">
-                                Send
-                            </button>
-                            <div className="flex gap-2.5 ss:ml-4 ss:-mt-7 sm:ml-4 sm:-mt-7 lg:ml-4 lg:-mt-7">
+                            <div className="flex flex-col gap-1 lg:items-end pr-10 ml-20">
+                                <textarea className="mt-5 h-24 max-w-[260px] p-3 text-sm pb-4 lg:mt-5 lg:h-36 lg:min-w-[560px] bg-white transparent rounded-xl border resize-none" />
+                                <button className="mt-1 w-16 p-1 text-xs text-white bg-blue-950 hover:bg-blue-900 rounded-2xl">
+                                    Send
+                                </button>
+                            </div>
+                            <div className="flex gap-3 ml-4 -mt-12">
                                 <Image src={image_icon_blue} alt="" className="relative size-4 cursor-pointer" />
                                 <Image src={emoji} alt="" className="relative size-4 cursor-pointer" />
                             </div>

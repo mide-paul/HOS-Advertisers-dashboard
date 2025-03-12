@@ -25,7 +25,7 @@ export const Logout = () => {
             onClick={handleLogout}
         >
             <span className="material-icons mr-3">logout</span>
-            <h3 className="relative text-dark text-sm ss:font-normal sm:font-normal lg:text-sm lg:font-normal">
+            <h3 className="relative text-black text-sm ss:font-normal sm:font-normal lg:text-sm lg:font-normal">
                 Logout
             </h3>
         </div>

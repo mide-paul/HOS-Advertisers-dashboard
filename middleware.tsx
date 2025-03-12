@@ -5,9 +5,7 @@ export function middleware(request: { cookies: { get: (arg0: string) => any; }; 
   const token = request.cookies.get("authToken");
 
   // Define paths that require authentication
-  const protectedPaths = ["/sponsors", "/ad-history", "/ad-plan", "/agreement", "/bank-details",
-    "/blog-post", "/live-chat", "/my-ads", "/payment", "/payment-success", "/plans", "/security-and-privacy",
-    "/see-more", "/support", "/settings"];
+  const protectedPaths = ["/forgot-password"];
   const pathname = request.nextUrl.pathname;
 
   // Redirect unauthenticated users

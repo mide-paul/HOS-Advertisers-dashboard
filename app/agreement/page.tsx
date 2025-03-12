@@ -9,7 +9,7 @@ import Sidebar from "@/components/Sidebar";
 const Agreement = () => {
 
     return (
-        <div className="ss:h-129 sm:h-121 lg:h-90 lg:w-full xl:h-85 xl:w-full xx:h-109 xx:w-full bg-gray-lighter overflow-hidden">
+        <div className="md:pr-40 lg:pr-40 h-full w-full overflow-hidden">
             <div>
                 <Sidebar />
             </div>
@@ -17,13 +17,13 @@ const Agreement = () => {
             <Header />
 
             <div>
-                <div className="relative ss:ml-3 ss:mt-9 ss:w-19.5 ss:h-7 sm:ml-3 sm:mt-9 sm:w-21.5 sm:h-7 bg-white lg:ml-20 lg:mt-12 lg:w-62 lg:h-7 rounded">
-                    <Link href="/sponsors"><Image src={arrow_left_blue} alt="" className="relative lg:pt-0.1 lg:ml-2" />
-                        <h3 className="relative ss:ml-6.5 ss:-mt-5.3 sm:ml-7 sm:-mt-5.3 text-sm text-left font-bold text-blue lg:ml-8 lg:-mt-5.3">Back</h3>
+                <div className="bg-white md:ml-64 lg:ml-64 mt-24 lg:w-62 lg:h-11 rounded">
+                    <Link href="/sponsors"><Image src={arrow_left_blue} alt="" className="relative pt-0.1 ml-2" />
+                        <h3 className="text-sm text-left font-bold text-blue ml-12 -mt-8">Back</h3>
                     </Link>
                 </div>
 
-                <div>
+                <div className="pr-6 md:pr-32 lg:pr-32">
                     <AgreementComp />
                 </div>
             </div>

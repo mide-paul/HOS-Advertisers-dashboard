@@ -4,19 +4,14 @@ import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { setCookie } from "cookies-next";
-import logo_white from './../public/images/logo_white.png';
-import truck_white from './../public/icons/truck_white.svg';
-import facebook from './../public/icons/facebook.svg';
-import twitter from './../public/icons/twitter.svg';
-import instagram from './../public/icons/instagram.svg';
-import youtube from './../public/icons/youtube.svg';
+import logo from './../public/images/logo.png';
 import google from './../public/icons/google.png';
 import sms from './../public/icons/sms.svg';
 import lock from './../public/icons/lock_dark.svg';
 import { Eye, EyeOff } from "lucide-react";
 import { useAuthStore } from "./store/authStore";
 
-const EMAIL_REGEX = /^(?=.*[a-z])(?=.*[@]).{3,23}$/;
+const EMAIL_REGEX = /^(?=.*[a-z])(?=.*[@]).{3,100}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[?&()_+={}[:;'"<>,|/~!@#$%]).{8,15}$/;
 
 
@@ -53,12 +48,12 @@ const AdvertisersLogin = () => {
         setValidPassword(PWD_REGEX.test(password));
     }, [password]);
 
-    // Redirect if already logged in
-    useEffect(() => {
-        if (isAuthenticated) {
-            router.push("/sponsors");
-        }
-    }, [isAuthenticated, router]);
+    // // Redirect if already logged in
+    // useEffect(() => {
+    //     if (isAuthenticated) {
+    //         router.push("/sponsors");
+    //     }
+    // }, [isAuthenticated, router]);
 
     const handleLogin = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -96,124 +91,107 @@ const AdvertisersLogin = () => {
     };
 
     return (
-        <div className="relative ss:h-68 ss:w-full sm:h-68 sm:w-full lg:h-38 xl:h-59 xl:w-full xx:h-108 xx:w-full overflow-hidden">
-            <div className="relative ss:h-68 ss:w-full ss:bg-blue sm:h-68 sm:w-full sm:bg-blue lg:h-42 lg:w-full lg:bg-blue xl:h-120 xl:w-full xl:bg-blue">
-                <div className="relative ss:pt-9 ss:ml-4 ss:h-6 ss:w-15 sm:pt-9 sm:ml-4 sm:h-6 sm:w-15 md:ml-17 lg:pt-7 lg:ml-10 lg:h-6 lg:w-15 xl:pt-10 xl:ml-13 xx:pt-25 xx:ml-13">
-                    <Image src={logo_white} alt="image" />
-                </div>
+        <div className="flex items-center justify-center min-h-screen w-full lg:bg-blue-950 p-4">
+            <div className="bg-white lg:bg-white rounded shadow p-10 max-w-[310px] lg:min-w-[500px] lg:min-h-[600px]">
+                <form onSubmit={handleLogin}>
+                    <div className="flex items-center justify-self-center h-6 w-40">
+                        <Image src={logo} alt="logo image" />
+                    </div>
+                    <div>
+                        <h3 className="ml-0 mt-11 text-blue text-base font-bold">
+                            Sign In
+                        </h3>
+                        <p className="ml-0 mt-1 pt-2 text-black text-sm font-normal">
+                            Welcome back! Please enter your details below
+                        </p>
+                    </div>
 
-                <div>
-                    <Image src={truck_white} alt="" className="relative ss:mt-7.5 ss:ml-8.5 sm:mt-7.5 sm:ml-10.5 md:ml-17 lg:mt-13 lg:ml-10 bg-fade-blue p-5 rounded-full xl:mt-19 xl:ml-13 s:invisible lg:visible xl:visible" />
-                </div>
+                    <div className="flex flex-col mt-0 ml-0 gap-1">
+                        <input
+                            type="text"
+                            id="email"
+                            name="email"
+                            placeholder="Email"
+                            autoComplete="off"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            required
+                            aria-invalid={validEmail ? "false" : "true"}
+                            aria-describedby="uidnote"
+                            className="mt-10 w-24.2 p-2 pl-8 text-sm text-black bg-white border border-gray rounded"
+                        />
+                        <Image src={sms} alt="" className="-mt-8 ml-2" />
+                    </div>
 
-                <div className="relative ss:mt-7 ss:ml-4 sm:mt-7 sm:ml-4 gap-5 flex md:ml-17 lg:mt-7 lg:ml-10 xl:mt-17 xl:ml-13">
-                    <Link href="https://www.facebook.com/hosoptima"><Image src={facebook} alt="" className="relative" /></Link>
-                    <Link href="https://x.com/hosoptima"><Image src={twitter} alt="" className="relative" /></Link>
-                    <Link href="https://www.instagram.com/hosoptima_/"><Image src={instagram} alt="" className="relative" /></Link>
-                    {/* <Link href="https://www.linkedin.com/company/hosoptima/"><Image src={youtube} alt="" className="relative" /></Link> */}
-                    <Image src={youtube} alt="" className="relative" />
-                </div>
+                    <div className="relative flex mt-7 items-center">
+                        <input
+                            type={showPassword ? "text" : "password"}
+                            id="password"
+                            placeholder="Password"
+                            onChange={(e) => setPassword(e.target.value)}
+                            value={password}
+                            required
+                            autoComplete="new-password"
+                            aria-invalid={validPassword ? "false" : "true"}
+                            aria-describedby="pwdnote"
+                            className="mt-0 min-w-[230px] lg:min-w-[420px] p-2 pl-8 text-sm text-black bg-white border border-gray rounded pr-2"
+                        />
+                        <Image src={lock} alt="" className="absolute left-2" />
+                        <button
+                            type="button"
+                            onClick={togglePasswordVisibility}
+                            className="relative right-7 text-gray-600"
+                        >
+                            {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+                        </button>
+                    </div>
+                    {error && <p className="text-red-600 text-center text-sm font-semibold mt-2">{error}</p>}
 
-                <section>
-                    <div className="relative ss:mt-10 ss:ml-4 sm:mt-10 sm:ml-4 lg:-mt-27.5 lg:ml-18">
-                        <div className="relative ss:w-19.4 ss:h-32.5 ss:mt-5 ss:pt-1 sm:w-21 sm:h-32.5 sm:mt-5 sm:pt-1 md:ml-16 lg:w-34 lg:h-34 lg:pt-1 lg:-mt-8 lg:ml-24 bg-white xl:w-40 xl:h-37 xl:pt-1 xl:-mt-40 xl:ml-25 xx:-mt-35 xx:ml-55 rounded">
-                            <form onSubmit={handleLogin}>
-                                <div>
-                                    <h3 className="relative ss:ml-4 ss:mt-9 ss:text-sm sm:ml-4 sm:mt-9 sm:text-sm lg:ml-10 lg:mt-11 xl:mt-12 text-blue lg:text-base font-bold">
-                                        Sign In
-                                    </h3>
-                                    <p className="relative ss:ml-4 ss:mt-4.5 ss:text-sm sm:ml-4 sm:mt-4.5 sm:text-sm lg:ml-10 lg:mt-1 text-dark lg:text-sm font-normal">
-                                        Welcome back! Please enter your details below
-                                    </p>
-                                </div>
+                    <div>
+                        <div className="flex items-center">
+                            <input
+                                type='checkbox'
+                                checked={rememberMe}
+                                onChange={handleRememberMeChange}
+                                className="mt-5 ml-0"
+                            />
+                            <p className="text-black mt-5 max-w-19 ml-1 text-xs lg:text-sm text-left">
+                                Remember me
+                            </p>
+                        </div>
+                        <Link href="/forgot-password">
+                            <p className="text-blue-950 -mt-4 lg:-mt-5 max-w-19 ml-32 lg:ml-72 text-xs lg:text-sm text-left z-10 cursor-pointer">
+                                Forgot Password?
+                            </p>
+                        </Link>
+                    </div>
 
-                                <div className="flex ss:gap-2 ss:flex-col ss:mt-4 ss:ml-4 sm:gap-2 sm:flex-col lg:flex-col sm:mt-4 sm:ml-4 lg:-mt-8 lg:ml-10 lg:gap-1 xl:ml-10 xx:ml-10">
-                                    <input
-                                        type="text"
-                                        id="email"
-                                        name="email"
-                                        placeholder="Email"
-                                        autoComplete="off"
-                                        value={email}
-                                        onChange={(e) => setEmail(e.target.value)}
-                                        required
-                                        aria-invalid={validEmail ? "false" : "true"}
-                                        aria-describedby="uidnote"
-                                        className="relative ss:mt-4 ss:w-19.1 ss:h-6.2 ss:pl-5.3 ss:text-sm ss:text-dark ss:bg-white sm:mt-4 sm:w-19.6 sm:h-6 sm:pl-5.3 sm:text-sm sm:text-dark sm:bg-white lg:mt-10 lg:w-24.2 lg:h-6.2 lg:pl-5.3 lg:text-sm lg:text-dark lg:bg-white border border-gray rounded xl:w-29 xx:w-29"
-                                    />
-                                    <Image src={sms} alt="" className="relative ss:-mt-6.25 ss:ml-1 ss:h-4 ss:w-4 sm:-mt-6.2 sm:ml-1 sm:h-4 sm:w-4 lg:-mt-6.1 lg:ml-1" />
-                                </div>
+                    <button
+                        disabled={loading || !validEmail || !validPassword}
+                        type="submit"
+                        className="bg-blue-950 h-6.2 w-full p-2 ml-0 text-sm text-white rounded mt-3 cursor-pointer hover:bg-blue-900 disabled:bg-gray-400">
+                        {loading ? "Signing in..." : "Sign in"}
+                    </button>
 
-                                <div className="flex ss:gap-2 ss:flex-col ss:ml-4 ss:mt-6 sm:gap-2 sm:flex-col sm:ml-4 sm:mt-6 lg:flex-col lg:ml-10 lg:mt-5 lg:gap-1 xl:ml-10 xx:ml-10">
-                                    <input
-                                        type={showPassword ? "text" : "password"}
-                                        id="password"
-                                        placeholder="Password"
-                                        onChange={(e) => setPassword(e.target.value)}
-                                        value={password}
-                                        required
-                                        autoComplete="new-password"
-                                        aria-invalid={validPassword ? "false" : "true"}
-                                        aria-describedby="pwdnote"
-                                        className="relative ss:w-19.1 ss:h-6.2 ss:pl-5.3 ss:text-sm ss:text-dark ss:bg-white sm:w-19.6 sm:h-6 sm:pl-5.3 sm:text-sm sm:text-dark sm:bg-white lg:w-24.2 lg:h-6.2 lg:pl-5.3 lg:text-sm lg:text-dark lg:bg-white border border-gray rounded xl:w-29 xx:w-29"
-                                    />
-                                    <button
-                                        type="button"
-                                        onClick={togglePasswordVisibility}
-                                        className="relative right-7 ss:-mt-6.3 ss:ml-19.27 ss:pl-0 sm:-mt-6.2 sm:ml-20 sm:pl-0 lg:-mt-6.2 lg:ml-24 lg:pl-5 text-gray xl:ml-28.7"
-                                    >
-                                        {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
-                                    </button>
-                                    <Image src={lock} alt="" className="relative ss:-mt-5.3 ss:ml-1 ss:h-4 ss:w-4 sm:-mt-5.4 sm:ml-1 sm:h-4 sm:w-4 lg:-mt-5.2 lg:ml-1 lg:h-4 lg:w-4" />
-                                </div>
-                                {error && <p className="text-red text-center font-semibold mt-2 text-sm">{error}</p>}
-
-                                <div>
-                                    <input
-                                        type='checkbox'
-                                        checked={rememberMe}
-                                        onChange={handleRememberMeChange}
-                                        className="relative ss:mt-5 ss:ml-4 sm:mt-5 sm:ml-4 lg:mt-5 lg:ml-10 xl:mt-5 xl:ml-10 z-10"
-                                    />
-                                    <p className="relative ss:-mt-4.6 ss:ml-6.2 ss:text-sm sm:-mt-4.6 sm:ml-6.2 sm:text-sm text-dark lg:-mt-4.6 max-w-19 lg:ml-11 xl:-mt-4.6 xl:ml-11 lg:text-sm text-left xx:-mt-4.6 xx:ml-11 z-10">
-                                        Remember me
-                                    </p>
-                                    <Link href="/forgot-password">
-                                        <p className="relative ss:-mt-4.5 ss:ml-15 ss:text-sm sm:-mt-4.5 sm:ml-16.5 sm:text-sm text-light-blue lg:-mt-4.5 max-w-19 lg:ml-22 lg:text-sm text-left z-10 xl:-mt-4.6 xl:ml-27 xx:-mt-4.6 xx:ml-27 cursor-pointer">
-                                            Forgot Password?
-                                        </p>
-                                    </Link>
-                                </div>
-
-                                <button
-                                    disabled={loading || !validEmail || !validPassword}
-                                    type="submit"
-                                    className="relative ss:h-6.2 ss:w-19.1 ss:mt-4 ss:ml-4 ss:text-white sm:h-6.2 sm:w-19.6 sm:mt-4 sm:ml-4 sm:text-white bg-blue lg:h-6.2 lg:w-24.2 lg:ml-10 text-sm lg:text-white rounded lg:mt-3 xl:mt-3 xl:w-29 xx:mt-3 xx:w-29 cursor-pointer hover:bg-light-blue disabled:bg-gray-disabled">
-                                    {loading ? "Signing in..." : "Sign in"}
-                                </button>
-
-                                <div>
-                                    <div className="relative ss:mt-5 ss:ml-4 ss:h-6.2 ss:w-19.1 ss:text-center sm:mt-5 sm:ml-4 sm:h-6.2 sm:w-19.6 sm:text-center text-light-blue text-sm lg:text-center lg:mt-5 lg:ml-10 border font-bold lg:h-6.2 pt-1 lg:w-24.2 xl:mt-6 xl:ml-10 xl:w-29 xx:w-29 rounded hover:bg-gray-light cursor-pointer z-10">
-                                        Sign In with Google
-                                    </div>
-                                    <Image src={google} alt="for facebook link" className="relative ss:ml-8 ss:-mt-5.1 sm:ml-10 sm:-mt-5.1 size-4 lg:ml-15.7 lg:-mt-5.1 xl:ml-17.5 xx:ml-17.5 z-10" />
-                                </div>
-
-                                {/* <div>
-                                    <p className="relative text-dark text-sm lg:text-center lg:mt-6 xl:mt-6 xl:ml-1 xx:mt-6 xx:ml-1 z-10">
-                                        Don&apos;t have an account?
-                                        <Link href="/sign-up"><span className="text-blue font-semibold pl-0.5">
-                                            sign Up</span>
-                                        </Link>
-                                    </p>
-                                </div> */}
-                            </form>
+                    <div>
+                        <Image src={google} alt="for facebook link" className="absolute size-4 mt-3 ml-9 lg:ml-36 z-20" />
+                        <div className="text-blue-950 text-sm text-center w-full pl-8 lg:pl-12 mt-3 ml-0 border font-bold p-2 w-24.2 rounded hover:bg-gray-300 cursor-pointer z-10">
+                            Sign In with Google
                         </div>
                     </div>
-                </section>
+
+                    <div>
+                        <p className="relative text-black text-sm lg:text-center mt-6 lg:mt-6 z-10">
+                            Don&apos;t have an account?
+                            <Link href="/sign-up"><span className="text-blue-900 font-semibold pl-0.5">
+                                sign Up</span>
+                            </Link>
+                        </p>
+                    </div>
+                </form>
 
                 <div>
-                    <h3 className="relative ss:mt-6 ss:ml-0 ss:text-sm ss:text-center sm:mt-6 sm:ml-0 sm:text-sm sm:text-center lg:-mt-7 lg:ml-10 lg:text-left lg:text-sm text-white xl:text-left xl:text-base xl:mt-12 xl:ml-13 xx:mt-19">
+                    <h3 className="mt-6 lg:mt-6 ml-3.5 md:ml-0 lg:ml-16 lg:text-nowrap text-center lg:text-left text-xs lg:text-sm text-black">
                         © 2025 Rights are Reserved by hosoptima.com
                     </h3>
                 </div>

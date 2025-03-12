@@ -1,30 +1,14 @@
 'use client';
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import Image from 'next/image';
 import sort from './../public/icons/Sort.png';
 import logo from './../public/images/logo.png';
-import { Logout } from './logout';
 
 const Sidebar = () => {
-  const [activeTab, setActiveTab] = useState('Dashboard');
-  const [open, setOpen] = useState<boolean>(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const pathname = usePathname();
-
-  const dropdownRef = useRef<HTMLDivElement>(null)
-
-  const handleDropDownFocus = (state: boolean) => {
-    setOpen(!state);
-  };
-
-  const handleClickOutsideMenu = (e: any) => {
-    if (open && !dropdownRef.current?.contains(e.target as Node)) {
-      setOpen(false)
-    }
-  }
-
-  window.addEventListener("click", handleClickOutsideMenu)
 
   const tabs = [
     { name: 'Dashboard', href: '/sponsors', icon: 'dashboard' },
@@ -34,75 +18,35 @@ const Sidebar = () => {
 
   return (
     <>
-      <div ref={dropdownRef}>
-        <button
-          className="p-2 text-white fixed top-2 left-23 ss:left-19.3 sm:left-21 md:left-45 z-30 lg:hidden"
-        >
-          <Image
-            src={sort}
-            alt="hamburger"
-            className="w-4 h-4 object-cover"
-            onClick={_e => handleDropDownFocus(open)}
-          />
-          {open && (
-            <div
-              className="h-screen -mt-6.3 w-19.2 bg-white text-dark flex flex-col fixed ss:-ml-19.51 sm:-ml-21.7 md:-ml-45.7 top-0 border border-dark transform z-20"
-            >
-              <div className="flex ml-1 -mt-8 items-center justify-left h-16">
-                <Image
-                  src={logo}
-                  alt="Profile Picture"
-                  className="w-15 h-11"
-                />
-              </div>
-              <nav className="flex-1 p-4 -mt-8.5">
-                {tabs.map((tab) => (
-                  <Link key={tab.name} href={tab.href} legacyBehavior>
-                    <a
-                      onClick={() => setActiveTab(tab.name)}
-                      className={`block py-2 px-4 rounded-lg mb-2 text-sm text-left font-medium hover:bg-gray-light transition-colors duration-200 ${activeTab === tab.name ? 'bg-gray-light' : ''
-                        }`}
-                    >
-                      <div className='flex items-center'>
-                        <span className="material-icons mr-3">{tab.icon}</span>
-                        {tab.name}
-                      </div>
-                    </a>
-                  </Link>
-                ))}
-                <Logout />
-              </nav>
-            </div>
-          )}
-        </button>
-      </div>
-
-      <div
-        className="h-screen w-19.2 bg-white text-dark flex flex-col fixed left-0 top-0 border border-dark transform z-20 sm:invisible ss:invisible lg:visible"
+      <button
+        className="p-3 text-white fixed top-4 left-64 pl-3 z-30 md:hidden"
+        onClick={() => setIsSidebarOpen(!isSidebarOpen)}
       >
-        <div className="flex ml-1 items-center justify-left h-16 lg:-mt-7">
-          <Image
-            src={logo}
-            alt="Profile Picture"
-            className="w-15 h-11"
-          />
+        <Image src={sort} alt="hamburger" className="w-6 h-6 object-cover" />
+      </button>
+      <div
+        className={`h-full w-64 bg-white text-black flex flex-col fixed left-0 top-0 border border-black transform z-30 ${
+          isSidebarOpen ? 'translate-x-0' : '-translate-x-64'
+        } transition-transform duration-200 md:translate-x-0`}
+      >
+        <div className="flex ml-4 items-center justify-left h-16 lg:ml-4 lg:mt-1">
+          <Image src={logo} alt="Profile Picture" className="w-36 h-24" />
         </div>
-        <nav className="flex-1 p-4 lg:-mt-8">
+        <nav className="flex-1 p-4 -mt-3">
           {tabs.map((tab) => (
             <Link key={tab.name} href={tab.href} legacyBehavior>
               <a
-                className={`block py-2 px-4 rounded-lg mb-2 text-xs font-normal hover:bg-gray-light transition-colors duration-200 ${
-                  pathname === tab.href ? 'bg-gray-light' : ''
+                className={`block py-1.5 px-4 rounded-lg mb-2 text-xs font-normal hover:bg-gray-200 transition-colors duration-200 ${
+                  pathname === tab.href ? 'bg-gray-200 text-blue-950 font-semibold' : ''
                 }`}
               >
-                <div className='flex items-center text-sm'>
-                  <span className="material-icons mr-3">{tab.icon}</span>
+                <div className="flex items-center">
+                  <span className="material-icons-outlined mr-3 text-xs">{tab.icon}</span>
                   {tab.name}
                 </div>
               </a>
             </Link>
           ))}
-          <Logout />
         </nav>
       </div>
     </>

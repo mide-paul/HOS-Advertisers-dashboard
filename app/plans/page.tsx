@@ -51,7 +51,7 @@ const Page = () => {
     };
 
     return (
-        <div className='w-screen h-screen bg-gray-lighter overflow-scroll overflow-x-hidden'>
+        <div className='h-full w-full bg-gray-200 overflow-hidden'>
             <div>
                 <Sidebar />
             </div>
@@ -60,64 +60,64 @@ const Page = () => {
                 <Header />
             </div>
 
-            <div className="relative ss:ml-0 ss:mt-10 ss:w-21.5 ss:h-30 sm:ml-2 sm:mt-10 sm:w-21.5 sm:h-30 bg-gray-lighter lg:ml-20 lg:mt-12 lg:w-62 lg:h-50 xl:ml-23 rounded">
-                <div className="flex ss:gap-2 ss:ml-2 ss:pt-6 sm:gap-2 sm:ml-2 sm:pt-6 lg:gap-5 lg:pt-6 lg:ml-5">
-                    <Link href="/settings"><h3 className="relative text-sm text-left text-dark cursor-pointer">Profile</h3></Link>
+            <div className="bg-white ml-0 md:ml-64 lg:ml-64 mt-24 w-full h-50 rounded pb-8">
+                <div className="flex gap-4 pt-5 ml-4 lg:gap-5 lg:pt-6 md:ml-4 lg:ml-7">
+                    <Link href="/settings"><h3 className="relative text-sm text-left text-black cursor-pointer">Profile</h3></Link>
                     <h3 className="relative text-sm text-left text-light-blue font-semibold">Plans</h3>
-                    <Link href="/security-and-privacy"><h3 className="relative text-sm text-left text-dark font-normal cursor-pointer">Security & Privacy</h3></Link>
-                    <Link href="/support"><h3 className="relative text-dark font-normal text-sm text-left">Support</h3></Link>
-                    <Image src={line} alt="" className="absolute ss:mt-5 ss:ml-7 sm:mt-5 sm:ml-7 lg:mt-5 w-6.3 h-0.1 lg:ml-8" />
+                    <Link href="/security-and-privacy"><h3 className="relative text-sm text-left text-black font-normal cursor-pointer">Security & Privacy</h3></Link>
+                    <Link href="/support"><h3 className="relative text-black font-normal text-sm text-left">Support</h3></Link>
+                    <Image src={line} alt="" className="absolute mt-5 ml-14 w-12 h-0.1" />
                 </div>
 
                 <div>
-                    <div className="flex flex-wrap ss:flex-col sm:flex-col lg:flex-row gap-3 lg:w-70 lg:min-w-60 lg:pb-7 lg:pr-5">
+                    <div className="flex flex-wrap flex-col mt-6 lg:flex-row gap-6 lg:gap-6 xl:gap-10 ml-4 h-full w-full pb-7 pr-5">
                         {subscriptions.map((plan) => (
                             <div
                                 key={plan.id}
-                                className={`relative ss:mt-6 ss:ml-5.4 ss:h-33 ss:w-19.2 sm:ml-7 sm:h-33 lg:h-33 bg-white rounded ${plan.current ? 'border-blue border-2' : ''}`}
+                                className={`relative min-h-[350px] w-80 p-2 ml-3 bg-white rounded ${plan.current ? 'border-blue-950 border' : 'min-h-[350px] w-80 p-2 border-blue-950 border'}`}
                             >
-                                <Image src={plan.image} alt="" className="relative ss:w-17.7 ss:pt-2 ss:ml-2 sm:w-17.7 sm:pt-2 sm:ml-2 lg:w-17.7 lg:pt-2 lg:ml-2" />
-                                <h3 className="relative ss:pt-3 ss:ml-2 sm:pt-3 sm:ml-2 text-dark lg:font-bold text-sm lg:text-left lg:pt-3 lg:ml-2">{plan.title}</h3>
-                                <h3 className="relative ss:pt-1 ss:ml-2 sm:pt-1 sm:ml-2 text-gray lg:font-normal text-x lg:text-left lg:pt-1 lg:ml-2">{plan.description}</h3>
-                                <h3 className="relative ss:-mt-5 ss:ml-16.2 sm:-mt-5 sm:ml-16.2 text-dark lg:font-bold text-sm lg:text-left lg:-mt-5 lg:ml-16.2">{plan.price}</h3>
-                                <Image src={line} alt="" className="relative ss:w-17.7 ss:pt-5 ss:ml-2 sm:w-17.7 sm:pt-5 sm:ml-2 lg:w-17.7 lg:pt-5 lg:ml-2" />
+                                <Image src={plan.image} alt="" className="rounded" />
+                                <h3 className="pt-3 text-black font-bold text-sm text-left">{plan.title}</h3>
+                                <h3 className="pt-1 text-gray font-normal text-xs text-left">{plan.description}</h3>
+                                <h3 className="-mt-5 ml-60 text-black font-bold text-sm text-left">{plan.price}</h3>
+                                <Image src={line} alt="" className="w-full pt-5" />
                                 {plan.current ? (
                                     <>
-                                        <div className='flex flex-row gap-8 ml-2.5 mt-4 items-center'>
-                                            <h3 className='text-x text-dark p-0.5 bg-blue-faint rounded'>{plan.current}</h3>
-                                            <h3 className='text-x text-blue'>{plan.expiry}</h3>
+                                        <div className='flex flex-row gap-24 mt-4 items-center'>
+                                            <h3 className='text-xs text-black p-0.5 bg-blue-faint rounded'>{plan.current}</h3>
+                                            <h3 className='text-xs text-blue'>{plan.expiry}</h3>
                                         </div>
                                     </>
                                 ) : (
                                     <>
-                                        <div className='flex flex-row gap-8 ml-2.5 mt-4 items-center'>
-                                            <h3 className='text-x text-dark p-0.5 bg-blue-faint rounded'>{plan.expired}</h3>
-                                            <h3 className='text-x text-blue'>{plan.expireddate}</h3>
+                                        <div className='flex flex-row gap-24 mt-4 items-center'>
+                                            <h3 className='text-xs text-black p-0.5 bg-blue-faint rounded'>{plan.expired}</h3>
+                                            <h3 className='text-xs text-blue'>{plan.expireddate}</h3>
                                         </div>
                                     </>
                                 )}
-                                <Image src={verify} alt="" className="relative ss:pt-5 ss:ml-2 sm:pt-5 sm:ml-2 lg:pt-5 lg:ml-2" />
-                                <p className="relative ss:-mt-4.4 ss:ml-6.3 sm:-mt-4.4 sm:ml-6.3 text-dark lg:font-normal text-x lg:text-left lg:-mt-4.4 lg:ml-6.3">
+                                <Image src={verify} alt="" className="pt-5" />
+                                <p className="-mt-5 ml-7 text-black font-normal text-xs text-left">
                                     {plan.benefitone}
                                 </p>
-                                <Image src={verify} alt="" className="relative ss:pt-3 ss:ml-2 sm:pt-3 sm:ml-2 lg:pt-3 lg:ml-2" />
-                                <p className="relative ss:-mt-4.4 ss:ml-6.3 sm:-mt-4.4 sm:ml-6.3 text-dark lg:font-normal text-x lg:text-left lg:-mt-4.4 lg:ml-6.3">
+                                <Image src={verify} alt="" className="pt-3" />
+                                <p className="-mt-5 ml-7 text-black font-normal text-xs text-left">
                                     {plan.benefittwo}
                                 </p>
-                                <Image src={verify} alt="" className="relative ss:pt-3 ss:ml-2 sm:pt-3 sm:ml-2 lg:pt-3 lg:ml-2" />
-                                <p className="relative ss:-mt-5 ss:ml-6.3 sm:-mt-5 sm:ml-6.3 text-dark lg:font-normal text-x lg:text-left lg:-mt-5 lg:ml-6.3">
+                                <Image src={verify} alt="" className="pt-3" />
+                                <p className="-mt-5 ml-7 text-black font-normal text-xs text-left">
                                     {plan.benefitthree}
                                 </p>
                                 {plan.current ? (
                                     <>
                                         <button
                                             onClick={() => handleCancelSubscription(plan.id)}
-                                            className="relative ss:mt-4 ss:ml-2 ss:h-6 ss:w-17.7 sm:mt-4 sm:ml-2 sm:h-6 sm:w-17.7 lg:mt-4 lg:ml-2 lg:h-6 lg:w-17.7 bg-blue text-white text-sm rounded hover:bg-light-blue">
+                                            className="mt-4 h-8 w-full bg-blue-950 text-white font-normal text-sm rounded hover:bg-blue-900">
                                             Cancel Subscription
                                         </button>
                                         <button
                                             onClick={() => handleChangePlan(plan.id)}
-                                            className="relative ss:mt-4 ss:ml-2 ss:h-6 ss:w-17.7 sm:mt-4 sm:ml-2 sm:h-6 sm:w-17.7 lg:mt-4 lg:ml-2 lg:h-6 lg:w-17.7 bg-white text-blue text-sm border border-blue rounded hover:bg-gray-light">
+                                            className="mt-4 h-8 w-full bg-white text-blue-950 text-sm border border-blue-950 rounded hover:bg-gray-200">
                                             Change plan
                                         </button>
                                     </>
@@ -125,12 +125,12 @@ const Page = () => {
                                     <>
                                         <button
                                             onClick={() => handleRenewSubscription(plan.id)}
-                                            className="relative ss:mt-4 ss:ml-2 ss:h-6 ss:w-17.7 sm:mt-4 sm:ml-2 sm:h-6 sm:w-17.7 lg:mt-4 lg:ml-2 lg:h-6 lg:w-17.7 bg-blue text-white text-sm rounded hover:bg-light-blue">
+                                            className="mt-4 h-8 w-full bg-blue-950 text-white text-sm rounded hover:bg-blue-900">
                                             Renew Subscription
                                         </button>
                                         <button
                                             onClick={() => handleChangePlan(plan.id)}
-                                            className="ss:mt-4 ss:ml-2 ss:h-6 ss:w-17.7 sm:mt-4 sm:ml-2 sm:h-6 sm:w-17.7 lg:mt-4 lg:ml-2 lg:h-6 lg:w-17.7 bg-white text-blue text-sm border border-blue rounded hover:bg-gray-light">
+                                            className="mt-4 h-8 w-full bg-white text-blue-950 text-sm border border-blue-950 rounded hover:bg-gray-light">
                                             Change Plan
                                         </button>
                                     </>

@@ -1,33 +1,24 @@
 'use client';
 import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
-// import { faCheck, faTimes } from "@fortawesome/free-solid-svg-icons";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import logo_white from '../../public/images/logo_white.png';
-import truck_white from '../../public/icons/truck_white.svg';
-import facebook from '../../public/icons/facebook.svg';
-import twitter from '../../public/icons/twitter.svg';
-import instagram from '../../public/icons/instagram.svg';
-import youtube from '../../public/icons/youtube.svg';
 import google from '../../public/icons/google.png';
 import { Eye, EyeOff } from "lucide-react";
 import { useAuthStore } from "../store/authStore";
+import logo from '../../public/images/logo.png';
 import user from '../../public/icons/user.svg';
 import sms from '../../public/icons/sms.svg';
 import call from '../../public/icons/call.svg';
 import lock from '../../public/icons/lock_dark.svg';
 
 const USER_REGEX = /^[A-z][A-z0-9-_ ]{0,40}$/;
-const EMAIL_REGEX = /^(?=.*[a-z])(?=.*[@]).{3,23}$/;
+const EMAIL_REGEX = /^(?=.*[a-z])(?=.*[@]).{3,100}$/;
 const NUMBER_REGEX = /^[0-10-_ ]{9,12}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[?&()_+={}[:;'"<>,|/~!@#$%]).{8,15}$/;
 
 
 const CompanySignup = () => {
   const userRef = useRef<HTMLInputElement | null>(null);
-  const errRef = useRef<HTMLDivElement | null>(null);
   const [showPassword, setShowPassword] = useState(false);
 
   const togglePasswordVisibility = () => {
@@ -58,23 +49,9 @@ const CompanySignup = () => {
   const [validMatch, setValidMatch] = useState(false);
   //const [matchFocus, setMatchFocus] = useState(false);
 
-  const [errMsg, setErrMsg] = useState('');
   const [success, setSuccess] = useState(false);
 
-  const [type, setType] = useState('password');
-  // const [icon, setIcon] = useState(eyeOff);
-
   const { signup, error } = useAuthStore();
-
-  // const handleToggle = () => {
-  //   if (type === 'password') {
-  //     setIcon(eye);
-  //     setType('text')
-  //   } else {
-  //     setIcon(eyeOff)
-  //     setType('password')
-  //   }
-  // }
 
   useEffect(() => {
     if (userRef.current !== null) {
@@ -103,10 +80,6 @@ const CompanySignup = () => {
     setValidMatch(password === matchPassword);
   }, [password, matchPassword])
 
-  useEffect(() => {
-    setErrMsg('');
-  }, [firstName, lastName, password, matchPassword])
-
   const router = useRouter()
 
   const handleSignup = async (e: any) => {
@@ -122,222 +95,159 @@ const CompanySignup = () => {
 
   return (
     <main>
-      <div className="relative ss:h-68 ss:w-full sm:h-68 sm:w-full lg:h-38 xl:h-59 xl:w-full xx:h-108 xx:w-full overflow-hidden">
-        <div className="relative ss:h-68 ss:w-full ss:bg-blue sm:h-68 sm:w-full sm:bg-blue lg:h-42 lg:w-full lg:bg-blue xl:h-120 xl:w-full xl:bg-blue">
-          <div className="relative ss:pt-9 ss:ml-4 ss:h-6 ss:w-15 sm:pt-9 sm:ml-4 sm:h-6 sm:w-15 md:ml-17 lg:pt-7 lg:ml-10 lg:h-6 lg:w-15 xl:pt-10 xl:ml-13 xx:pt-25 xx:ml-13">
-            <Image src={logo_white} alt="image" />
-          </div>
+      <div className="flex items-center justify-center min-h-screen w-full lg:bg-blue-950 p-4">
+        <div className="bg-white lg:bg-white rounded shadow p-10 max-w-[310px] lg:min-w-[500px] lg:min-h-[600px]">
+          <form onSubmit={handleSignup}>
+            <div className="flex items-center justify-self-center h-6 w-40">
+              <Image src={logo} alt="logo image" />
+            </div>
+            <div>
+              <h3 className="ml-0 mt-8 text-blue text-base font-bold">
+                Sign Up
+              </h3>
+            </div>
 
-          <div>
-            <Image src={truck_white} alt="" className="relative ss:mt-7.5 ss:ml-8.5 sm:mt-7.5 sm:ml-10.5 md:ml-17 lg:mt-13 lg:ml-10 bg-fade-blue p-5 rounded-full xl:mt-19 xl:ml-13 s:invisible lg:visible xl:visible" />
-          </div>
+            <div className="flex flex-col mt-0 ml-0 gap-1">
+              <input
+                type="username"
+                id="firstname"
+                placeholder="First Name"
+                ref={userRef}
+                autoComplete="off"
+                onChange={(e) => setFirstName(e.target.value)}
+                value={firstName}
+                required
+                aria-invalid={validFirstName ? "false" : "true"}
+                aria-describedby="uidnote"
+                className="mt-8 w-24.2 p-2 pl-8 text-sm text-black bg-white border border-gray rounded"
+              />
+              <Image src={user} alt="" className="-mt-8 ml-2" />
+            </div>
 
-          <div className="relative ss:mt-7 ss:ml-4 sm:mt-7 sm:ml-4 gap-5 flex md:ml-17 lg:mt-7 lg:ml-10 xl:mt-17 xl:ml-13">
-            <Link href="https://www.facebook.com/hosoptima"><Image src={facebook} alt="" className="relative" /></Link>
-            <Link href="https://x.com/hosoptima"><Image src={twitter} alt="" className="relative" /></Link>
-            <Link href="https://www.instagram.com/hosoptima_/"><Image src={instagram} alt="" className="relative" /></Link>
-            {/* <Link href="https://www.linkedin.com/company/hosoptima/"><Image src={youtube} alt="" className="relative" /></Link> */}
-            <Image src={youtube} alt="" className="relative" />
-          </div>
+            <div className="flex flex-col mt-0 ml-0 gap-1">
+              <input
+                type="username"
+                id="lastname"
+                placeholder="Last Name"
+                autoComplete="off"
+                onChange={(e) => setLastName(e.target.value)}
+                value={lastName}
+                required
+                aria-invalid={validLastName ? "false" : "true"}
+                aria-describedby="uidnote"
+                className="mt-10 w-24.2 p-2 pl-8 text-sm text-black bg-white border border-gray rounded"
+              />
+              <Image src={user} alt="" className="-mt-8 ml-2" />
+            </div>
 
-          <section>
-            <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
-            <div className="relative ss:mt-10 ss:ml-4 sm:mt-10 sm:ml-4 lg:-mt-27.5 lg:ml-18">
-              <div className="relative ss:w-19.4 ss:h-34 ss:mt-5 ss:pt-1 sm:w-21 sm:h-34 sm:mt-5 sm:pt-1 md:ml-16 lg:w-34 lg:h-34 lg:pt-1 lg:-mt-8 lg:ml-24 bg-white xl:w-34.3 xl:h-37 xl:pt-1 xl:-mt-40 xl:ml-25 xx:w-34.3 xx:-mt-35 xx:ml-55 rounded">
-                <form onSubmit={handleSignup}>
-                  <div>
-                    <h3 className="relative ss:ml-4 ss:mt-1 ss:text-sm sm:ml-4 sm:mt-0.5 sm:text-sm lg:ml-10 lg:mt-4 xl:mt-6 xx:mt-6 text-blue lg:text-base font-bold cursor-pointer">
-                      Sign Up
-                    </h3>
-                  </div>
+            <div className="flex flex-col mt-0 ml-0 gap-1">
+              <input
+                type="text"
+                id="email"
+                name="email"
+                placeholder="Email"
+                autoComplete="off"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+                aria-invalid={validEmail ? "false" : "true"}
+                aria-describedby="uidnote"
+                className="mt-10 w-24.2 p-2 pl-8 text-sm text-black bg-white border border-gray rounded"
+              />
+              <Image src={sms} alt="" className="-mt-8 ml-2" />
+            </div>
 
-                  <div className="flex ss:flex-col sm:gap-2 sm:flex-col lg:flex-col sm:mt-1 sm:ml-0 lg:gap-1 xl:ml-0 xx:ml-0">
-                    <input
-                      type="username"
-                      id="firstname"
-                      placeholder="First Name"
-                      ref={userRef}
-                      autoComplete="off"
-                      onChange={(e) => setFirstName(e.target.value)}
-                      value={firstName}
-                      required
-                      aria-invalid={validFirstName ? "false" : "true"}
-                      aria-describedby="uidnote"
-                      // onFocus={() => setcompanyNameFocus(true)}
-                      // onBlur={() => setcompanyNameFocus(false)}
-                      className="relative ss:mt-4 ss:ml-4 ss:w-19.1 ss:h-6.2 ss:pl-5.4 ss:text-sm ss:text-dark ss:bg-white sm:mt-4 sm:ml-0 sm:w-19.6 sm:h-6 sm:pl-5.4 sm:text-sm sm:text-dark sm:bg-white lg:mt-0.1 lg:ml-10 lg:w-24.2 lg:h-6.2 lg:pl-5.4 lg:text-sm lg:text-dark lg:bg-white border border-gray rounded xl:w-24.2 xx:w-24.2"
-                    />
-                    <Image src={user} alt="" className="relative ss:-mt-5.2 ss:ml-5 ss:h-4 ss:w-4 sm:-mt-6.2 sm:ml-5 sm:h-4 sm:w-4 lg:-mt-6.1 lg:ml-10.5" />
-                  </div>
-                  {/* <p id="uidnote" className={companyNameFocus && companyName && !validCompanyName ? "instructions" : "offscreen"}>
-                <FontAwesomeIcon icon={faInfoCircle} />
-                2 to 40 characters.<br />
-                Must begin with a letter.<br />
-                Letters, numbers, underscores, hyphens allowed.
-              </p> */}
+            <div className="flex flex-col mt-0 ml-0 gap-1">
+              <input
+                type="phone"
+                id="phone"
+                placeholder="Phone Number"
+                autoComplete="off"
+                onChange={(e) => setPhone(e.target.value)}
+                value={phone}
+                required
+                aria-invalid={validPhone ? "false" : "true"}
+                aria-describedby="uidnote"
+                className="mt-10 w-24.2 p-2 pl-8 text-sm text-black bg-white border border-gray rounded"
+              />
+              <Image src={call} alt="" className="-mt-8 ml-2 size-4" />
+            </div>
 
-                  <div className="flex ss:flex-col ss:mt-3 sm:gap-2 sm:flex-col lg:flex-col sm:mt-4 s:ml-4 lg:mt-5 lg:gap-1 xl:ml-0 xx:ml-0">
-                    <input
-                      type="username"
-                      id="lastname"
-                      placeholder="Last Name"
-                      autoComplete="off"
-                      onChange={(e) => setLastName(e.target.value)}
-                      value={lastName}
-                      required
-                      aria-invalid={validFirstName ? "false" : "true"}
-                      aria-describedby="uidnote"
-                      // onFocus={() => setlastNameFocus(true)}
-                      // onBlur={() => setlastNameFocus(false)}
-                      className="relative ss:mt-4 ss:ml-4 ss:w-19.1 ss:h-6.2 ss:pl-5.4 ss:text-sm ss:text-dark ss:bg-white sm:mt-4 sm:ml-4 sm:w-19.6 sm:h-6 sm:pl-5.4 sm:text-sm sm:text-dark sm:bg-white lg:mt-0.1 lg:ml-10 lg:w-24.2 lg:h-6.2 lg:pl-5.4 lg:text-sm lg:text-dark lg:bg-white border border-gray rounded xl:w-24.2 xx:w-24.2"
-                    />
-                    <Image src={user} alt="" className="relative ss:-mt-5.2 ss:ml-5 ss:h-4 ss:w-4 sm:-mt-6.2 sm:ml-5 sm:h-4 sm:w-4 lg:-mt-6.1 lg:ml-10.5" />
-                  </div>
+            <div className="relative flex mt-11 items-center">
+              <input
+                type={showPassword ? "text" : "password"}
+                id="password"
+                placeholder="Password"
+                onChange={(e) => setPassword(e.target.value)}
+                value={password}
+                required
+                autoComplete="new-password"
+                aria-invalid={validPassword ? "false" : "true"}
+                aria-describedby="pwdnote"
+                className="mt-0 min-w-[230px] lg:min-w-[420px] p-2 pl-8 text-sm text-black bg-white border border-gray rounded pr-2"
+              />
+              <Image src={lock} alt="" className="absolute left-2" />
+              <button
+                type="button"
+                onClick={togglePasswordVisibility}
+                className="relative right-7 text-gray-600"
+              >
+                {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+              </button>
+            </div>
 
-                  <div className="flex ss:gap-2 ss:flex-col ss:mt-4 ss:ml-4 sm:gap-2 sm:flex-col lg:flex-col sm:mt-4 sm:ml-4 lg:ml-10 lg:mt-5 lg:gap-1 xl:ml-10 xx:ml-10">
-                    <input
-                      type="text"
-                      id="email"
-                      name="email"
-                      placeholder="Email"
-                      autoComplete="off"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      required
-                      aria-invalid={validEmail ? "false" : "true"}
-                      aria-describedby="uidnote"
-                      // onFocus={() => setEmailFocus(true)}
-                      // onBlur={() => setEmailFocus(false)}
-                      className="relative ss:mt-4 ss:w-19.1 ss:h-6.2 ss:pl-5.4 ss:text-sm ss:text-dark ss:bg-white sm:mt-4 sm:w-19.6 sm:h-6 sm:pl-5.4 sm:text-sm sm:text-dark sm:bg-white lg:mt-0.1 lg:w-24.2 lg:h-6.2 lg:pl-5.4 lg:text-sm lg:text-dark lg:bg-white border border-gray rounded xl:w-24.2 xx:w-24.2"
-                    />
-                    <Image src={sms} alt="" className="relative ss:-mt-6.25 ss:ml-1 ss:h-4 ss:w-4 sm:-mt-6.2 sm:ml-1 sm:h-4 sm:w-4 lg:-mt-6.1 lg:ml-1.5" />
-                    {/* <p id="uidnote" className={emailFocus && email &&
-                  !validemail ? "instructions" : "offscreen"}>
-                  <FontAwesomeIcon icon={faInfoCircle} />
-                  4 to 24 characters.<br />
-                  Must begin with a letter. <br />
-                  only lowercase is allowed.
-                  Allowed special characters: @
-                </p> */}
-                  </div>
+            <div className="relative flex mt-8 items-center">
+              <input
+                type={showPassword ? "text" : "password"}
+                id="confirmpassword"
+                placeholder="Confirm Password"
+                onChange={(e) => setMatchPassword(e.target.value)}
+                value={matchPassword}
+                required
+                autoComplete="new-password"
+                aria-invalid={validPassword ? "false" : "true"}
+                aria-describedby="pwdnote"
+                className="mt-0 min-w-[230px] lg:min-w-[420px] p-2 pl-8 text-sm text-black bg-white border border-gray rounded pr-2"
+              />
+              <Image src={lock} alt="" className="absolute left-2" />
+              <button
+                type="button"
+                onClick={togglePasswordVisibility}
+                className="relative right-7 text-gray-600"
+              >
+                {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+              </button>
+            </div>
+            {error && <p className="text-red-700 text-center text-sm font-semibold mt-2 lg:mt-2 z-20">{error}</p>}
 
-                  <div className="flex ss:flex-col ss:mt-4 sm:gap-2 sm:flex-col lg:flex-col sm:mt-4 s:ml-4 lg:mt-5 lg:gap-1 xl:ml-0 xx:ml-0">
-                    <input
-                      type="phone"
-                      id="phone"
-                      placeholder="Phone Number"
-                      autoComplete="off"
-                      onChange={(e) => setPhone(e.target.value)}
-                      value={phone}
-                      required
-                      aria-invalid={validPhone ? "false" : "true"}
-                      aria-describedby="uidnote"
-                      // onFocus={() => setphoneFocus(true)}
-                      // onBlur={() => setphoneFocus(false)}
-                      className="relative ss:mt-4 ss:ml-4 ss:w-19.1 ss:h-6.2 ss:pl-5.4 ss:text-sm ss:text-dark ss:bg-white sm:mt-4 sm:ml-4 sm:w-19.6 sm:h-6 sm:pl-5.4 sm:text-sm sm:text-dark sm:bg-white lg:mt-0.1 lg:ml-10 lg:w-24.2 lg:h-6.2 lg:pl-5.4 lg:text-sm lg:text-dark lg:bg-white border border-gray rounded xl:w-24.2 xx:w-24.2"
-                    />
-                    <Image src={call} alt="" className="relative ss:-mt-5.2 ss:ml-5 ss:h-4 ss:w-4 sm:-mt-6.2 sm:ml-5 sm:h-4 sm:w-4 lg:-mt-6.1 lg:ml-10.5" />
-                  </div>
+            <div className="flex gap-2 items-center">
+              <input
+                type='checkbox'
+                required
+                className="mt-5 ml-0" />
+              <p className="text-black mt-5 max-w-19 ml-1 text-xs lg:text-xs text-left">
+                By creating an account means you agree to the <span className="text-black">Terms & Conditions</span> and our <span className="text-black">Privacy Policy</span>
+              </p>
+            </div>
 
-                  <div className="flex ss:gap-2 ss:flex-col ss:ml-4 ss:mt-6 sm:gap-2 sm:flex-col sm:ml-4 sm:mt-5.4 lg:mt-5 lg:flex-col lg:ml-10 lg:gap-1 xl:ml-10 xx:ml-10">
-                    <input
-                      type={showPassword ? "text" : "password"}
-                      id="password"
-                      placeholder="Password"
-                      onChange={(e) => setPassword(e.target.value)}
-                      value={password}
-                      required
-                      autoComplete="new-password"
-                      aria-invalid={validPassword ? "false" : "true"}
-                      aria-describedby="pwdnote"
-                      // onFocus={() => setPasswordFocus(true)}
-                      // onBlur={() => setPasswordFocus(false)}
-                      className="relative ss:w-19.1 ss:h-6.2 ss:pl-5.4 ss:text-sm ss:text-dark ss:bg-white sm:w-19.6 sm:h-6 sm:pl-5.4 sm:text-sm sm:text-dark sm:bg-white lg:mt-0.1 lg:w-24.2 lg:h-6.2 lg:pl-5.4 lg:text-sm lg:text-dark lg:bg-white border border-gray rounded xl:w-24.2 xx:w-24.2"
-                    />
-                    <Image src={lock} alt="" className="relative ss:-mt-6.25 ss:ml-1 ss:h-4 ss:w-4 sm:-mt-6.2 sm:ml-1 sm:h-4 sm:w-4 lg:-mt-6.1 lg:ml-1.5 lg:h-4 lg:w-4" />
-                    <button
-                      type="button"
-                      onClick={togglePasswordVisibility}
-                      className="relative right-7 ss:-mt-5.3 ss:ml-19.27 ss:pl-0 sm:-mt-5.4 sm:ml-20 sm:pl-0 lg:-mt-5.1 lg:ml-24 lg:pl-5 text-gray-600"
-                    >
-                      {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
-                    </button>
-                    {/* <span style={{ color: '#000000' }} onClick={handleToggle}>
-                      <Icon className="relative s:-ml-6 s:mt-0.3 lg:-ml-6 lg:mt-0.5 z-30" icon={icon} size={20} />
-                    </span> */}
-                  </div>
-                  {/* <p id="pwdnote" className={passwordFocus && !validPassword ? "instructions" : "offscreen"}>
-                <FontAwesomeIcon icon={faInfoCircle} />
-                8 to 15 characters.<br />
-                Must include uppercase and lowercase letters, a number and a special character.
-                Allowed special characters: <span aria-label="exclamation mark">!</span> <span aria-label="at symbol">@</span> <span aria-label="hashtag">#</span> <span aria-label="dollar sign">$</span> <span aria-label="percent">%</span>
-              </p> */}
+            <button
+              disabled={!validFirstName || !validPassword || !validMatch ? true : false}
+              type="submit"
+              className="bg-blue-950 h-6.2 w-full p-2 ml-0 text-sm text-white rounded mt-3 cursor-pointer hover:bg-blue-900 disabled:bg-gray-400">
+              Sign Up
+            </button>
 
-                  <div className="flex ss:gap-2 ss:flex-col ss:ml-4 ss:mt-6 sm:gap-2 sm:flex-col sm:ml-4 sm:mt-5.4 lg:mt-5 lg:flex-col lg:ml-10 lg:gap-1 xl:ml-10 xx:ml-10">
-                    <input
-                      type={showPassword ? "text" : "password"}
-                      id="confirmpassword"
-                      placeholder="Confirm Password"
-                      onChange={(e) => setMatchPassword(e.target.value)}
-                      value={matchPassword}
-                      required
-                      autoComplete="new-password"
-                      aria-invalid={validPassword ? "false" : "true"}
-                      aria-describedby="pwdnote"
-                      // onFocus={() => setPasswordFocus(true)}
-                      // onBlur={() => setPasswordFocus(false)}
-                      className="relative ss:w-19.1 ss:h-6.2 ss:pl-5.4 ss:text-sm ss:text-dark ss:bg-white sm:w-19.6 sm:h-6 sm:pl-5.4 sm:text-sm sm:text-dark sm:bg-white lg:mt-0.1 lg:w-24.2 lg:h-6.2 lg:pl-5.4 lg:text-sm lg:text-dark lg:bg-white border border-gray rounded xl:w-24.2 xx:w-24.2"
-                    />
-                    <Image src={lock} alt="" className="relative ss:-mt-6.25 ss:ml-1 ss:h-4 ss:w-4 sm:-mt-6.2 sm:ml-1 sm:h-4 sm:w-4 lg:-mt-6.1 lg:ml-1.5 lg:h-4 lg:w-4" />
-                    <button
-                      type="button"
-                      onClick={togglePasswordVisibility}
-                      className="relative right-7 ss:-mt-5.3 ss:ml-19.27 ss:pl-0 sm:-mt-5.4 sm:ml-20 sm:pl-0 lg:-mt-5.1 lg:ml-24 lg:pl-5 text-gray-600"
-                    >
-                      {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
-                    </button>
-                    {/* <span style={{ color: '#000000' }} className="items-center" onClick={handleToggle}>
-                      <Icon className="relative s:-ml-5.4 s:mt-0.5 lg:-ml-6 lg:mt-0.5 z-10" icon={icon} size={20} />
-                    </span> */}
-                  </div>
-                  {/* <p id="confirmnote" className={matchFocus && !validMatch ? "instructions" : "offscreen"}>
-                <FontAwesomeIcon icon={faInfoCircle} />
-                Must match the first password input field.
-              </p> */}
-                  {error && <p className="text-red text-center text-sm font-semibold mt-2 lg:mt-2 xl:-mt-0.5 z-20">{error}</p>}
-
-                  <div className="flex sm:gap-2 lg:gap-3 xl:gap-3 sm:mt-4 s:ml-3.5 lg:mt-2 lg:ml-10.5 xl:mt-4 xl:ml-15.2">
-                    <input
-                      type='checkbox'
-                      required
-                      className="relative ss:ml-4 sm:ml-4 lg:-ml-1.7 z-10 xl:-ml-10.5 xx:-ml-10.5" />
-                    <p className="relative ss:mt-2 ss:ml-1 ss:max-w-19.1 ss:text-x sm:mt-0.3 sm:-ml-0.2 sm:max-w-19.1 sm:text-xxs text-light-blue lg:mt-0.5 lg:max-w-22 lg:text-xxs text-left z-10 xl:max-w-19.1 xl:text-xs">
-                      By creating an account means you agree to the <span className="text-dark">Terms & Conditions</span> and our <span className="text-dark">Privacy Policy</span>
-                    </p>
-                  </div>
-
-                  <button
-                    disabled={!validFirstName || !validPassword || !validMatch ? true : false}
-                    type="submit"
-                    className="relative ss:mt-2 ss:ml-4 ss:w-19.1 ss:h-6 ss:text-sm ss:bg-blue ss:text-white sm:mt-2 sm:ml-4 sm:w-19.6 sm:h-6 sm:bg-blue sm:text-white lg:mt-3 lg:ml-10 lg:text-sm lg:text-white lg:w-24.2 lg:h-6 lg:bg-blue z-30 rounded hover:bg-blue-deep cursor-pointer xl:mt-3 xl:ml-0 xl:float-left disabled:bg-gray-disabled">
-                    Sign Up
-                  </button>
-
-                  <div>
-                    <div className="relative ss:mt-4 ss:ml-4 ss:pl-4 ss:w-19.1 ss:h-6 ss:text-sm ss:text-center sm:mt-4 sm:ml-4 sm:w-19.6 sm:h-6 sm:text-center text-light-blue text-sm lg:mt-4 lg:ml-10 lg:text-center border font-bold lg:h-5.3 pt-0.6 lg:w-24.2 rounded hover:bg-gray-light cursor-pointer z-10 xl:mt-8 xl:ml-10 xx:mt-8 xx:ml-10">
-                      Sign Up with Google
-                    </div>
-                    <Image src={google} alt="" className="relative ss:ml-8.5 ss:-mt-5 sm:ml-10 sm:-mt-5 size-4 lg:ml-15.9 lg:-mt-4.6 z-10 xl:ml-15.9 xx:ml-15.9" />
-                  </div>
-
-                  {success ? <div className="reg-sucess-message">Registration successful</div> : <></>}
-                </form>
+            <div>
+              <Image src={google} alt="" className="absolute size-4 mt-3 ml-9 lg:ml-36 z-20" />
+              <div className="text-blue-950 text-sm text-center w-full pl-8 lg:pl-14 mt-3 ml-0 border font-bold p-2 w-24.2 rounded hover:bg-gray-300 cursor-pointer z-10">
+                Sign Up with Google
               </div>
             </div>
-          </section>
 
+            {success ? <div className="reg-sucess-message text-green-600">Registration successful</div> : <></>}
+          </form>
           <div>
-            <h3 className="relative ss:mt-4.5 ss:ml-0 ss:text-sm ss:text-center sm:mt-4.5 sm:ml-0 sm:text-sm sm:text-center lg:-mt-7 lg:ml-10 lg:text-left lg:text-sm text-white xl:text-left xl:text-base xl:mt-12 xl:ml-13 xx:mt-19">
+            <h3 className="mt-6 lg:mt-6 ml-3.5 md:ml-0 lg:ml-16 lg:text-nowrap text-center lg:text-left text-xs lg:text-sm text-black">
               © 2025 Rights are Reserved by hosoptima.com
             </h3>
           </div>

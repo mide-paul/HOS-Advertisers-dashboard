@@ -12,7 +12,7 @@ export const SeeMore = () => {
             </button>
             <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
                 <div className="absolute lg:ml-35 lg:mt-13 lg:h-25 lg:w-45 bg-white rounded-xl z-10">
-                    <h2 className="lg:mt-5 lg:ml-5 text-dark text-sm font-bold">Overview</h2>
+                    <h2 className="lg:mt-5 lg:ml-5 text-black text-sm font-bold">Overview</h2>
                     <button
                         className="absolute lg:-mt-6 lg:ml-42 text-gray hover:text-gray-light"
                         onClick={() => setIsModalOpen(false)}
@@ -20,8 +20,8 @@ export const SeeMore = () => {
                     >
                         ✖️
                     </button>
-                    <h3 className="lg:mt-1 lg:ml-5 text-dark text-sm font-medium">https://lakers.com</h3>
-                    <h3 className="lg:mt-1 lg:ml-5 text-dark text-sm font-medium">Updated 5 secs ago</h3>
+                    <h3 className="lg:mt-1 lg:ml-5 text-black text-sm font-medium">https://lakers.com</h3>
+                    <h3 className="lg:mt-1 lg:ml-5 text-black text-sm font-medium">Updated 5 secs ago</h3>
                 </div>
             </Modal>
         </div>

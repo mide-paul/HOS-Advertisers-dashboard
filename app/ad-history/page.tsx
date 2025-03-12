@@ -6,14 +6,24 @@ import line from '../../public/icons/line_dark.png';
 import search from '../../public/icons/search.png';
 import eye from '../../public/icons/eye_dark.png';
 import verify from '../../public/icons/verify.png';
+import ad_image2 from '../../public/images/ad_image2.png';
 import { Header } from "@/components/header";
 import { Postad } from "@/components/postAd";
 import Sidebar from "@/components/Sidebar";
 
 const Adhistory: React.FC = () => {
 
+    const adHistory = [
+        { image: ad_image2, title: 'Brand Flyer', category: 'Category', url: 'https://lakers.com', eye: eye, views: '30k', verify: verify, clicks: '10k' },
+        { image: ad_image2, title: 'Brand Flyer', category: 'Category', url: 'https://lakers.com', eye: eye, views: '30k', verify: verify, clicks: '10k' },
+        { image: ad_image2, title: 'Brand Flyer', category: 'Category', url: 'https://lakers.com', eye: eye, views: '30k', verify: verify, clicks: '10k' },
+        { image: ad_image2, title: 'Brand Flyer', category: 'Category', url: 'https://lakers.com', eye: eye, views: '30k', verify: verify, clicks: '10k' },
+        { image: ad_image2, title: 'Brand Flyer', category: 'Category', url: 'https://lakers.com', eye: eye, views: '30k', verify: verify, clicks: '10k' },
+        { image: ad_image2, title: 'Brand Flyer', category: 'Category', url: 'https://lakers.com', eye: eye, views: '30k', verify: verify, clicks: '10k' }
+    ]
+
     return (
-        <div className="lg:h-80 lg:w-full xl:h-80 xl:w-full xx:h-109 xx:w-full bg-gray-lighter overflow-hidden">
+        <div className="h-full w-full overflow-hidden">
             <div>
                 <Sidebar />
             </div>
@@ -21,122 +31,53 @@ const Adhistory: React.FC = () => {
             <Header />
 
             <div>
-                <div className="relative bg-white lg:ml-20 lg:mt-12 lg:w-62 lg:h-7 rounded">
-                    <Link href="/sponsors"><Image src={arrow_left_blue} alt="" className="relative lg:pt-0.1 lg:ml-2" />
-                        <h3 className="relative text-sm text-left font-bold text-blue lg:ml-8 lg:-mt-5.3">Back</h3>
+                <div className="bg-white lg:ml-64 mt-24 lg:w-62 lg:h-11 rounded">
+                    <Link href="/sponsors"><Image src={arrow_left_blue} alt="" className="relative pt-0.1 ml-2" />
+                        <h3 className="text-sm text-left font-bold text-blue ml-12 -mt-8">Back</h3>
                     </Link>
                 </div>
 
-                <div className="relative lg:mt-5 lg:ml-20 lg:h-67 lg:w-62 bg-white rounded">
+                <div className="lg:mt-0 lg:ml-64 lg:h-67 lg:w-full bg-white rounded">
                     <div className="flex">
-                        <h3 className="relative text-light-blue lg:font-bold text-base lg:text-left lg:pt-5 lg:ml-6">Brand Flyer</h3>
-                        <Link href="/blog-post"><button className="relative text-dark lg:font-medium text-base lg:text-left lg:mt-5 lg:ml-6">Blog Post</button></Link>
+                        <h3 className="text-blue-900 lg:font-medium text-base text-left pt-5 ml-2 lg:ml-6">Brand Flyer</h3>
+                        <Link href="/blog-post"><button className="text-black lg:font-normal text-base text-left mt-5 ml-4 lg:ml-6">Blog Post</button></Link>
                     </div>
-                    <Image src={line} alt="" className="relative lg:pt-1 lg:ml-6 lg:w-10.5 lg:h-1.5" />
+                    <Image src={line} alt="" className="pt-1 ml-2 lg:ml-5 w-24 lg:h-1.5" />
 
-                    <div className="flex gap-16.3 lg:ml-4">
-                        <h3 className="relative lg:pt-6 text-sm text-dark lg:text-left">Ad history</h3>
+                    <div className="flex gap-16 ml-4">
+                        <h3 className="pt-6 text-sm text-black text-left text-nowrap">Ad history</h3>
 
                         <div>
-                            <input className="relative lg:mt-5 pl-5 lg:h-6 lg:w-22 text-sm border rounded" placeholder="search" />
-                            <Image src={search} alt="" className="relative lg:-mt-4.51 lg:ml-1 lg:h-1.5 lg:w-1.5" />
+                            <input className="mt-5 pl-6 h-8 w-22 text-sm border rounded" placeholder="search" />
+                            <Image src={search} alt="" className="relative -mt-5 ml-2 h-3 w-3" />
                         </div>
 
                         <div>
                             <Postad />
                         </div>
                     </div>
-
-                    <div className="flex flex-wrap">
-                        <div className="relative lg:mt-7 lg:ml-4 lg:h-26.5 lg:w-19.7 rounded border">
-                            <div className="relative lg:ml-1.2 lg:mt-1.2 lg:h-14 lg:w-19.3 bg-gray-light rounded"></div>
-                            <h3 className="relative lg:ml-1.2 lg:mt-3 text-sm font-bold text-left">Brand Flyer</h3>
-                            <h3 className="relative text-gray lg:ml-1.2 lg:mt-0.5 text-x font-bold text-left">Category</h3>
-                            <Image src={line} alt="" className="relative lg:mt-1 lg:pt-1.2 lg:ml-1.2 lg:w-19.3 lg:h-1.5" />
-                            <h3 className="relative lg:ml-1.2 lg:mt-3 text-sm font-bold text-left">https://lakers.com</h3>
-                            <h3 className="relative text-gray lg:ml-1.2 lg:mt-0.5 text-x font-bold text-left">Ad url</h3>
-                            <Image src={line} alt="" className="relative lg:mt-1 lg:pt-1.2 lg:ml-1.2 lg:w-19.3 lg:h-1.5" />
-                            <Image src={eye} alt="" className="absolute lg:mt-2 lg:ml-1.2 lg:w-4" />
-                            <h3 className="relative text-left text-x lg:ml-6 lg:mt-3.5">Total Views - <span className="font-bold">30k</span></h3>
-                            <Image src={verify} alt="" className="absolute lg:mt-2 lg:ml-1.2 lg:w-4" />
-                            <h3 className="relative text-left text-x lg:ml-6 lg:mt-3.5">Total Clicks - <span className="font-bold">10k</span></h3>
-                            <button className="relative lg:mt-4 lg:ml-1.5 lg:h-6 lg:w-19.3 text-light-blue font-bold text-sm rounded border hover:bg-gray-light">See More</button>
+                    
+                    <div className="flex gap-6 flex-wrap pb-8">
+                    {adHistory.map((history, index) => (
+                        <div
+                            key={index}
+                            >
+                            <div className="mt-7 ml-4 min-h-[350px] w-80 p-2 rounded border">
+                                <Image src={history.image} alt="history" className="rounded" />
+                                <h3 className="mt-3 text-sm font-bold text-left">{history.title}</h3>
+                                <label className="text-gray mt-1 text-xs font-medium text-left">Category</label>
+                                <Image src={line} alt="" className="mt-2 pt-1.2 h-0.5" />
+                                <h3 className="mt-3 text-sm font-bold text-left">{history.url}</h3>
+                                <label className="text-gray mt-0.5 text-xs font-medium text-left">Ad url</label>
+                                <Image src={line} alt="" className="mt-2 pt-1.2 ml-1.2 h-0.5" />
+                                <Image src={eye} alt="" className="absolute mt-2 ml-1.2 w-4" />
+                                <h3 className="text-left text-xs ml-6 mt-2">Total Views - <span className="font-bold">{history.views}</span></h3>
+                                <Image src={verify} alt="" className="absolute mt-2 ml-1.2 w-4" />
+                                <h3 className="text-left text-xs ml-6 mt-2">Total Clicks - <span className="font-bold">{history.clicks}</span></h3>
+                                <button className="mt-4 h-8 w-full text-blue-900 font-semibold text-sm rounded border hover:bg-gray-light">See More</button>
+                            </div>
                         </div>
-
-                        <div className="relative lg:mt-7 lg:ml-4 lg:h-26.5 lg:w-19.7 rounded border">
-                            <div className="relative lg:ml-1.2 lg:mt-1.2 lg:h-14 lg:w-19.3 bg-gray-light rounded"></div>
-                            <h3 className="relative lg:ml-1.2 lg:mt-3 text-sm font-bold text-left">Brand Flyer</h3>
-                            <h3 className="relative text-gray lg:ml-1.2 lg:mt-0.5 text-x font-bold text-left">Category</h3>
-                            <Image src={line} alt="" className="relative lg:mt-1 lg:pt-1.2 lg:ml-1.2 lg:w-19.3 lg:h-1.5" />
-                            <h3 className="relative lg:ml-1.2 lg:mt-3 text-sm font-bold text-left">https://lakers.com</h3>
-                            <h3 className="relative text-gray lg:ml-1.2 lg:mt-0.5 text-x font-bold text-left">Ad url</h3>
-                            <Image src={line} alt="" className="relative lg:mt-1 lg:pt-1.2 lg:ml-1.2 lg:w-19.3 lg:h-1.5" />
-                            <Image src={eye} alt="" className="absolute lg:mt-2 lg:ml-1.2 lg:w-4" />
-                            <h3 className="relative text-left text-x lg:ml-6 lg:mt-3.5">Total Views - <span className="font-bold">30k</span></h3>
-                            <Image src={verify} alt="" className="absolute lg:mt-2 lg:ml-1.2 lg:w-4" />
-                            <h3 className="relative text-left text-x lg:ml-6 lg:mt-3.5">Total Clicks - <span className="font-bold">10k</span></h3>
-                            <button className="relative lg:mt-4 lg:ml-1.5 lg:h-6 lg:w-19.3 text-light-blue font-bold text-sm rounded border hover:bg-gray-light">See More</button>
-                        </div>
-
-                        <div className="relative lg:mt-7 lg:ml-4 lg:h-26.5 lg:w-19.7 rounded border">
-                            <div className="relative lg:ml-1.2 lg:mt-1.2 lg:h-14 lg:w-19.3 bg-gray-light rounded"></div>
-                            <h3 className="relative lg:ml-1.2 lg:mt-3 text-sm font-bold text-left">Brand Flyer</h3>
-                            <h3 className="relative text-gray lg:ml-1.2 lg:mt-0.5 text-x font-bold text-left">Category</h3>
-                            <Image src={line} alt="" className="relative lg:mt-1 lg:pt-1.2 lg:ml-1.2 lg:w-19.3 lg:h-1.5" />
-                            <h3 className="relative lg:ml-1.2 lg:mt-3 text-sm font-bold text-left">https://lakers.com</h3>
-                            <h3 className="relative text-gray lg:ml-1.2 lg:mt-0.5 text-x font-bold text-left">Ad url</h3>
-                            <Image src={line} alt="" className="relative lg:mt-1 lg:pt-1.2 lg:ml-1.2 lg:w-19.3 lg:h-1.5" />
-                            <Image src={eye} alt="" className="absolute lg:mt-2 lg:ml-1.2 lg:w-4" />
-                            <h3 className="relative text-left text-x lg:ml-6 lg:mt-3.5">Total Views - <span className="font-bold">30k</span></h3>
-                            <Image src={verify} alt="" className="absolute lg:mt-2 lg:ml-1.2 lg:w-4" />
-                            <h3 className="relative text-left text-x lg:ml-6 lg:mt-3.5">Total Clicks - <span className="font-bold">10k</span></h3>
-                            <button className="relative lg:mt-4 lg:ml-1.5 lg:h-6 lg:w-19.3 text-light-blue font-bold text-sm rounded border hover:bg-gray-light">See More</button>
-                        </div>
-
-                        <div className="relative lg:mt-7 lg:ml-4 lg:h-26.5 lg:w-19.7 rounded border">
-                            <div className="relative lg:ml-1.2 lg:mt-1.2 lg:h-14 lg:w-19.3 bg-gray-light rounded"></div>
-                            <h3 className="relative lg:ml-1.2 lg:mt-3 text-sm font-bold text-left">Brand Flyer</h3>
-                            <h3 className="relative text-gray lg:ml-1.2 lg:mt-0.5 text-x font-bold text-left">Category</h3>
-                            <Image src={line} alt="" className="relative lg:mt-1 lg:pt-1.2 lg:ml-1.2 lg:w-19.3 lg:h-1.5" />
-                            <h3 className="relative lg:ml-1.2 lg:mt-3 text-sm font-bold text-left">https://lakers.com</h3>
-                            <h3 className="relative text-gray lg:ml-1.2 lg:mt-0.5 text-x font-bold text-left">Ad url</h3>
-                            <Image src={line} alt="" className="relative lg:mt-1 lg:pt-1.2 lg:ml-1.2 lg:w-19.3 lg:h-1.5" />
-                            <Image src={eye} alt="" className="absolute lg:mt-2 lg:ml-1.2 lg:w-4" />
-                            <h3 className="relative text-left text-x lg:ml-6 lg:mt-3.5">Total Views - <span className="font-bold">30k</span></h3>
-                            <Image src={verify} alt="" className="absolute lg:mt-2 lg:ml-1.2 lg:w-4" />
-                            <h3 className="relative text-left text-x lg:ml-6 lg:mt-3.5">Total Clicks - <span className="font-bold">10k</span></h3>
-                            <button className="relative lg:mt-4 lg:ml-1.5 lg:h-6 lg:w-19.3 text-light-blue font-bold text-sm rounded border hover:bg-gray-light">See More</button>
-                        </div>
-
-                        <div className="relative lg:mt-7 lg:ml-4 lg:h-26.5 lg:w-19.7 rounded border">
-                            <div className="relative lg:ml-1.2 lg:mt-1.2 lg:h-14 lg:w-19.3 bg-gray-light rounded"></div>
-                            <h3 className="relative lg:ml-1.2 lg:mt-3 text-sm font-bold text-left">Brand Flyer</h3>
-                            <h3 className="relative text-gray lg:ml-1.2 lg:mt-0.5 text-x font-bold text-left">Category</h3>
-                            <Image src={line} alt="" className="relative lg:mt-1 lg:pt-1.2 lg:ml-1.2 lg:w-19.3 lg:h-1.5" />
-                            <h3 className="relative lg:ml-1.2 lg:mt-3 text-sm font-bold text-left">https://lakers.com</h3>
-                            <h3 className="relative text-gray lg:ml-1.2 lg:mt-0.5 text-x font-bold text-left">Ad url</h3>
-                            <Image src={line} alt="" className="relative lg:mt-1 lg:pt-1.2 lg:ml-1.2 lg:w-19.3 lg:h-1.5" />
-                            <Image src={eye} alt="" className="absolute lg:mt-2 lg:ml-1.2 lg:w-4" />
-                            <h3 className="relative text-left text-x lg:ml-6 lg:mt-3.5">Total Views - <span className="font-bold">30k</span></h3>
-                            <Image src={verify} alt="" className="absolute lg:mt-2 lg:ml-1.2 lg:w-4" />
-                            <h3 className="relative text-left text-x lg:ml-6 lg:mt-3.5">Total Clicks - <span className="font-bold">10k</span></h3>
-                            <button className="relative lg:mt-4 lg:ml-1.5 lg:h-6 lg:w-19.3 text-light-blue font-bold text-sm rounded border hover:bg-gray-light">See More</button>
-                        </div>
-
-                        <div className="relative lg:mt-7 lg:ml-4 lg:h-26.5 lg:w-19.7 rounded border">
-                            <div className="relative lg:ml-1.2 lg:mt-1.2 lg:h-14 lg:w-19.3 bg-gray-light rounded"></div>
-                            <h3 className="relative lg:ml-1.2 lg:mt-3 text-sm font-bold text-left">Brand Flyer</h3>
-                            <h3 className="relative text-gray lg:ml-1.2 lg:mt-0.5 text-x font-bold text-left">Category</h3>
-                            <Image src={line} alt="" className="relative lg:mt-1 lg:pt-1.2 lg:ml-1.2 lg:w-19.3 lg:h-1.5" />
-                            <h3 className="relative lg:ml-1.2 lg:mt-3 text-sm font-bold text-left">https://lakers.com</h3>
-                            <h3 className="relative text-gray lg:ml-1.2 lg:mt-0.5 text-x font-bold text-left">Ad url</h3>
-                            <Image src={line} alt="" className="relative lg:mt-1 lg:pt-1.2 lg:ml-1.2 lg:w-19.3 lg:h-1.5" />
-                            <Image src={eye} alt="" className="absolute lg:mt-2 lg:ml-1.2 lg:w-4" />
-                            <h3 className="relative text-left text-x lg:ml-6 lg:mt-3.5">Total Views - <span className="font-bold">30k</span></h3>
-                            <Image src={verify} alt="" className="absolute lg:mt-2 lg:ml-1.2 lg:w-4" />
-                            <h3 className="relative text-left text-x lg:ml-6 lg:mt-3.5">Total Clicks - <span className="font-bold">10k</span></h3>
-                            <button className="relative lg:mt-4 lg:ml-1.5 lg:h-6 lg:w-19.3 text-light-blue font-bold text-sm rounded border hover:bg-gray-light">See More</button>
-                        </div>
+                    ))}
                     </div>
                 </div>
             </div>

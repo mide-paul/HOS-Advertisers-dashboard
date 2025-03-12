@@ -79,20 +79,20 @@ const Page = () => {
     };
 
     return (
-        <div className="ss:h-71 sm:h-71 lg:h-60 lg:w-full xl:h-80 xl:w-full xx:h-109 xx:w-full bg-gray-lighter overflow-hidden">
+        <div className="h-full w-full bg-gray-200 overflow-hidden">
             <div>
                 <Sidebar />
             </div>
 
             <Header />
 
-            <div className="relative ss:ml-0 ss:mt-10 ss:w-21.5 ss:h-60 sm:ml-3 sm:mt-10 sm:w-21.5 sm:h-60 bg-white lg:ml-19.5 lg:mt-12 lg:w-64 lg:h-50 xl:ml-23 rounded">
-                <div className="flex ss:gap-2 ss:pt-5 ss:ml-2 sm:gap-4 sm:pt-5 sm:ml-2 lg:gap-5 lg:pt-6 lg:ml-7">
-                    <h3 className="relative text-sm text-left font-semibold text-light-blue">Profile</h3>
-                    <Link href="/plans"><h3 className="relative text-dark text-sm text-left cursor-pointer">Plans</h3></Link>
-                    <Link href="/security-and-privacy"><h3 className="relative text-dark text-sm text-left cursor-pointer">Security & Privacy</h3></Link>
-                    <Link href="/support"><h3 className="relative text-dark text-sm text-left cursor-pointer">Support</h3></Link>
-                    <Image src={line} alt="" className="absolute ss:mt-5 sm:mt-5 lg:mt-5 w-7 h-0.1" />
+            <div className="bg-white ml-0 md:ml-64 lg:ml-64 mt-24 w-full h-50 rounded pb-8">
+                <div className="flex gap-4 pt-5 ml-2 lg:gap-5 lg:pt-6 lg:ml-7">
+                    <h3 className="text-sm text-left font-semibold text-light-blue">Profile</h3>
+                    <Link href="/plans"><h3 className="text-black text-sm text-left cursor-pointer">Plans</h3></Link>
+                    <Link href="/security-and-privacy"><h3 className="text-black text-sm text-left cursor-pointer">Security & Privacy</h3></Link>
+                    <Link href="/support"><h3 className="text-black text-sm text-left cursor-pointer">Support</h3></Link>
+                    <Image src={line} alt="" className="absolute mt-5 w-11 h-0.1" />
                 </div>
 
                 <div>
@@ -100,28 +100,28 @@ const Page = () => {
                         <Image
                             src={profile.profilePicture || '/default-profile.png'}
                             alt="Profile Picture"
-                            className="relative ss:mt-6 ss:ml-2 sm:mt-6 sm:ml-2 size-11 lg:mt-8 lg:ml-7"
+                            className="mt-8 ml-7 size-11 lg:mt-8 lg:ml-7"
                             width={20}
                             height={20}
                         />
                         {user && (
-                            <h3 className="relative ss:mt-5 ss:ml-2 sm:mt-5 sm:ml-2 text-dark text-sm font-semibold text-left lg:-mt-10 lg:ml-15.3">
+                            <h3 className="-mt-10 ml-24 text-black text-sm font-semibold text-left lg:-mt-10 lg:ml-24">
                                 {profile.firstName} {profile.lastName}
                             </h3>
                         )}
-                        <h3 className="relative ss:mt-1 ss:ml-2 sm:mt-1 sm:ml-2 text-dark text-sm font-normal text-left lg:mt-1 lg:ml-15.3">
+                        <h3 className="mt-1 ml-24 text-black text-sm font-normal text-left lg:mt-1 lg:ml-24">
                             {profile.email}
                         </h3>
-                        <h3 className="relative ss:mt-1 ss:ml-2 sm:mt-1 sm:ml-2 text-dark text-sm font-normal text-left lg:mt-1 lg:ml-15.3">
+                        <h3 className="mt-1 ml-24 text-black text-sm font-normal text-left lg:mt-1 lg:ml-24">
                             {profile.phone}
                         </h3>
                         <h3
-                            className="relative ss:mt-5 ss:ml-7 sm:mt-5 sm:ml-7 text-light-blue text-sm font-normal text-left lg:mt-6.5 lg:ml-10 cursor-pointer"
+                            className="mt-6 ml-16 text-light-blue text-sm font-normal text-left lg:mt-6 lg:ml-16 cursor-pointer"
                             onClick={() => document.getElementById('fileInput')?.click()}
                         >
                             Edit Picture
                         </h3>
-                        <Image src={edit_pen} alt="" className="absolute ss:-mt-4.6 ss:ml-2 sm:-mt-4.6 sm:ml-2 lg:-mt-4.6 lg:ml-7" />
+                        <Image src={edit_pen} alt="" className="absolute -mt-5 ml-7 lg:-mt-5 lg:ml-7" />
                         <input
                             id="fileInput"
                             type="file"
@@ -133,7 +133,7 @@ const Page = () => {
                     {/* <h3 className="relative ss:mt-5 ss:ml-2 sm:mt-5 sm:ml-2 text-gray text-sm font-bold text-left lg:mt-5 lg:ml-7">
                         Bio
                     </h3>
-                    <p className="relative ss:mt-3 ss:ml-3 ss:max-w-19.5 sm:mt-3 sm:ml-3 sm:max-w-19.9 lg:max-w-55 text-dark text-sm font-normal text-left whitespace-normal resize-none lg:mt-3 lg:ml-7">
+                    <p className="relative ss:mt-3 ss:ml-3 ss:max-w-19.5 sm:mt-3 sm:ml-3 sm:max-w-19.9 lg:max-w-55 text-black text-sm font-normal text-left whitespace-normal resize-none lg:mt-3 lg:ml-7">
                         My name is John, I'm passionate about driving. I thrive in an interdisciplinary
                         environment, and am adept at working collaboratively and autonomously. With a
                         creative and strategic approach, I carry out my tasks and I provide a positive
@@ -143,60 +143,64 @@ const Page = () => {
                 </div>
 
                 <div>
-                    {/* <h3 className="relative ss:mt-5 ss:ml-2 sm:mt-5 sm:ml-2 text-dark text-sm font-bold text-left lg:mt-7 lg:ml-7">
+                    {/* <h3 className="relative ss:mt-5 ss:ml-2 sm:mt-5 sm:ml-2 text-black text-sm font-bold text-left lg:mt-7 lg:ml-7">
                         Bio
                     </h3>
                     <div>
-                        <textarea className="relative ss:mt-3 ss:ml-3 ss:w-19.5 ss:h-15 sm:mt-3 sm:ml-3 sm:w-19.9 sm:h-15 lg:w-55 lg:h-15 bg-gray-lighter text-dark text-sm font-normal text-left whitespace-normal resize-none lg:mt-3 lg:ml-7 p-3"
+                        <textarea className="relative ss:mt-3 ss:ml-3 ss:w-19.5 ss:h-15 sm:mt-3 sm:ml-3 sm:w-19.9 sm:h-15 lg:w-55 lg:h-15 bg-gray-lighter text-black text-sm font-normal text-left whitespace-normal resize-none lg:mt-3 lg:ml-7 p-3"
                             placeholder="My name is John, I'm passionate about driving. I thrive in an interdisciplinary
                         environment, and am adept at working collaboratively and autonomously. With a
                         creative and strategic approach, I carry out my tasks and I provide a positive
                         customer experience. I am excited to take on new challenges in the trucking business
                         space and continue developing innovative solutions that improve the customer experience." />
                     </div> */}
-                    <div className="flex flex-col gap-2 ss:ml-2 ss:mt-6 sm:ml-2 sm:mt-6 lg:ml-7 lg:mt-6">
-                        <label className="relative text-sm font-bold text-left text-dark">First Name</label>
-                        <input
-                            name="firstName"
-                            value={profile.firstName}
-                            onChange={handleChange}
-                            className="relative ss:h-6 ss:w-19.51 sm:h-6 sm:w-19.9 bg-gray-lighter lg:h-6 lg:w-20 text-sm p-2.5 rounded"
-                            placeholder="John"
-                        />
+                    <div className="flex flex-col lg:flex-row gap-6 lg:gap-20 ml-7 mt-12">
+                        <div className="flex flex-col lg:flex-col gap-3">
+                            <label className="text-sm font-bold text-left text-black">First Name</label>
+                            <input
+                                name="firstName"
+                                value={profile.firstName}
+                                onChange={handleChange}
+                                className="bg-gray-200 w-72 h-10 text-sm text-black p-2 rounded"
+                                placeholder="John"
+                            />
+                        </div>
+                        <div className="flex flex-col gap-2">
+                            <label className="relative text-sm font-bold text-left text-black">Email Address</label>
+                            <input
+                                name="email"
+                                value={profile.email}
+                                onChange={handleChange}
+                                className="relative bg-gray-200 h-10 w-72 text-sm text-black p-2 rounded"
+                                placeholder="john@example.com"
+                            />
+                        </div>
                     </div>
-                    <div className="flex flex-col gap-2 ss:ml-2 ss:mt-4 sm:ml-2 sm:mt-4 lg:ml-25 lg:-mt-8">
-                        <label className="relative text-sm font-bold text-left text-dark">Email Address</label>
-                        <input
-                            name="email"
-                            value={profile.email}
-                            onChange={handleChange}
-                            className="relative ss:h-6 ss:w-19.51 sm:h-6 sm:w-19.9 bg-gray-lighter lg:h-6 lg:w-20 text-sm p-2.5 rounded"
-                            placeholder="john@example.com"
-                        />
-                    </div>
-                    <div className="flex flex-col gap-2 ss:ml-2 ss:mt-4 sm:ml-2 sm:mt-4 lg:ml-7 lg:mt-6">
-                        <label className="relative text-sm font-bold text-left text-dark">Last Name</label>
-                        <input
-                            name="lastName"
-                            value={profile.lastName}
-                            onChange={handleChange}
-                            className="relative ss:h-6 ss:w-19.51 sm:h-6 sm:w-19.9 bg-gray-lighter lg:h-6 lg:w-20 text-sm p-2.5 rounded"
-                            placeholder="Doe"
-                        />
-                    </div>
-                    <div className="flex flex-col gap-2 ss:ml-2 ss:mt-4 sm:ml-2 sm:mt-4 lg:ml-25 lg:-mt-8">
-                        <label className="relative text-sm font-bold text-left text-dark">Phone Number</label>
-                        <input
-                            name="phone"
-                            value={profile.phone}
-                            onChange={handleChange}
-                            className="relative ss:h-6 ss:w-19.51 sm:h-6 sm:w-19.9 bg-gray-lighter lg:h-6 lg:w-20 text-sm p-2.5 rounded"
-                            placeholder="+1 80 222-344-89"
-                        />
+                    <div className="flex flex-col lg:flex-row gap-6 lg:gap-20 ml-7 mt-6 lg:mt-12">
+                        <div className="flex flex-col lg:flex-col gap-3">
+                            <label className="relative text-sm font-bold text-left text-black">Last Name</label>
+                            <input
+                                name="lastName"
+                                value={profile.lastName}
+                                onChange={handleChange}
+                                className="bg-gray-200 h-10 w-72 text-sm text-black p-2 rounded"
+                                placeholder="Doe"
+                            />
+                        </div>
+                        <div className="flex flex-col gap-2">
+                            <label className="text-sm font-bold text-left text-black">Phone Number</label>
+                            <input
+                                name="phone"
+                                value={profile.phone}
+                                onChange={handleChange}
+                                className="bg-gray-200 h-10 w-72 text-sm text-black p-2 rounded"
+                                placeholder="+1 80 222-344-89"
+                            />
+                        </div>
                     </div>
                     <button
                         onClick={handleSaveChanges}
-                        className="relative ss:w-14 ss:h-6 ss:mt-5 ss:ml-2 sm:w-14 sm:h-6 sm:mt-5 sm:ml-2 bg-blue text-white text-sm lg:w-17 lg:h-6 lg:mt-6 lg:ml-7 rounded hover:bg-light-blue"
+                        className="w-72 h-10 mt-12 ml-7 bg-blue-950 text-white text-sm rounded hover:bg-blue-900"
                     >
                         Save Changes
                     </button>
