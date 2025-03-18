@@ -13,7 +13,7 @@ import lock from '../../public/icons/lock_dark.svg';
 
 const USER_REGEX = /^[A-z][A-z0-9-_ ]{0,40}$/;
 const EMAIL_REGEX = /^(?=.*[a-z])(?=.*[@]).{3,100}$/;
-const NUMBER_REGEX = /^[0-10-_ ]{9,12}$/;
+const NUMBER_REGEX = /^[0-9-_ ]{9,12}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[?&()_+={}[:;'"<>,|/~!@#$%]).{8,15}$/;
 
 
