@@ -1,6 +1,6 @@
 'use client';
 import { create } from "zustand";
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 
 const API_URL = "https://api.hosoptima.com";
 
@@ -69,9 +69,10 @@ export const useAuthStore = create<IAuth>((set) => {
         const user = response.data.data;
         set({ user, isAuthenticated: true, isLoading: false });
         saveUserToLocalStorage(user);
-      } catch (error: any) {
-        set({ error: error.response?.data?.message || "Error signing up", isLoading: false });
-        throw error;
+      } catch (error: unknown) {
+        const err = error as AxiosError<{ message: string }>;
+        set({ error: err.response?.data?.message || "Error signing up", isLoading: false });
+        throw err;
       }
     },
 
@@ -83,9 +84,10 @@ export const useAuthStore = create<IAuth>((set) => {
         set({ user, isAuthenticated: true });
         saveUserToLocalStorage(user);
         return user;
-      } catch (error: any) {
-        set({ error: error.response?.data?.message || "Error logging in", isLoading: false });
-        throw error;
+      } catch (error: unknown) {
+        const err = error as AxiosError<{ message: string }>;
+        set({ error: err.response?.data?.message || "Error logging in", isLoading: false });
+        throw err;
       }
     },
 

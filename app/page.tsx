@@ -10,6 +10,7 @@ import sms from './../public/icons/sms.svg';
 import lock from './../public/icons/lock_dark.svg';
 import { Eye, EyeOff } from "lucide-react";
 import { useAuthStore } from "./store/authStore";
+import toast from "react-hot-toast";
 
 const EMAIL_REGEX = /^(?=.*[a-z])(?=.*[@]).{3,100}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[?&()_+={}[:;'"<>,|/~!@#$%]).{8,15}$/;
@@ -18,7 +19,7 @@ const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[?&()_+={}[:;'"<>,|/~!
 const AdvertisersLogin = () => {
     const userRef = useRef<HTMLInputElement | null>(null);
     const router = useRouter();
-    const { login, error, user, isAuthenticated } = useAuthStore();
+    const { login, error } = useAuthStore();
     const [showPassword, setShowPassword] = useState(false);
 
     const togglePasswordVisibility = () => {
@@ -74,13 +75,27 @@ const AdvertisersLogin = () => {
                 sameSite: "strict", // Prevent CSRF
             });
 
+            // Store token in localStorage for easy access in frontend
+            localStorage.setItem("token", token);
+
             if (rememberMe) {
                 localStorage.setItem("user", JSON.stringify({ email, password }));
+            }
+
+            // Show success toast with the username
+            const { firstName } = response || {}; // Extract firstName safely
+
+            if (token) {
+                toast.success(`Welcome back, ${firstName || "User"}!`, {
+                    duration: 3000,
+                    position: "top-right",
+                });
             }
 
             router.push("/sponsors");
         } catch (err) {
             console.error(err);
+            toast.error("Login failed. Please try again.");
         } finally {
             setLoading(false);
         }
@@ -183,7 +198,7 @@ const AdvertisersLogin = () => {
                     <div>
                         <p className="relative text-black text-sm lg:text-center mt-6 lg:mt-6 z-10">
                             Don&apos;t have an account?
-                            <Link href="/sign-up"><span className="text-blue-900 font-semibold pl-0.5">
+                            <Link href="/sign-up"><span className="text-blue-950 font-semibold pl-0.5">
                                 sign Up</span>
                             </Link>
                         </p>

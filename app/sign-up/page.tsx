@@ -1,6 +1,7 @@
 'use client';
 import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import google from '../../public/icons/google.png';
 import { Eye, EyeOff } from "lucide-react";
@@ -13,7 +14,7 @@ import lock from '../../public/icons/lock_dark.svg';
 
 const USER_REGEX = /^[A-z][A-z0-9-_ ]{0,40}$/;
 const EMAIL_REGEX = /^(?=.*[a-z])(?=.*[@]).{3,100}$/;
-const NUMBER_REGEX = /^[0-9-_ ]{9,12}$/;
+const NUMBER_REGEX = /^[0-9-_ ]{9,20}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[?&()_+={}[:;'"<>,|/~!@#$%]).{8,15}$/;
 
 
@@ -224,7 +225,7 @@ const CompanySignup = () => {
               <input
                 type='checkbox'
                 required
-                className="mt-5 ml-0" />
+                className="mt-5 ml-0 accent-blue-900" />
               <p className="text-black mt-5 max-w-19 ml-1 text-xs lg:text-xs text-left">
                 By creating an account means you agree to the <span className="text-black">Terms & Conditions</span> and our <span className="text-black">Privacy Policy</span>
               </p>
@@ -242,6 +243,15 @@ const CompanySignup = () => {
               <div className="text-blue-950 text-sm text-center w-full pl-8 lg:pl-14 mt-3 ml-0 border font-bold p-2 w-24.2 rounded hover:bg-gray-300 cursor-pointer z-10">
                 Sign Up with Google
               </div>
+            </div>
+
+            <div>
+              <p className="relative text-black text-sm lg:text-center mt-6 lg:mt-6 z-10">
+                Already have an account?
+                <Link href="/"><span className="text-blue-950 font-semibold pl-0.5">
+                  sign In</span>
+                </Link>
+              </p>
             </div>
 
             {success ? <div className="reg-sucess-message text-green-600">Registration successful</div> : <></>}
