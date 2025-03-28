@@ -11,6 +11,7 @@ import lock from './../public/icons/lock_dark.svg';
 import { Eye, EyeOff } from "lucide-react";
 import { useAuthStore } from "./store/authStore";
 import toast from "react-hot-toast";
+import Cookies from "js-cookie"
 
 const EMAIL_REGEX = /^(?=.*[a-z])(?=.*[@]).{3,100}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[?&()_+={}[:;'"<>,|/~!@#$%]).{8,15}$/;
@@ -67,16 +68,21 @@ const AdvertisersLogin = () => {
             const response = await login(email, password); // Assuming this returns a token or user data
             const { token } = response; // Extract token from response
 
-            // Set authentication cookie
-            setCookie("authToken", token, {
-                maxAge: rememberMe ? 60 * 60 * 24 * 7 : 0, // 7 days if "Remember Me" is checked, session cookie otherwise
-                path: "/", // Cookie accessible across the site
+            if (!token) {
+                console.error("❌ Token not found in response.");
+                return;
+            }
+
+            // Store authentication token in cookies
+            Cookies.set("token", token, {
+                expires: rememberMe ? 7 : undefined, // 7 days if "Remember Me" is checked, session cookie otherwise
+                path: "/", // Cookie accessible across the entire site
                 secure: process.env.NODE_ENV === "production", // Use secure cookies in production
-                sameSite: "strict", // Prevent CSRF
+                sameSite: "Strict", // Prevent CSRF
             });
 
-            // Store token in localStorage for easy access in frontend
-            localStorage.setItem("token", token);
+            // Remove localStorage since middleware relies on cookies
+            localStorage.removeItem("token");
 
             if (rememberMe) {
                 localStorage.setItem("user", JSON.stringify({ email, password }));
@@ -84,13 +90,10 @@ const AdvertisersLogin = () => {
 
             // Show success toast with the username
             const { firstName } = response || {}; // Extract firstName safely
-
-            if (token) {
-                toast.success(`Welcome back, ${firstName || "User"}!`, {
-                    duration: 3000,
-                    position: "top-right",
-                });
-            }
+            toast.success(`Welcome back, ${firstName || "User"}!`, {
+                duration: 3000,
+                position: "top-right",
+            });
 
             router.push("/sponsors");
         } catch (err) {

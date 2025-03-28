@@ -1,8 +1,11 @@
 import { NextResponse } from "next/server";
 
 export function middleware(request: { cookies: { get: (arg0: string) => any; }; nextUrl: { pathname: any; clone: () => any; }; }) {
-  // Get token from cookies (or any other method you're using for authentication)
-  const token = request.cookies.get("authToken");
+  // Get token from cookies
+  const token = request.cookies.get("token");
+  
+  // Get token from local storage (or any other method you're using for authentication)
+  // const token = localStorage.getItem("token"); // Retrieve token from localStorage
 
   // Define paths that require authentication
   const protectedPaths = ["/sponsors", "/ad-history", "/ad-plan", "/agreement", "/bank-details",

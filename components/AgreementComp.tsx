@@ -161,7 +161,7 @@ export const AgreementComp = () => {
                 <div className="flex flex-col lg:flex-row gap-5 mt-7 ml-5">
                     <button
                         onClick={handleDownload}
-                        className="py-2 px-4 font-medium transparent text-sm text-blue-900 border rounded hover:bg-gray-200">
+                        className="py-2 px-4 font-medium transparent text-sm text-blue-950 border rounded hover:bg-gray-200">
                         Download PDF
                     </button>
                     <input
