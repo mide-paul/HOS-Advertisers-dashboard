@@ -146,7 +146,11 @@ export const ResetPassword: React.FC = () => {
                                             />
                                         ))}
                                     </div>
-                                    {error && <p className="text-red-600 font-semibold mt-2">{error}</p>}
+                                    {error && (
+                                        <p className="text-red-600 text-center text-sm font-semibold mt-2">
+                                            {typeof error === 'string' ? error : error.message ?? "An unexpected error occurred"}
+                                        </p>
+                                    )}
 
                                     <button
                                         type="button"

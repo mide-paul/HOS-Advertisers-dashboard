@@ -44,7 +44,7 @@ export const AdComponent = () => {
                         <div className="flex -ml-20">
                             <button
                                 onClick={addPost}
-                                className="mt-6 pl-5 py-2 w-36 ml-0 text-sm bg-blue-900 text-white rounded hover:bg-blue-800"
+                                className="mt-6 pl-5 py-2 w-36 ml-0 text-sm bg-blue-950 text-white rounded hover:bg-blue-900"
                             >
                                 Post Ad
                             </button>
@@ -78,7 +78,7 @@ export const AdComponent = () => {
                                 <Image src={search} alt="" className="relative -mt-6 ml-2 h-3 w-3" />
                             </div>
 
-                            <a
+                            {/* <a
                                 target='_blank'
                                 rel='noopener noreferrer' href="https://hosoptima.com/advertise-with-us">
                                 <div>
@@ -89,7 +89,15 @@ export const AdComponent = () => {
                                         <Image src={add_square_white} alt="" className="-mt-7 ml-6 h-4 w-4" />
                                     </div>
                                 </div>
-                            </a>
+                            </a> */}
+                            <Link href="/advertise-with-us">
+                                <div className="mt-8 md:mt-4">
+                                    <button className="mt-1 mx-auto pl-5 py-2 w-32 text-sm bg-blue-950 text-white rounded hover:bg-blue-900">
+                                        Post Ad
+                                    </button>
+                                    <Image src={add_square_white} alt="" className="-mt-7 ml-6 h-4 w-4" />
+                                </div>
+                            </Link>
                         </div>
 
                         {/* <ul className="space-y-4">
@@ -118,7 +126,11 @@ export const AdComponent = () => {
                                         <h3 className="text-left text-xs ml-6 mt-2">Total Views - <span className="font-bold">{post.views}</span></h3>
                                         <Image src={verify} alt="" className="absolute mt-2 ml-1.2 w-4" />
                                         <h3 className="text-left text-xs ml-6 mt-2">Total Clicks - <span className="font-bold">{post.clicks}</span></h3>
-                                        <Link href="/see-more"><button className="mt-4 h-8 w-full text-blue-900 font-semibold text-sm rounded border hover:bg-gray-light">See More</button></Link>
+                                        <Link href="/see-more">
+                                            <button className="mt-4 h-8 w-full text-blue-900 font-semibold text-sm rounded border hover:bg-gray-light">
+                                                See More
+                                            </button>
+                                        </Link>
                                     </div>
                                 </div>
                             ))}

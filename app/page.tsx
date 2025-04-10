@@ -3,7 +3,6 @@ import { useRef, useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { setCookie } from "cookies-next";
 import logo from './../public/images/logo.png';
 import google from './../public/icons/google.png';
 import sms from './../public/icons/sms.svg';
@@ -96,9 +95,9 @@ const AdvertisersLogin = () => {
             });
 
             router.push("/sponsors");
-        } catch (err) {
+        } catch (err: any) {
             console.error(err);
-            toast.error("Login failed. Please try again.");
+            toast.error(err?.data?.message?.message ?? "Login failed. Please try again.");
         } finally {
             setLoading(false);
         }
@@ -140,6 +139,9 @@ const AdvertisersLogin = () => {
                         />
                         <Image src={sms} alt="" className="-mt-8 ml-2" />
                     </div>
+                    {!validEmail && email.length > 0 && (
+                        <p className="text-xs text-red-600 mt-3">Please enter a valid email address.</p>
+                    )}
 
                     <div className="relative flex mt-7 items-center">
                         <input
@@ -163,8 +165,16 @@ const AdvertisersLogin = () => {
                             {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
                         </button>
                     </div>
-                    {error && <p className="text-red-600 text-center text-sm font-semibold mt-2">{error}</p>}
-
+                    {!validPassword && password.length > 0 && (
+                        <p className="text-xs text-red-600 mt-1">
+                            Please enter a valid password.
+                        </p>
+                    )}
+                    {error && (
+                        <p className="text-red-600 text-center text-sm font-semibold mt-2">
+                            {typeof error === 'string' ? error : error.message ?? "An unexpected error occurred"}
+                        </p>
+                    )}
                     <div>
                         <div className="flex items-center">
                             <input

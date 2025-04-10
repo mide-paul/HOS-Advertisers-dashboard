@@ -2,9 +2,13 @@
 
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
+import toast from "react-hot-toast";
+import { useAuthStore } from "@/app/store/authStore";
+import cookies from "js-cookie";
 
 export const AgreementComp = () => {
     const [file, setFile] = useState(null);
+    const user = useAuthStore(state => state.user);
 
     // PDF Download Logic
     const handleDownload = () => {
@@ -29,27 +33,36 @@ export const AgreementComp = () => {
     // Simulate Upload Action (e.g., API Call)
     const uploadDocument = async () => {
         if (!file) {
-            alert('Please upload a file first.');
+            toast.error('Please upload a file first.');
             return;
         }
         const formData = new FormData();
         formData.append('file', file);
 
         try {
+            const token = cookies.get("token"); // Retrieve token from cookies
+            if (!token) {
+                throw new Error("No token found");
+            }
+
             const response = await fetch('https://api.hosoptima.com/api/v1/ad-manager/sign/agreement', {
                 method: 'POST',
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${token}`,
+                },
                 body: formData,
             });
 
             if (response.ok) {
-                alert('File uploaded successfully');
+                toast.success('File uploaded successfully');
                 router.push("/ad-plan");
             } else {
-                alert('File upload failed');
+                toast.error('File upload failed');
             }
         } catch (error) {
             console.error('Upload error:', error);
-            alert('An error occurred during upload.');
+            toast.error('An error occurred during upload.');
         }
     };
 
@@ -59,8 +72,10 @@ export const AgreementComp = () => {
                 HOS Assessment Sponsorship Agreement
             </h3>
             <p className="text-black font-normal text-sm w-full text-left pt-4 ml-5">
-                This Sponsorship Agreement (&quot;Agreement&quot;) is entered into by and between [HOSoptima Inc.]
-                (&quot;HOSoptima&quot;) and [Sponsor Name] (&quot;Sponsor&quot;) as of [Effective Date].
+                This Sponsorship Agreement (&quot;Agreement&quot;) is entered into by and between HOSoptima Inc.
+                and <span>{user && <span className="text-black font-normal text-sm">
+                    {user.firstName} {user.lastName}
+                </span>}</span> (&quot;Sponsor&quot;) as of {new Date().toLocaleDateString()}.
             </p>
 
             <div>
@@ -69,8 +84,8 @@ export const AgreementComp = () => {
                         1.     Sponsorship Details:<br /> <br />
                     </h3>
                     <p className="text-black font-normal text-sm text-left -mt-1 ml-5">
-                        HOSoptima agrees to provide sponsorship benefits to Sponsor as outlined in Exhibit A attached hereto (&quot;Sponsorship Benefits&quot;).
-                        Sponsor agrees to provide the sponsorship fee of [Amount] (&quot;Sponsorship Fee&quot;) in exchange for the Sponsorship Benefits.
+                        HOSoptima agrees to provide sponsorship benefits to Sponsor.
+                        Sponsor agrees to provide the sponsorship fee for the Sponsorship Benefits.
                     </p>
                 </div>
                 <div>
@@ -87,9 +102,9 @@ export const AgreementComp = () => {
                         3.     Sponsorship Benefits:
                     </h3>
                     <p className="text-black font-normal text-sm text-left mt-4 ml-5">
-                        3.1  The Sponsorship Benefits include, but are not limited to, the following:
+                        The Sponsorship Benefits include, but are not limited to, the following:
 
-                        Logo placement on Challenge promotional materials.
+                        Logo placement.
                         Recognition on the HOSoptima website and social media channels.
                         Opportunity to provide branded materials or prizes for Challenge participants.
                         [Other Benefits as Agreed Upon]
@@ -120,7 +135,7 @@ export const AgreementComp = () => {
                     <p className="text-black font-normal text-sm text-left mt-4 ml-5">
                         Either party may terminate this Agreement upon written notice to the other party if the
                         other party materially breaches any provision of this Agreement and fails to cure such
-                        breach within [number] days of receiving written notice thereof.
+                        breach within 30 days of receiving written notice thereof.
                     </p>
                 </div>
                 <div>
@@ -138,7 +153,7 @@ export const AgreementComp = () => {
                     </h3>
                     <p className="text-black font-normal text-sm text-left mt-4 ml-5">
                         This Agreement shall be governed by and construed in accordance with the laws of the State
-                        of [State], without regard to its conflict of law principles.
+                        of Delaware, without regard to its conflict of law principles.
                     </p>
                 </div>
                 <div>
@@ -146,16 +161,18 @@ export const AgreementComp = () => {
                         IN WITNESS WHEREOF, the parties have executed this Agreement as of the Effective Date.
                     </p>
                     <p className="text-black font-normal text-sm text-left mt-4 ml-5">
-                        [HOSoptima Inc.] By: ____________________________ Name: [Name] Title: [Title]
+                        HOSoptima Inc.  By:  <span style={{ fontFamily: "'Dancing Script', cursive", fontSize: '18px', fontWeight: 'normal' }}>
+                            Clarence Green
+                        </span>  Name:  Clarence Green Title:  CEO
                     </p>
                     <p className="text-black font-normal text-sm text-left mt-4 ml-5">
-                        [Sponsor Name] By: ____________________________ Name: [Name] Title: [Title]
+                        Sponsor Name By:  ____________________________ Name:  <span>{user && <span className="text-black font-normal text-sm">
+                            {user.firstName} {user.lastName}  </span>}
+                        </span>
+                        Title: _________
                     </p>
                     <p className="text-black font-normal text-sm text-left mt-4 ml-5">
-                        <span className="font-semibold">Exhibit A - Sponsorship Benefits:</span> [Detailed Description of Sponsorship Benefits and Payment Terms]
-                    </p>
-                    <p className="text-black font-normal text-sm text-left mt-4 ml-5">
-                        Last updated: [Date]
+                        Last updated: April 1, 2025
                     </p>
                 </div>
                 <div className="flex flex-col lg:flex-row gap-5 mt-7 ml-5">

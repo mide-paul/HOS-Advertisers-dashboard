@@ -4,7 +4,7 @@ import { useRouter } from 'next/navigation';
 import { useAuthStore } from '@/app/store/authStore';
 
 export const Logout = () => {
-    const { logout, error } = useAuthStore();  // Include error from the store
+    const { logout } = useAuthStore();  // Include error from the store
     const router = useRouter();
 
     const handleLogout = async () => {

@@ -36,7 +36,7 @@ type User = {
 interface IAuth {
   user: User | null;
   setUser: (user: User) => void;
-  error: string | null;
+  error: string | { message: string } | null;
   isLoading: boolean;
   isAuthenticated: boolean;
   message: null;
@@ -69,10 +69,11 @@ export const useAuthStore = create<IAuth>((set) => {
         const user = response.data.data;
         set({ user, isAuthenticated: true, isLoading: false });
         saveUserToLocalStorage(user);
-      } catch (error: unknown) {
-        const err = error as AxiosError<{ message: string }>;
-        set({ error: err.response?.data?.message || "Error signing up", isLoading: false });
-        throw err;
+      } catch (error: any) {
+        const errorMessage =
+          error.response?.data?.message || error.message || "An unexpected error occurred";
+        set({ error: errorMessage });
+        throw new Error(errorMessage); // rethrow if needed
       }
     },
 
@@ -84,10 +85,11 @@ export const useAuthStore = create<IAuth>((set) => {
         set({ user, isAuthenticated: true });
         saveUserToLocalStorage(user);
         return user;
-      } catch (error: unknown) {
-        const err = error as AxiosError<{ message: string }>;
-        set({ error: err.response?.data?.message || "Error logging in", isLoading: false });
-        throw err;
+      } catch (error: any) {
+        const errorMessage =
+          error.response?.data?.message || error.message || "An unexpected error occurred";
+        set({ error: errorMessage });
+        throw new Error(errorMessage); // rethrow if needed
       }
     },
 
@@ -97,8 +99,9 @@ export const useAuthStore = create<IAuth>((set) => {
         await axios.post(`${API_URL}/api/v1/ad-manager/logout`);
         set({ user: null, isAuthenticated: false, error: null, isLoading: false });
         localStorage.removeItem("user");
-      } catch (error) {
-        set({ error: "Error logging out", isLoading: false });
+      } catch (error: unknown) {
+        const err = error as AxiosError<{ message: string }>;
+        set({ error: err?.message || "Error logging out", isLoading: false });
         throw error;
       }
     },
@@ -111,7 +114,8 @@ export const useAuthStore = create<IAuth>((set) => {
         set({ user, isAuthenticated: true });
         saveUserToLocalStorage(user);
       } catch (error) {
-        set({ error: "Error checking authentication", isAuthenticated: false });
+        const err = error as AxiosError<{ message: string }>;
+        set({ error: err?.message || "Error checking authentication", isAuthenticated: false });
       } finally {
         set({ isLoading: false });
       }
@@ -123,7 +127,8 @@ export const useAuthStore = create<IAuth>((set) => {
         const response = await axios.post(`${API_URL}/api/v1/ad-manager/forgot-password`, { email });
         set({ message: response.data.message, isLoading: false });
       } catch (error: any) {
-        set({ error: error.response?.data?.message || "Error sending reset password email", isLoading: false });
+        const err = error as AxiosError<{ message: string }>;
+        set({ error: err?.message || "Error sending reset password email", isLoading: false });
         throw error;
       }
     },
@@ -134,7 +139,8 @@ export const useAuthStore = create<IAuth>((set) => {
         const response = await axios.post(`${API_URL}/api/v1/ad-manager/reset-password/${token}`, { password });
         set({ message: response.data.message, isLoading: false });
       } catch (error: any) {
-        set({ error: error.response?.data?.message || "Error resetting password", isLoading: false });
+        const err = error as AxiosError<{ message: string }>;
+        set({ error: err?.message || "Error resetting password", isLoading: false });
         throw error;
       }
     },

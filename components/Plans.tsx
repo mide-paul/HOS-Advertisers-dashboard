@@ -1,15 +1,13 @@
 'use client';
 import React, { useState } from 'react';
 import dynamic from 'next/dynamic';
-import Link from "next/link";
 import Image from "next/image";
-import line from '../../public/icons/line_dark.png';
-import Sidebar from '@/components/Sidebar';
-import { Header } from '@/components/header';
-import trophy_image from '../../public/images/trophy_image.png';
-import verify from '../../public/icons/verify.png';
-import ad_image2 from '../../public/images/ad_image2.png';
-import ad_image3 from '../../public/images/ad_image3.png';
+import line from '../public/icons/line_dark.png';
+import trophy_image from '../public/images/trophy_image.png';
+import verify from '../public/icons/verify.png';
+import ad_image2 from '../public/images/ad_image2.png';
+import ad_image3 from '../public/images/ad_image3.png';
+import toast from "react-hot-toast";
 
 interface Subscription {
     id: number;
@@ -28,7 +26,7 @@ interface Subscription {
     benefitthree: string;
 }
 
-const Page = () => {
+const Plans = () => {
     const [subscriptions, setSubscriptions] = useState<Subscription[]>([
         { id: 1, image: trophy_image, title: 'Champion Level', description: 'Marketplace SMALL', price: '$3,000', line: line, current: 'Current Plan', expiry: 'Expires: 14/02/2025', expired: 'Expired Plan', expireddate: 'Expired: 14/02/2025', verify: verify, benefitone: 'Logo placement on promotional Material', benefittwo: '1 Sponsored blog post', benefitthree: 'Access to anonymized survey results and performance metrics from participants.' },
         { id: 2, image: ad_image2, title: 'Advocate Level', description: 'Leaderboard LARGE', price: '$3,500', line: line, current: 'Current Plan', expiry: 'Expires: 14/02/2025', expired: 'Expired Plan', expireddate: 'Expired: 14/02/2025', verify: verify, benefitone: 'Logo placement on promotional Material', benefittwo: '5 Sponsored blog post', benefitthree: 'Access to anonymized survey results and performance metrics from participants.' },
@@ -38,37 +36,21 @@ const Page = () => {
 
     const handleCancelSubscription = (id: number) => {
         setSubscriptions(subscriptions.map(plan => plan.id === id ? { ...plan, current: false } : plan));
-        alert('Subscription cancelled!');
+        toast.success('Subscription cancelled!');
     };
 
     const handleRenewSubscription = (id: number) => {
         setSubscriptions(subscriptions.map(plan => plan.id === id ? { ...plan, current: true } : plan));
-        alert('Subscription renewed!');
+        toast.success('Subscription renewed!');
     };
 
     const handleChangePlan = (id: number) => {
-        alert(`Change plan functionality for plan ID: ${id}`);
+        toast.success(`Change plan functionality for plan ID: ${id}`);
     };
 
     return (
-        <div className='h-full w-full bg-gray-200 overflow-hidden'>
-            <div>
-                <Sidebar />
-            </div>
-
-            <div>
-                <Header />
-            </div>
-
-            <div className="bg-white ml-0 md:ml-64 lg:ml-64 mt-24 w-full h-50 rounded pb-8">
-                <div className="flex gap-4 pt-5 ml-4 lg:gap-5 lg:pt-6 md:ml-4 lg:ml-7">
-                    <Link href="/settings"><h3 className="relative text-sm text-left text-black cursor-pointer">Profile</h3></Link>
-                    <h3 className="relative text-sm text-left text-light-blue font-semibold">Plans</h3>
-                    <Link href="/security-and-privacy"><h3 className="relative text-sm text-left text-black font-normal cursor-pointer">Security & Privacy</h3></Link>
-                    <Link href="/support"><h3 className="relative text-black font-normal text-sm text-left">Support</h3></Link>
-                    <Image src={line} alt="" className="absolute mt-5 ml-14 w-12 h-0.1" />
-                </div>
-
+        <div className='h-screen min-h-[1200px] w-full bg-white'>
+            <div className="ml-0 md:ml-1 lg:ml-1 mt-4 pt-1 w-full h-full rounded pb-8">
                 <div>
                     <div className="flex flex-wrap flex-col mt-6 lg:flex-row gap-6 lg:gap-6 xl:gap-10 ml-4 h-full w-full pb-7 pr-5">
                         {subscriptions.map((plan) => (
@@ -144,4 +126,4 @@ const Page = () => {
     );
 };
 
-export default dynamic(() => Promise.resolve(Page), { ssr: false });
+export default dynamic(() => Promise.resolve(Plans), { ssr: false });

@@ -11,6 +11,7 @@ import user from '../../public/icons/user.svg';
 import sms from '../../public/icons/sms.svg';
 import call from '../../public/icons/call.svg';
 import lock from '../../public/icons/lock_dark.svg';
+import toast from "react-hot-toast";
 
 const USER_REGEX = /^[A-z][A-z0-9-_ ]{0,40}$/;
 const EMAIL_REGEX = /^(?=.*[a-z])(?=.*[@]).{3,100}$/;
@@ -88,9 +89,13 @@ const CompanySignup = () => {
     try {
       await signup(email, password, firstName, lastName, phone);
       setSuccess(true);
+      toast.success("Registration successfull.", {
+        duration: 3000,
+        position: "top-right",
+      });
       router.push("/");
-    } catch (error) {
-      console.log(error);
+    } catch (error: any) {
+      toast.error(error?.data?.message?.message ?? "Sign up failed. Please try again.");
     }
   }
 
@@ -157,6 +162,9 @@ const CompanySignup = () => {
               />
               <Image src={sms} alt="" className="-mt-8 ml-2" />
             </div>
+            {!validEmail && email.length > 0 && (
+              <p className="text-xs text-red-600 mt-3">Please enter a valid email address.</p>
+            )}
 
             <div className="flex flex-col mt-0 ml-0 gap-1">
               <input
@@ -196,6 +204,11 @@ const CompanySignup = () => {
                 {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
               </button>
             </div>
+            {!validPassword && password.length > 0 && (
+              <p className="text-xs text-red-600 mt-1">
+                Password must be 8-15 characters and include uppercase, lowercase, number, and special character.
+              </p>
+            )}
 
             <div className="relative flex mt-8 items-center">
               <input
@@ -219,8 +232,14 @@ const CompanySignup = () => {
                 {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
               </button>
             </div>
-            {error && <p className="text-red-700 text-center text-sm font-semibold mt-2 lg:mt-2 z-20">{error}</p>}
-
+            {!validMatch && matchPassword.length > 0 && (
+              <p className="text-xs text-red-600 mt-1">Passwords do not match.</p>
+            )}
+            {error && (
+              <p className="text-red-600 text-center text-sm font-semibold mt-2">
+                {typeof error === 'string' ? error : error.message ?? "An unexpected error occurred"}
+              </p>
+            )}
             <div className="flex gap-2 items-center">
               <input
                 type='checkbox'

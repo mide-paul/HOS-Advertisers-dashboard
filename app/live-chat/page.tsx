@@ -23,7 +23,7 @@ const LiveChat = () => {
             <Header />
 
             <div className="bg-white md:ml-64 lg:ml-64 mt-24 lg:max-w-[1075px] h-12 rounded pb-4">
-                <Link href="/support"><Image src={arrow_left_blue} alt="" className="relative mb-2 ml-2" />
+                <Link href="/settings"><Image src={arrow_left_blue} alt="" className="relative mb-2 ml-2" />
                     <h3 className="text-sm text-left font-bold text-blue ml-12 -mt-10">Back</h3>
                 </Link>
             </div>

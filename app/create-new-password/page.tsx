@@ -26,7 +26,7 @@ const CreatePassword = () => {
         setShowPassword(!showPassword);
     };
 
-    const { resetPassword, error, isLoading, message } = useAuthStore();
+    const { resetPassword, error } = useAuthStore();
 
     useEffect(() => {
         setValidPassword(PWD_REGEX.test(password));
@@ -121,7 +121,11 @@ const CreatePassword = () => {
                             {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
                         </button>
                     </div>
-                    {error && <p className="text-red text-center font-semibold lg:mt-2 xl:-mt-0.5 z-20">{error}</p>}
+                    {error && (
+                        <p className="text-red-600 text-center text-sm font-semibold mt-2">
+                            {typeof error === 'string' ? error : error.message ?? "An unexpected error occurred"}
+                        </p>
+                    )}
 
                     <button
                         disabled={!validPassword || !validMatch ? true : false}

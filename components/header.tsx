@@ -20,7 +20,7 @@ export const Header = () => {
     const [dropdownOpen, setDropdownOpen] = useState(false);
     const [showConfirmModal, setShowConfirmModal] = useState(false);
     const [showNotifications, setShowNotifications] = useState(false);
-    const [notifications, setNotifications] = useState<Notification[]>([
+    const [notifications] = useState<Notification[]>([
         { id: 1, message: 'New message from Admin', read: false },
         { id: 2, message: 'Your account has been updated', read: false }
     ]);
@@ -60,13 +60,6 @@ export const Header = () => {
 
     const unreadCount = notifications.filter(n => !n.read).length;
 
-    const handleNotificationClick = (notificationId: number) => {
-        setNotifications(prev =>
-            prev.map(n => (n.id === notificationId ? { ...n, read: true } : n))
-        );
-        router.push(`/notification-details?id=${notificationId}`);
-    };
-
     return (
         <div>
             <header className="bg-white shadow-md p-4 flex justify-between items-center w-full fixed top-0 z-20">
@@ -98,7 +91,6 @@ export const Header = () => {
                                                 key={notification.id}
                                                 className={`text-xs p-2 border-b last:border-b-0 hover:bg-gray-100 cursor-pointer ${notification.read ? 'text-gray-400' : 'text-gray-700 font-semibold'
                                                     }`}
-                                                onClick={() => handleNotificationClick(notification.id)}
                                             >
                                                 {notification.message}
                                             </li>
@@ -132,7 +124,11 @@ export const Header = () => {
                                 <button onClick={handleLogout} className="w-full flex items-center px-2 py-2 text-xs text-gray-700 hover:bg-gray-100">
                                     <LogOut className="w-4 h-4 mr-2" /> Logout
                                 </button>
-                                {error && <p className="text-red-600 text-sm text-center font-semibold mt-2">{error}</p>}
+                                {error && (
+                                    <p className="text-red-600 text-center text-sm font-semibold mt-2">
+                                        {typeof error === 'string' ? error : error.message ?? "An unexpected error occurred"}
+                                    </p>
+                                )}
                             </div>
                         )}
                     </div>

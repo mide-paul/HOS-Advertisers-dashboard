@@ -32,10 +32,10 @@ export const SupportGroup = () => {
 
     return (
         <div>
-            <div className="w-80 lg:w-96 h-full ml-4 mt-6 p-3 bg-white border rounded lg:ml-7 lg:mt-8">
+            <div className="w-80 lg:w-96 h-full ml-4 p-3 bg-white border rounded lg:ml-5">
                 <div ref={dropRef}>
                     <div onClick={() => setOpentwo(true)} className="w-full h-8 bg-gray-200 rounded">
-                        <h3 className="pl-8 pt-2 text-xs text-left text-gray cursor-pointer">Live Chat</h3>
+                        <h3 className="pl-8 pt-2 text-xs text-left text-gray-700 cursor-pointer">Live Chat</h3>
                         <Image src={chat} alt="" className="-mt-4 ml-2 size-4 z-10 cursor-pointer" />
                         <Image src={arrow_right} alt="" className="-mt-3 ml-64 lg:ml-80 size-4 cursor-pointer" />
                         {opentwo && (
@@ -44,28 +44,28 @@ export const SupportGroup = () => {
 
                                 <Link href="/live-chat">
                                     <div className="mt-3 w-full h-8 bg-gray-200 rounded">
-                                        <h3 className="pl-2 pt-2 text-xs text-left text-gray cursor-pointer">Log in issues</h3>
+                                        <h3 className="pl-2 pt-2 text-xs text-left text-gray-700 cursor-pointer">Log in issues</h3>
                                         <Image src={arrow_right} alt="" className="-mt-3 ml-60 size-4 cursor-pointer" />
                                     </div>
                                 </Link>
                                 <div className="mt-3 w-full h-8 bg-gray-200 rounded">
-                                    <h3 className="pl-2 pt-2 text-xs text-left text-gray cursor-pointer">Account Suspension</h3>
+                                    <h3 className="pl-2 pt-2 text-xs text-left text-gray-700 cursor-pointer">Account Suspension</h3>
                                     <Image src={arrow_right} alt="" className="-mt-3 ml-60 size-4 cursor-pointer" />
                                 </div>
                                 <div className="mt-3 w-full h-8 bg-gray-200 rounded">
-                                    <h3 className="pl-2 pt-2 text-xs text-left text-gray cursor-pointer">Failed Payment</h3>
+                                    <h3 className="pl-2 pt-2 text-xs text-left text-gray-700 cursor-pointer">Failed Payment</h3>
                                     <Image src={arrow_right} alt="" className="-mt-3 ml-60 size-4 cursor-pointer" />
                                 </div>
                                 <div className="mt-3 w-full h-8 bg-gray-200 rounded">
-                                    <h3 className="pl-2 pt-2 text-xs text-left text-gray cursor-pointer">Empty Course Content</h3>
+                                    <h3 className="pl-2 pt-2 text-xs text-left text-gray-700 cursor-pointer">Empty Course Content</h3>
                                     <Image src={arrow_right} alt="" className="-mt-3 ml-60 size-4 cursor-pointer" />
                                 </div>
                                 <div className="mt-3 w-full h-8 bg-gray-200 rounded">
-                                    <h3 className="pl-2 pt-2 text-xs text-left text-gray cursor-pointer">Missing Course Progress</h3>
+                                    <h3 className="pl-2 pt-2 text-xs text-left text-gray-700 cursor-pointer">Missing Course Progress</h3>
                                     <Image src={arrow_right} alt="" className="-mt-3 ml-60 size-4 cursor-pointer" />
                                 </div>
                                 <div className="mt-3 w-full h-8 bg-gray-200 rounded">
-                                    <h3 className="pl-2 pt-2 text-xs text-left text-gray cursor-pointer">Something Else</h3>
+                                    <h3 className="pl-2 pt-2 text-xs text-left text-gray-700 cursor-pointer">Something Else</h3>
                                     <Image src={arrow_right} alt="" className="-mt-3 ml-60 size-4 cursor-pointer" />
                                 </div>
                             </div>
@@ -75,7 +75,7 @@ export const SupportGroup = () => {
 
                 <Link href="mailto:support@hosoptima.com">
                     <div className="mt-5 w-full h-8 bg-gray-200 rounded">
-                        <h3 className="pl-8 pt-2 text-xs text-left text-gray cursor-pointer">Email</h3>
+                        <h3 className="pl-8 pt-2 text-xs text-left text-gray-700 cursor-pointer">Email</h3>
                         <Image src={envelope} alt="" className="-mt-4 ml-2 size-4 z-10 cursor-pointer" />
                         <Image src={arrow_right} alt="" className="-mt-3 ml-64 lg:ml-80 size-4 cursor-pointer" />
                     </div>
@@ -83,7 +83,7 @@ export const SupportGroup = () => {
 
                 <Link href="https://www.instagram.com/hosoptima_/">
                     <div className="mt-5 w-full h-8 bg-gray-200 rounded">
-                        <h3 className="pl-8 pt-2 text-xs text-left text-gray cursor-pointer">Instagram</h3>
+                        <h3 className="pl-8 pt-2 text-xs text-left text-gray-700 cursor-pointer">Instagram</h3>
                         <Image src={instagram_gray} alt="" className="-mt-4 ml-2 size-4 z-10 cursor-pointer" />
                         <Image src={arrow_right} alt="" className="-mt-3 ml-64 lg:ml-80 size-4 cursor-pointer" />
                     </div>
@@ -91,7 +91,7 @@ export const SupportGroup = () => {
 
                 <Link href="https://www.facebook.com/hosoptima">
                     <div className="mt-5 w-full h-8 bg-gray-200 rounded">
-                        <h3 className="pl-8 pt-2 text-xs text-left text-gray cursor-pointer">Facebook</h3>
+                        <h3 className="pl-8 pt-2 text-xs text-left text-gray-700 cursor-pointer">Facebook</h3>
                         <Image src={facebook_gray} alt="" className="-mt-4 ml-2 size-4 z-10 cursor-pointer" />
                         <Image src={arrow_right} alt="" className="-mt-3 ml-64 lg:ml-80 size-4 cursor-pointer" />
                     </div>
@@ -99,7 +99,7 @@ export const SupportGroup = () => {
 
                 <Link href="https://hosoptima.com/faqs">
                     <div className="mt-5 w-full h-8 bg-gray-200 rounded">
-                        <h3 className="pl-8 pt-2 text-xs text-left text-gray cursor-pointer">FAQs</h3>
+                        <h3 className="pl-8 pt-2 text-xs text-left text-gray-700 cursor-pointer">FAQs</h3>
                         <Image src={question} alt="" className="-mt-4 ml-2 size-4 z-10 cursor-pointer" />
                         <Image src={arrow_right} alt="" className="-mt-3 ml-64 lg:ml-80 size-4 cursor-pointer" />
                     </div>
