@@ -67,6 +67,7 @@ const Profile = () => {
 
             const response = await fetch('https://api.hosoptima.com/api/v1/ad-manager/profile', {
                 method: 'PATCH',
+                credentials: 'include',
                 body: formData,
                 headers: { Authorization: `Bearer ${token}` },
             });
@@ -84,7 +85,7 @@ const Profile = () => {
                 <div>
                     <div>
                         <Image
-                            src={profile.profilePicture || '/default-profile.png'}
+                            src={profile.profilePicture || 'icons/profile-pic.svg'}
                             alt="Profile Picture"
                             className="mt-8 ml-7 size-11 lg:mt-8 lg:ml-7 rounded-lg"
                             width={20}

@@ -37,7 +37,7 @@ export const AgreementComp = () => {
             return;
         }
         const formData = new FormData();
-        formData.append('file', file);
+        formData.append("signedDocument", file);
 
         try {
             const token = cookies.get("token"); // Retrieve token from cookies
@@ -47,8 +47,9 @@ export const AgreementComp = () => {
 
             const response = await fetch('https://api.hosoptima.com/api/v1/ad-manager/sign/agreement', {
                 method: 'POST',
+                credentials: 'include', // Correct placement, not inside headers
                 headers: {
-                    "Content-Type": "application/json",
+                    // "Content-Type": "application/json",
                     Authorization: `Bearer ${token}`,
                 },
                 body: formData,
